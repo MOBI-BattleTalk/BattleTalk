@@ -1,13 +1,10 @@
 import { AlertCommentModal } from '@/components/CommentModal';
-
-import ResultBar from '@/components/ResultBar.tsx';
 import { Input } from '@/components/ui/input';
 
-const MainPage = () => {
+const ModalPage = () => {
   return (
     <div>
       <div>:)</div>
-      <ResultBar />
       <AlertCommentModal
         title="배틀 참가하기"
         content="배틀에 참가하시려면 로그인이 필요합니다. 로그인 페이지로 이동하시겠습니까?"
@@ -38,4 +35,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default ModalPage;
