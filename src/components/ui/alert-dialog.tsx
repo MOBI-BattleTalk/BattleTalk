@@ -15,7 +15,7 @@ const AlertDialogOverlay = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Overlay
     className={cn(
-      'fixed inset-0 z-50 bg-deepBlue/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
+      'fixed inset-0 z-50 bg-black/70  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
       className,
     )}
     {...props}
@@ -34,7 +34,7 @@ const AlertDialogContent = React.forwardRef<
       ref={ref}
       className={cn(
         'fixed left-[50%] top-[50%] z-50 grid translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 sm:rounded-lg',
-        'w-[660px] h-[323px]', // 크기를 660px x 323px로 설정
+        'w-[600px] h-[290px]', // 크기를 660px x 323px로 설정
         className,
       )}
       style={{ borderRadius: '1.5rem' }} // 직접 borderRadius 스타일을 지정
@@ -92,7 +92,7 @@ const AlertDialogDescription = React.forwardRef<
     ref={ref}
     className={cn(
       'flex items-center justify-center text-xl text-muted-foreground', // 'text-center' 추가하여 글자를 중앙 정렬
-      'w-[545px] h-[151px]', // 컴포넌트 크기를 545px x 151px로 설정
+      'w-[500px] h-[151px]', // 컴포넌트 크기를 545px x 151px로 설정
       className,
     )}
     {...props}
@@ -110,9 +110,10 @@ const AlertDialogAction = React.forwardRef<
     className={cn(
       buttonVariants({ variant: 'outline' }),
       'bg-pink',
-      'w-[139px] h-[55px]',
+      'w-[130px] h-[50px]',
       className,
     )}
+    style={{ borderRadius: '0.8rem' }} // 직접 borderRadius 스타일을 지정
     // 크기를 139px x 55px로 설정
     {...props}
   />
@@ -129,9 +130,10 @@ const AlertDialogCancel = React.forwardRef<
       buttonVariants({ variant: 'outline' }),
       'bg-skyblue',
       'mt-2 sm:mt-0',
-      'w-[139px] h-[55px]', // 크기를 139px x 55px로 설정
+      'w-[130px] h-[50px]', // 크기를 139px x 55px로 설정
       className,
     )}
+    style={{ borderRadius: '0.8rem' }} // 직접 borderRadius 스타일을 지정
     {...props}
   />
 ));

@@ -12,7 +12,7 @@ const ModalPage = () => {
       />
       <AlertCommentModal
         title="댓글 작성하기"
-        content="댓글을 작성하시려면 로그인이 필요합니다. 로그인 페이지로 이동하시겠습니까?"
+        content="댓글을 작성하시려면 로그인이 필요합니다.\n로그인 페이지로 이동하시겠습니까?"
         modalType="confirm"
       />
       <AlertCommentModal
