@@ -27,9 +27,15 @@
         "src/*"
       ]
     },
+    "types": [
+      "vite-plugin-svgr/client"
+    ],
     "typeRoots": [
       "node_modules/@types",
       "src/types"
+    ],
+    "include": [
+      "svg.d.ts"
     ]
   }
 }
