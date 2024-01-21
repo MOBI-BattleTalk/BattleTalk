@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   bgColor: 'gray' | 'blue' | 'red'; //버튼의 배경색입니다.
@@ -8,15 +8,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 /**
  * 공용으로 사용 가능한 버튼 컴포넌트입니다.
-
  * // Button 컴포넌트의 사용 예시
  * <Button bgColor="gray" size="medium" radius="round">로그인</Button>
  */
 
 const Button: React.FC<ButtonProps> = ({
   children,
-  bgColor,
   size,
+  bgColor,
   radius,
   ...rest
 }) => {
