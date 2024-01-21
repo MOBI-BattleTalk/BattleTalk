@@ -15,7 +15,7 @@ const AlertDialogOverlay = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Overlay
     className={cn(
-      'fixed inset-0 z-50 bg-gray/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
+      'fixed inset-0 z-50 bg-deepBlue/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
       className,
     )}
     {...props}
@@ -109,7 +109,7 @@ const AlertDialogAction = React.forwardRef<
     ref={ref}
     className={cn(
       buttonVariants({ variant: 'outline' }),
-      'bg-red-100',
+      'bg-pink',
       'w-[139px] h-[55px]',
       className,
     )}
@@ -127,7 +127,7 @@ const AlertDialogCancel = React.forwardRef<
     ref={ref}
     className={cn(
       buttonVariants({ variant: 'outline' }),
-      'bg-sky-100',
+      'bg-skyblue',
       'mt-2 sm:mt-0',
       'w-[139px] h-[55px]', // 크기를 139px x 55px로 설정
       className,
