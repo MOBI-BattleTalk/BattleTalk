@@ -27,7 +27,7 @@ function TopButton() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={scrollToTop}
-      className={`w-[65px] h-[65px] rounded-full border-[3px] border-violet flex items-center justify-center font-extrabold flex-col text-violet ${
+      className={`w-[60px] h-[60px] rounded-full border-[3px] border-violet flex items-center justify-center font-extrabold flex-col text-violet ${
         isHovered ? 'hover:text-skyblue hover:border-skyblue' : ''
       }`}
     >
