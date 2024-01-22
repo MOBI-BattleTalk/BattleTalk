@@ -26,7 +26,7 @@ const Button: React.FC<ButtonProps> = ({
     blue: `bg-skyblue`,
     red: 'bg-pink',
     violet: 'bg-violet hover:bg-skyblue',
-    darkGray: 'bg-textGrey bg-violet',
+    darkGray: 'bg-textGrey hover:bg-violet',
   };
 
   const sizeCSS = {

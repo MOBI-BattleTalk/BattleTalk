@@ -21,7 +21,7 @@ export const theme = {
       skyblue: '#7BC0FF',
       lightSkyblue: '#E9EEF4',
       lineSkyblue: '#A1C5EE',
-      deepRed: '#BE3A32',
+      deepRed: '#630731',
       deepBlue: '#22526E',
       black: '#000000',
       textGrey: '#3B3B3B',
