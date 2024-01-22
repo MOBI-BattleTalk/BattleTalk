@@ -1,5 +1,4 @@
 import Button from '@/components/Button.tsx';
-// @ts-ignore
 import PencilIcon from '@/assets/Pencil.svg?react';
 import { useNavigate } from 'react-router-dom';
 

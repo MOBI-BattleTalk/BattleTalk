@@ -7,8 +7,8 @@ type ImageShape = 'rounded' | 'square';
 // ImgUploader 컴포넌트의 props 타입을 정의합니다.
 interface ImageBoxProps {
   imgUrl: string;
-  size?: ImageSize;
-  imageShape?: ImageShape;
+  size: ImageSize;
+  imageShape: ImageShape;
 }
 
 const ImageBox: React.FC<ImageBoxProps> = ({
@@ -17,10 +17,10 @@ const ImageBox: React.FC<ImageBoxProps> = ({
   imageShape = 'square',
 }) => {
   const sizeClasses = {
-    tiny: 'w-[54px] h-[54px] bg-lightGrey',
+    tiny: 'w-[45px] h-[45px] bg-lightGrey',
     smallest: 'w-[105px] h-[99px] bg-lightGrey',
     small: 'w-[190px] h-[180px] bg-lightGrey',
-    medium: 'w-[199px] h-[184px] bg-lightGrey',
+    medium: 'w-[180px] h-[180px] bg-lightGrey',
     large: 'w-[224px] h-[224px] bg-lightGrey',
     big: 'w-[243px] h-[243px] bg-lightGrey',
   };
@@ -34,7 +34,11 @@ const ImageBox: React.FC<ImageBoxProps> = ({
     <div
       className={`flex justify-center items-center ${sizeClasses[size]} ${shapeClasses[imageShape]}`}
     >
-      <img src={imgUrl} />
+      <img
+        src={imgUrl}
+        alt={'사진'}
+        className={`${shapeClasses[imageShape]}`}
+      />
       {/* <Photo className="object-cover cursor-pointer" /> */}
     </div>
   );
