@@ -1,4 +1,4 @@
-import {InputHTMLAttributes} from 'react';
+import { InputHTMLAttributes } from 'react';
 
 /**
  * <InputHTMLAttributes<HTMLInputElement>태그에 "size" 속성이 있어 에러가 발생하여 Omit type을 사용했습니다.
@@ -29,13 +29,13 @@ const LoginInput: React.FC<LoginInputProps> = ({
 
   const sizeCSS = {
     small: { box: 'w-[320px] h-[44px]', input: 'w-[220px] h-[42px]' },
-    large: { box: 'w-[380px] h-[44px]', input: 'w-[308px] h-[42px]' },
+    large: { box: 'w-[400px] h-[44px]', input: 'w-[328px] h-[42px]' },
     full: { box: 'w-full h-[44px]', input: 'w-full h-[42px]' },
   };
 
   return (
     <div
-      className={`${bgColorCSS[bgColor]} ${sizeCSS[size].box} border-b-[2px] border-darkGrey flex`}
+      className={`${bgColorCSS[bgColor]} ${sizeCSS[size].box} border-b-[2px] border-commonGrey flex`}
     >
       <label className="font-extrabold text-lg text-darkGrey mt-[8px] mr-[16px] justify-start">
         {label}
