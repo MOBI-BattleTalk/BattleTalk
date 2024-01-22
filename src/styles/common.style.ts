@@ -1,1 +1,1 @@
-export const flexCenter: string = 'flex flex-col items-center justify-center';
+export const flexCenter = 'flex flex-col items-center justify-center' as const;
