@@ -8,38 +8,41 @@ const MainPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="">
+    <div>
       <Header />
-      <MainBattleCard />
-      <MainBattleCard />
-      <MainBattleCard />
-      <TopButton />
-      <NavigateBox
-        type={'horizontal'}
-        OptionsArr={[
-          {
-            name: '회원가입',
-            func: () => navigate('/'),
-          },
-          {
-            name: '로그인',
-            func: () => navigate('/login'),
-          },
-        ]}
-      />
-      <NavigateBox
-        type={'vertical'}
-        OptionsArr={[
-          {
-            name: '회원가입',
-            func: () => navigate('/'),
-          },
-          {
-            name: '로그인',
-            func: () => navigate('/login'),
-          },
-        ]}
-      />
+      <div className="pt-[100px] flex flex-col items-center justify-center gap-[30px]">
+        <MainBattleCard />
+        <MainBattleCard />
+        <MainBattleCard />
+        <MainBattleCard />
+        <TopButton />
+        <NavigateBox
+          type={'horizontal'}
+          OptionsArr={[
+            {
+              name: '회원가입',
+              func: () => navigate('/'),
+            },
+            {
+              name: '로그인',
+              func: () => navigate('/login'),
+            },
+          ]}
+        />
+        <NavigateBox
+          type={'vertical'}
+          OptionsArr={[
+            {
+              name: '회원가입',
+              func: () => navigate('/'),
+            },
+            {
+              name: '로그인',
+              func: () => navigate('/login'),
+            },
+          ]}
+        />
+      </div>
     </div>
   );
 };
