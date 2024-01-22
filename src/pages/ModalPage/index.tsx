@@ -1,4 +1,6 @@
 import { BasicModal } from '@/components/CommentModal';
+import ImgUploader from '@/components/Image';
+
 import Input from '@/components/Input';
 import { MODAL } from '@/const/ModalMessage';
 
@@ -33,6 +35,14 @@ const ModalPage = () => {
       <div>
         <Input size="title" />
         <Input size="content" />
+      </div>
+      <div>
+        <ImgUploader size="small" imageShape="square" />
+        <ImgUploader size="small" imageShape="rounded" />
+        <ImgUploader size="medium" imageShape="square" />
+        <ImgUploader size="medium" imageShape="rounded" />
+        <ImgUploader size="large" imageShape="square" />
+        <ImgUploader size="large" imageShape="rounded" />
       </div>
     </div>
   );
