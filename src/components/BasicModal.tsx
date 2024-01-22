@@ -1,34 +1,35 @@
 import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
-import { Button } from '@/components/ui/button';
+import {Button} from '@/components/ui/button'; //shadcn/ui에서 제공하는 Modal을 컴포넌트화 시켰습니다.
+//shadcn/ui에서 제공하는 Modal을 컴포넌트화 시켰습니다.
 
-/**
- * shadcn/ui에서 제공하는 Modal을 컴포넌트화 시켰습니다.
+/*
+ * 사용방법
+ * 1. 모달 상수에서 원하는 메세지를 꺼낸다.
+ *   const modalProps1 = MODAL.CONFIRM_BATTLE_JOIN;
+ *
+ * 2. 모달에 props를 전개연산자로 전달합니다.
+ *       <BasicModal {...modalProps1} />
+ * */
 
- * // 사용 예시:
- * <BasicModal />
- */
-
-// 제목하고 내용을 prop로 받을수 있도록
-// 모달 타입이라는 prop를 주고 modalType : 'confirm' | 'alert'
-
+export type ModalType = 'confirm' | 'alert' | 'delete';
 // Props 타입을 정의합니다.
-type AlertModalProps = {
+type ModalProps = {
   title: string; // 제목을 위한 prop
   content: string; // 내용을 위한 prop
-  modalType: 'confirm' | 'alert' | 'delete'; // 모달 타입을 위한 prop
+  modalType: ModalType; // 모달 타입을 위한 prop
 };
 
-export function BasicModal({ title, content, modalType }: AlertModalProps) {
+export function BasicModal({ title, content, modalType }: ModalProps) {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
