@@ -1,5 +1,5 @@
-import Navbar from '@/pages/MainPage/components/Navbar.tsx';
-import ProfileButton from '@/pages/MainPage/components/ProfileButton.tsx';
+import Navbar from '@/layout/components/Navbar.tsx';
+import ProfileButton from '@/layout/components/ProfileButton.tsx';
 
 const Header = () => {
   return (
@@ -7,7 +7,7 @@ const Header = () => {
       <div className="w-[200px] flex justify-center">
         <img
           className="w-[200px] pl-[20px]"
-          src="../../../../public/Logo.png"
+          src="../../../public/Logo.png"
           alt="logo"
         />
       </div>

@@ -29,7 +29,9 @@ const ProfileButton: React.FC<Props> = ({ imgUrl, nickname }) => {
       >
         <img className="w-[30px] h-[30px] rounded" src={imgUrl} />
         <div>{nickname}</div>
-        {isOpen ? <OpenIcon /> : <CloseIcon />}
+        <div className="flex items-center justify-center">
+          {isOpen ? <OpenIcon /> : <CloseIcon />}
+        </div>
       </div>
       <div
         className="absolute top-[40px]"
