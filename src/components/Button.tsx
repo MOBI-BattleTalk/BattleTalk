@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   ...rest
 }) => {
   const bgColorCSS = {
-    gray: `bg-darkGrey hover:bg-violet`,
+    gray: `bg-commonGrey hover:bg-violet`,
     blue: `bg-skyblue`,
     red: 'bg-pink',
     violet: 'bg-violet hover:bg-skyblue',

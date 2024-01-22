@@ -1,7 +1,10 @@
 import Navbar from '@/layout/components/Navbar.tsx';
 import ProfileButton from '@/layout/components/ProfileButton.tsx';
+import LoginButton from '@/layout/components/LoginButton.tsx';
+import { useState } from 'react';
 
 const Header = () => {
+  const [isLogin] = useState(false);
   return (
     <div className="w-full flex items-center h-[80px] justify-around bg-white bg-opacity-50 fixed top-0">
       <div className="w-[200px] flex justify-center">
@@ -13,7 +16,14 @@ const Header = () => {
       </div>
       <Navbar />
       <div className="w-[200px]">
-        <ProfileButton imgUrl={'../../../Profile.png'} nickname={'도라에몽'} />
+        {isLogin ? (
+          <ProfileButton
+            imgUrl={'../../../Profile.png'}
+            nickname={'도라에몽'}
+          />
+        ) : (
+          <LoginButton />
+        )}
       </div>
     </div>
   );

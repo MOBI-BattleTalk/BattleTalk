@@ -19,7 +19,7 @@ const Navbar = () => {
 
   const CategoryCSS = {
     selected: 'text-violet border-b-[3px] border-violet',
-    unselected: 'text-darkGrey',
+    unselected: 'text-commonGrey',
   };
 
   const navigate = useNavigate();
