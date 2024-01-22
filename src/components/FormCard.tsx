@@ -1,3 +1,4 @@
+import { flexCenter } from '@/styles/common.style';
 import { PropsWithChildren } from 'react';
 
 interface FormCardProps extends PropsWithChildren {
@@ -19,16 +20,18 @@ const FormCard: React.FC<FormCardProps> = ({ children, label, size }) => {
   };
 
   return (
-    <>
+    <div
+      className={`${flexCenter} flex items-center justify-center grid justify-items-start`}
+    >
       <div
-        className={`bg-violet rounded-t-lg text-white text-2xl font-extrabold text-center pt-[8px] ml-[30px] w-[240px] h-[48px] `}
+        className={`bg-violet rounded-t-xl text-white text-2xl font-extrabold text-center pt-[8px] ml-[30px] w-[240px] h-[48px] `}
       >
         {label}
       </div>
-      <div className={`${sizeCSS[size]} bg-background rounded-lg`}>
+      <div className={`${sizeCSS[size]} bg-backgroundGrey rounded-xl`}>
         {children}
       </div>
-    </>
+    </div>
   );
 };
 
