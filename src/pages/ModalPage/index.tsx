@@ -1,4 +1,5 @@
 import { BasicModal } from '@/components/BasicModal.tsx';
+import ImageBox from '@/components/ImageBox';
 import Input from '@/components/Input';
 import { MODAL } from '@/const/ModalMessage';
 
@@ -23,6 +24,20 @@ const ModalPage = () => {
       <div>
         <Input size="title" />
         <Input size="content" />
+      </div>
+      <div>
+        <ImageBox imgUrl="" size="tiny" imageShape="square" />
+        <ImageBox imgUrl="" size="tiny" imageShape="rounded" />
+        <ImageBox imgUrl="" size="smallest" imageShape="square" />
+        <ImageBox imgUrl="" size="smallest" imageShape="rounded" />
+        <ImageBox imgUrl="" size="small" imageShape="square" />
+        <ImageBox imgUrl="" size="small" imageShape="rounded" />
+        <ImageBox imgUrl="" size="medium" imageShape="square" />
+        <ImageBox imgUrl="" size="medium" imageShape="rounded" />
+        <ImageBox imgUrl="" size="large" imageShape="square" />
+        <ImageBox imgUrl="" size="large" imageShape="rounded" />
+        <ImageBox imgUrl="" size="big" imageShape="square" />
+        <ImageBox imgUrl="" size="big" imageShape="rounded" />
       </div>
     </div>
   );
