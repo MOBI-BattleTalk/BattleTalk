@@ -1,6 +1,4 @@
-// @ts-ignore
 import TopArrow from '@/assets/TopArrow.svg?react';
-// @ts-ignore
 import TopArrowHover from '@/assets/TopArrowHover.svg?react';
 import { useState } from 'react';
 

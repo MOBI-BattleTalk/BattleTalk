@@ -1,6 +1,4 @@
-// @ts-ignore
 import OpenIcon from '@/assets/OpenArrow.svg?react';
-// @ts-ignore
 import CloseIcon from '@/assets/CloseArrowIcon.svg?react';
 import { useState } from 'react';
 import NavigateBox from '@/components/NavigateBox.tsx';
