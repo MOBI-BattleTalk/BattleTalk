@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import MainPage from '@/pages/MainPage';
 import ModalPage from '@/pages/ModalPage';
 import HeaderLayout from '@/layout/HeaderLayout.tsx';
+import LoginPage from '@/pages/LoginPage';
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,10 @@ const router = createBrowserRouter([
       },
     ],
   },
-
+  {
+    path: '/login',
+    element: <LoginPage />,
+  },
   {
     path: '/modal',
     element: <ModalPage />,
