@@ -5,7 +5,6 @@ import { MODAL } from '@/const/ModalMessage';
 const ModalPage = () => {
   return (
     <div>
-      <div>:)</div>
       <BasicModal
         title={MODAL.CONFIRM_BATTLE.title}
         content={MODAL.CONFIRM_BATTLE.content}
