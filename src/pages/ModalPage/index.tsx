@@ -1,33 +1,34 @@
-import { AlertCommentModal } from '@/components/CommentModal';
+import { BasicModal } from '@/components/CommentModal';
 import { Input } from '@/components/ui/input';
+import { MODAL } from '@/const/ModalMessage';
 
 const ModalPage = () => {
   return (
     <div>
       <div>:)</div>
-      <AlertCommentModal
-        title="배틀 참가하기"
-        content="배틀에 참가하시려면 로그인이 필요합니다. 로그인 페이지로 이동하시겠습니까?"
+      <BasicModal
+        title={MODAL.CONFIRM_BATTLE.title}
+        content={MODAL.CONFIRM_BATTLE.content}
         modalType="confirm"
       />
-      <AlertCommentModal
-        title="댓글 작성하기"
-        content="댓글을 작성하시려면 로그인이 필요합니다.\n로그인 페이지로 이동하시겠습니까?"
+      <BasicModal
+        title={MODAL.CONFIRM_COMMENT.title}
+        content={MODAL.CONFIRM_COMMENT.content}
         modalType="confirm"
       />
-      <AlertCommentModal
-        title="배틀 참여하기"
-        content="이미 참가한 배틀입니다!"
+      <BasicModal
+        title={MODAL.ALERT_BATTLE.title}
+        content={MODAL.ALERT_BATTLE.content}
         modalType="alert"
       />
-      <AlertCommentModal
-        title="배틀 삭제하기"
-        content="배틀을 삭제하시겠습니까?"
+      <BasicModal
+        title={MODAL.DELETE_BATTLE.title}
+        content={MODAL.DELETE_BATTLE.content}
         modalType="delete"
       />
-      <AlertCommentModal
-        title="댓글 삭제하기"
-        content="댓글을 삭제하시겠습니까?"
+      <BasicModal
+        title={MODAL.DELETE_COMMENT.title}
+        content={MODAL.DELETE_COMMENT.content}
         modalType="delete"
       />
       <Input />
