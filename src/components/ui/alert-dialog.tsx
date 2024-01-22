@@ -91,9 +91,9 @@ const AlertDialogDescription = React.forwardRef<
   <AlertDialogPrimitive.Description
     ref={ref}
     className={cn(
-      'whitespace-pre-line', // 개행 문자를 인식하도록 하는 클래스 추가
-      'flex items-center text-center justify-center text-xl text-muted-foreground', // 'text-center' 추가하여 글자를 중앙 정렬
-      'w-[500px] h-[151px]', // 컴포넌트 크기를 545px x 151px로 설정
+      'whitespace-pre-line',
+      'flex items-center text-center justify-center text-xl text-muted-foreground',
+      'w-[500px] h-[151px]',
       className,
     )}
     {...props}
@@ -113,13 +113,14 @@ const AlertDialogAction = React.forwardRef<
       'hover:bg-deepRed',
       'hover:text-white',
       'bg-pink',
-      'w-[130px] h-[50px]',
-      'text-xl',
+      'w-[100px] h-[40px]',
+      'text-lg',
       'text-white',
-      '-mt-4 sm:-mt-4', //버튼 위치 조정 (위로 4px)
+      'mb-[20px]',
+      '-mt-4 sm:-mt-4',
       className,
     )}
-    style={{ borderRadius: '0.8rem' }} // 직접 borderRadius 스타일을 지정
+    style={{ borderRadius: '0.8rem' }}
     {...props}
   />
 ));
@@ -137,9 +138,10 @@ const AlertDialogCancel = React.forwardRef<
       'hover:text-white',
       'bg-skyblue',
       'mt-2 sm:mt-0',
-      'w-[130px] h-[50px]',
-      'text-xl',
+      'w-[100px] h-[40px]',
+      'text-lg',
       'text-white',
+      'mb-[20px]',
       '-mt-4 sm:-mt-4',
       className,
     )}
