@@ -8,6 +8,10 @@ const router = createBrowserRouter([
     element: <MainPage />,
   },
   {
+    path: '/main',
+    element: <MainPage />,
+  },
+  {
     path: '/modal',
     element: <ModalPage />,
   },
