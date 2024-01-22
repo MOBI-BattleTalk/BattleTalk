@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import MainPage from '@/pages/MainPage';
 import ModalPage from '@/pages/ModalPage';
 import HeaderLayout from '@/layout/HeaderLayout.tsx';
+import DetailPage from '@/pages/DetailPage';
 import LoginPage from '@/pages/LoginPage';
 
 const router = createBrowserRouter([
@@ -13,8 +14,12 @@ const router = createBrowserRouter([
         element: <MainPage />,
       },
       {
-        path: '/detail',
+        path: '/',
         element: <MainPage />,
+      },
+      {
+        path: '/detail',
+        element: <DetailPage />,
       },
     ],
   },
