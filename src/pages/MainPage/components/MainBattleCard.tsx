@@ -1,4 +1,5 @@
 import ResultBar from '@/components/ResultBar.tsx';
+import CharaterCounter from '@/components/CharaterCounter.tsx';
 
 const MainBattleCard = () => {
   return (
@@ -10,6 +11,7 @@ const MainBattleCard = () => {
       <ResultBar redCount={64} blueCount={36} type="small" />
       <ResultBar redCount={9.9} blueCount={0.1} type="large" />
       <ResultBar redCount={0.1} blueCount={9.9} type="large" />
+      <CharaterCounter currentNum={12} maxNum={100} />
     </div>
   );
 };
