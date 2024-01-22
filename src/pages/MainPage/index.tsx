@@ -2,13 +2,14 @@ import MainBattleCard from '@/pages/MainPage/components/MainBattleCard.tsx';
 import TopButton from '@/components/TopButton.tsx';
 import NavigateBox from '@/components/NavigateBox.tsx';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '@/pages/MainPage/components/Navbar.tsx';
+import Header from '@/pages/MainPage/components/Header.tsx';
 
 const MainPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex items-center justify-center mt-[100px] gap-[20px] flex-col">
+    <div className="">
+      <Header />
       <MainBattleCard />
       <MainBattleCard />
       <MainBattleCard />
@@ -39,7 +40,6 @@ const MainPage = () => {
           },
         ]}
       />
-      <Navbar />
     </div>
   );
 };
