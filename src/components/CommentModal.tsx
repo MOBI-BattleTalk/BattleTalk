@@ -15,7 +15,7 @@ import { Button } from '@/components/ui/button';
  * shadcn/ui에서 제공하는 Modal을 컴포넌트화 시켰습니다.
 
  * // 사용 예시:
- * <AlertCommentModal />
+ * <BasicModal />
  */
 
 // 제목하고 내용을 prop로 받을수 있도록
@@ -28,11 +28,7 @@ type AlertModalProps = {
   modalType: 'confirm' | 'alert' | 'delete'; // 모달 타입을 위한 prop
 };
 
-export function AlertCommentModal({
-  title,
-  content,
-  modalType,
-}: AlertModalProps) {
+export function BasicModal({ title, content, modalType }: AlertModalProps) {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
