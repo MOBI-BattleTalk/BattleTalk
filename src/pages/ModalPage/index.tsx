@@ -2,12 +2,14 @@ import { AlertCommentModal } from '@/components/CommentModal';
 import { Input } from '@/components/ui/input';
 
 const ModalPage = () => {
+  const content1 =
+    '배틀에 참가하시려면 로그인이 필요합니다.\n 로그인 페이지로 이동하시겠습니까?';
   return (
     <div>
-      <div>:)</div>
+      <div>ㅁㄴㅇㄹ /n ㅁㄴㅇㄹ</div>
       <AlertCommentModal
         title="배틀 참가하기"
-        content="배틀에 참가하시려면 로그인이 필요합니다. 로그인 페이지로 이동하시겠습니까?"
+        content={content1}
         modalType="confirm"
       />
       <AlertCommentModal
