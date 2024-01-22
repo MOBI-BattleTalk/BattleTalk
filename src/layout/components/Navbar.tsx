@@ -19,7 +19,7 @@ const Navbar = () => {
 
   const CategoryCSS = {
     selected: 'text-violet border-b-[3px] border-violet',
-    unselected: 'text-darkGrey',
+    unselected: 'text-commonGrey',
   };
 
   const navigate = useNavigate();
@@ -30,6 +30,7 @@ const Navbar = () => {
 
         return (
           <div
+            key={key}
             className={`${currentCategory === key ? CategoryCSS.selected : CategoryCSS.unselected} hover:text-violet hover:border-b-[3px] hover:border-violet`}
             onClick={() => navigate(`/main?directory=${key}`)}
           >

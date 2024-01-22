@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from 'react';
+import {InputHTMLAttributes} from 'react';
 
 /**
  * <InputHTMLAttributes<HTMLInputElement>태그에 "size" 속성이 있어 에러가 발생하여 Omit type을 사용했습니다.

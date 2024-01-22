@@ -31,15 +31,11 @@
       "vite-plugin-svgr/client"
     ],
     "typeRoots": [
-      "node_modules/@types",
-      "src/types"
+      "./@types",
+      "./node_modules/@types"
     ],
     "include": [
       "svg.d.ts"
     ]
-  },
-  "typeRoots": [
-    "node_modules/@types",
-    "src/types"
-  ]
+  }
 }
