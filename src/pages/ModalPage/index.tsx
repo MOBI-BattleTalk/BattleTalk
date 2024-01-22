@@ -1,5 +1,5 @@
 import { BasicModal } from '@/components/BasicModal.tsx';
-import { Input } from '@/components/ui/input';
+import Input from '@/components/Input';
 import { MODAL } from '@/const/ModalMessage';
 
 const ModalPage = () => {
@@ -20,7 +20,10 @@ const ModalPage = () => {
         content={MODAL.DELETE_COMMENT.content}
         modalType="delete"
       />
-      <Input />
+      <div>
+        <Input size="title" />
+        <Input size="content" />
+      </div>
     </div>
   );
 };
