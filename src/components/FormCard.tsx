@@ -16,15 +16,15 @@ const FormCard: React.FC<FormCardProps> = ({ children, label, size }) => {
   const sizeCSS = {
     small: 'w-[732px] h-[420px]',
     medium: 'w-[732px] h-[480px]',
-    large: 'w-[830px] h-[1540px]',
+    large: 'w-[732px] h-[1420px]',
   };
 
   return (
     <div
-      className={`${flexCenter} flex items-center justify-center grid justify-items-start`}
+      className={`${flexCenter} items-center justify-center grid justify-items-start`}
     >
       <div
-        className={`bg-violet rounded-t-xl text-white text-2xl font-extrabold text-center pt-[8px] ml-[30px] w-[200px] h-[48px] `}
+        className={`bg-violet rounded-t-xl text-white text-2xl font-extrabold text-center pt-[8px] ml-[30px] w-[180px] h-[48px] `}
       >
         {label}
       </div>

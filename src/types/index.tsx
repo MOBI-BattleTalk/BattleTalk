@@ -24,5 +24,4 @@ export type PostType = {
   createAt: Date;
   category: Category;
   voteCount: [number, number];
-  isMine: boolean;
 };
