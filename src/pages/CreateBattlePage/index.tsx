@@ -3,6 +3,7 @@ import FormCard from '@/components/FormCard';
 import { flexCenter } from '@/styles/common.style';
 import { useNavigate } from 'react-router-dom';
 import CreateForm from './components/CreateForm';
+import TopButton from '@/components/TopButton';
 
 const CreateBattlePage: React.FC = () => {
   const navigate = useNavigate();
@@ -17,6 +18,9 @@ const CreateBattlePage: React.FC = () => {
       <FormCard size="large" label="배틀 생성">
         <CreateForm />
       </FormCard>
+      <div className="fixed right-[40px] bottom-[40px]">
+        <TopButton />
+      </div>
     </div>
   );
 };
