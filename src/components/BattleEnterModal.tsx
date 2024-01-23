@@ -1,28 +1,53 @@
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogContent,
   AlertDialogFooter,
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog.tsx';
-import { Button } from '@/components/ui/button.tsx';
 import ImageBox from '@/components/ImageBox.tsx';
-import Input from '@/components/Input.tsx';
+import DeleteIcon from '@/assets/XDeleteIcon.svg?react';
+import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
+import Textarea from '@/components/Textarea.tsx';
+import Button from '@/components/Button.tsx';
 
 const BattleEnterModal = () => {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="outline">배틀 참여하기</Button>
+        <button>배틀 참여하기</button>
       </AlertDialogTrigger>
       <AlertDialogContent size="large">
-        <div className="flex w-[400px] justify-between">
-          <ImageBox imgUrl="" size="small" imageShape="square" />
-          <ImageBox imgUrl="" size="small" imageShape="square" />
+        <div className="absolute top-[-50px] left-[0px]">
+          <div
+            className={`bg-violet rounded-t-xl text-white text-2xl font-extrabold text-center pt-[8px] ml-[30px] w-[180px] h-[48px] `}
+          >
+            배틀 참여하기
+          </div>
         </div>
-        <Input size="box" />
+        <div className="flex mt-[30px]">
+          <span className="w-[50px] pt-[5px] pl-[10px] font-bold text-textGrey">
+            선택
+          </span>
+          <div className="flex w-[480px] gap-[60px] align-center justify-center">
+            <ImageBox imgUrl="" size="medium" imageShape="square" />
+            <ImageBox imgUrl="" size="medium" imageShape="square" />
+          </div>
+        </div>
+        <div className="flex mt-[30px] ">
+          <span className="w-[50px] pt-[5px] font-bold text-textGrey">
+            내용
+          </span>
+          <Textarea size={'box'} />
+        </div>
+        <div className="absolute top-[20px] right-[20px]">
+          <AlertDialogPrimitive.Cancel>
+            <DeleteIcon />
+          </AlertDialogPrimitive.Cancel>
+        </div>
         <AlertDialogFooter>
-          <AlertDialogAction size="large">확인</AlertDialogAction>
+          <Button radius="round" fontSize="large" bgColor="gray" size={'large'}>
+            배틀 참여하기
+          </Button>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
