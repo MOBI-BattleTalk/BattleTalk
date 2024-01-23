@@ -1,20 +1,31 @@
 import ResultBar from '@/components/ResultBar.tsx';
 import ImageBox from '@/components/ImageBox.tsx';
 import BattleHeader from '@/pages/MainPage/components/BattleHeader.tsx';
+import { useNavigate } from 'react-router-dom';
 
-const MainBattleCard = () => {
+interface Props {
+  postId: number;
+}
+
+const MainBattleCard: React.FC<Props> = ({ postId }) => {
+  const navigate = useNavigate();
+
+  const onMovePostId = () => {
+    navigate(`/detail?id=${postId}`);
+  };
   return (
     <div
-      className="xl:w-[800px] md:w-[700px] w-[500px] min-h-[230px] bg-backgroundGrey rounded-[20px] flex
+      onClick={onMovePostId}
+      className="md:w-[700px] w-[500px] min-h-[230px] bg-backgroundGrey rounded-[20px] flex
              flex-col "
     >
       <BattleHeader />
       <div className="text-center text-xl mt-[10px]">
         나의 소울 푸드는? <br />
         <div className="flex gap-[10px] justify-center text-[18px]">
-          <span className="text-deepRed">롯데호텔 차돌박이 짜장면</span>
+          <span className="text-deepRed">차돌박이 짜장면</span>
           <span className="">vs</span>
-          <span className="text-deepBlue">칼칼한 해물 짬뽕</span>
+          <span className="text-deepBlue">해물 짬뽕</span>
         </div>
       </div>
       {/*사이즈에 따라 Result 바가 다릅니다.*/}

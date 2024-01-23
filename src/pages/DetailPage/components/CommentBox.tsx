@@ -1,5 +1,5 @@
-import { CommentType } from '@/pages/DetailPage/components/CommentList.tsx';
 import { timeHelper } from '@/utils/timeHelper.tsx';
+import { CommentType } from '@/types';
 
 type Props = {
   comment: CommentType;
@@ -16,7 +16,7 @@ const CommentBox: React.FC<Props> = ({ comment, colorType }) => {
 
   return (
     <div
-      className={`w-[450px] border-[3px] p-[10px] ${borderColor} rounded-[10px]`}
+      className={`border-[3px] p-[10px] ${borderColor} rounded-[10px] w-[450px] md:w-[380px] lg:w-[460px]`}
     >
       <div className="flex">
         <img src={userImgUrl} alt="프로필" />

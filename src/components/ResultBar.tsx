@@ -1,5 +1,9 @@
 import React from 'react';
-import { LargeWidthCSS, SmallWidthCSS } from '@/components/ResultCss.ts';
+import {
+  LargeWidthCSS,
+  MediumWidthCSS,
+  SmallWidthCSS,
+} from '@/components/ResultCss.ts';
 
 interface Props {
   redCount: number; //빨간 옵션의 투표 수 입니다
@@ -18,10 +22,18 @@ const ResultBar: React.FC<Props> = ({ type, redCount, blueCount }) => {
   const blueTextColor = redRatio < blueRatio ? 'text-deepBlue' : 'text-blue';
 
   const redWidth =
-    type === 'small' ? SmallWidthCSS[redRatio] : LargeWidthCSS[redRatio];
+    type === 'small'
+      ? SmallWidthCSS[redRatio]
+      : type === 'medium'
+        ? MediumWidthCSS[redRatio]
+        : LargeWidthCSS[redRatio];
 
   const blueWidth =
-    type === 'small' ? SmallWidthCSS[blueRatio] : LargeWidthCSS[blueRatio];
+    type === 'small'
+      ? SmallWidthCSS[blueRatio]
+      : type === 'medium'
+        ? MediumWidthCSS[blueRatio]
+        : LargeWidthCSS[blueRatio];
 
   const totalWidth = type === 'small' ? 'w-[300px]' : '';
   return (
