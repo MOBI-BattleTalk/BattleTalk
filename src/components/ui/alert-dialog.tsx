@@ -26,22 +26,29 @@ AlertDialogOverlay.displayName = AlertDialogPrimitive.Overlay.displayName;
 
 const AlertDialogContent = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Content>
->(({ className, ...props }, ref) => (
-  <AlertDialogPortal>
-    <AlertDialogOverlay />
-    <AlertDialogPrimitive.Content
-      ref={ref}
-      className={cn(
-        'fixed left-[50%] top-[50%] z-50 grid translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 sm:rounded-lg',
-        'w-[600px] h-[290px]', // 크기를 660px x 323px로 설정
-        className,
-      )}
-      style={{ borderRadius: '1.5rem' }} // 직접 borderRadius 스타일을 지정
-      {...props}
-    />
-  </AlertDialogPortal>
-));
+  React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Content> & {
+    size?: 'small' | 'large';
+  }
+>(({ className, size = 'small', ...props }, ref) => {
+  const sizeClass =
+    size === 'large' ? 'w-[660px] h-[600px]' : 'w-[600px] h-[290px]';
+
+  return (
+    <AlertDialogPortal>
+      <AlertDialogOverlay />
+      <AlertDialogPrimitive.Content
+        ref={ref}
+        className={cn(
+          'items-center justify-items-center align-items-center fixed left-[50%] top-[50%] z-50 grid translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 sm:rounded-lg',
+          sizeClass, // 동적 크기 클래스
+          className,
+        )}
+        style={{ borderRadius: '1.5rem' }}
+        {...props}
+      />
+    </AlertDialogPortal>
+  );
+});
 AlertDialogContent.displayName = AlertDialogPrimitive.Content.displayName;
 
 const AlertDialogHeader = ({
@@ -102,28 +109,60 @@ const AlertDialogDescription = React.forwardRef<
 AlertDialogDescription.displayName =
   AlertDialogPrimitive.Description.displayName;
 
+// const AlertDialogAction = React.forwardRef<
+//   React.ElementRef<typeof AlertDialogPrimitive.Action>,
+//   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Action>
+// >(({ className, ...props }, ref) => (
+//   <AlertDialogPrimitive.Action
+//     ref={ref}
+//     className={cn(
+//       buttonVariants({ variant: 'outline' }),
+//       'hover:bg-deepRed',
+//       'hover:text-white',
+//       'bg-pink',
+//       'w-[100px] h-[40px]',
+//       'text-lg',
+//       'text-white',
+//       'mb-[20px]',
+//       '-mt-4 sm:-mt-4',
+//       className,
+//     )}
+//     style={{ borderRadius: '0.8rem' }}
+//     {...props}
+//   />
+// ));
+// AlertDialogAction.displayName = AlertDialogPrimitive.Action.displayName;
+
 const AlertDialogAction = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Action>,
-  React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Action>
->(({ className, ...props }, ref) => (
-  <AlertDialogPrimitive.Action
-    ref={ref}
-    className={cn(
-      buttonVariants({ variant: 'outline' }),
-      'hover:bg-deepRed',
-      'hover:text-white',
-      'bg-pink',
-      'w-[100px] h-[40px]',
-      'text-lg',
-      'text-white',
-      'mb-[20px]',
-      '-mt-4 sm:-mt-4',
-      className,
-    )}
-    style={{ borderRadius: '0.8rem' }}
-    {...props}
-  />
-));
+  React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Action> & {
+    size?: 'small' | 'large';
+  }
+>(({ className, size = 'small', ...props }, ref) => {
+  // 크기에 따라 클래스 이름을 결정
+  const sizeClass =
+    size === 'large' ? 'w-[271px] h-[75px]' : 'w-[100px] h-[40px]';
+
+  return (
+    <AlertDialogPrimitive.Action
+      ref={ref}
+      className={cn(
+        buttonVariants({ variant: 'outline' }),
+        'hover:bg-deepRed',
+        'hover:text-white',
+        'bg-pink',
+        'text-lg',
+        'text-white',
+        'mb-[20px]',
+        '-mt-4 sm:-mt-4',
+        sizeClass, // 동적 크기 클래스
+        className,
+      )}
+      style={{ borderRadius: '0.8rem' }}
+      {...props}
+    />
+  );
+});
 AlertDialogAction.displayName = AlertDialogPrimitive.Action.displayName;
 
 const AlertDialogCancel = React.forwardRef<

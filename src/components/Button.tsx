@@ -2,7 +2,7 @@ import React, { ButtonHTMLAttributes } from 'react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   bgColor: 'gray' | 'blue' | 'red' | 'violet' | 'darkGray'; //버튼의 배경색입니다.
-  size: 'small' | 'medium' | 'large' | 'xlarge'; //버튼의 크기입니다.
+  size: 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge'; //버튼의 크기입니다.
   radius: 'basic' | 'round'; //버튼의 굴곡입니다.
   fontSize: 'small' | 'medium' | 'large'; //버튼내 폰트 크기입니다.
 }
@@ -34,6 +34,7 @@ const Button: React.FC<ButtonProps> = ({
     medium: 'w-[150px] h-[50px]',
     large: 'w-[165px] h-[50px]',
     xlarge: 'w-[250px] h-[50px]',
+    xxlarge: 'w-[271px] h-[75px]',
   };
 
   const radiusCSS = {
