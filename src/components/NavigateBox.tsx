@@ -65,7 +65,7 @@ const NavigateBox: React.FC<Props> = ({ type, OptionsArr }) => {
 
   //수직일떄
   return (
-    <div className="flex text-textGrey flex-col w-[100px]">
+    <div className="flex text-textGrey flex-col w-[100px] bg-white rounded-xl">
       <div className="bg-blue"></div>
       {OptionsArr.map((option, index) => {
         return (
