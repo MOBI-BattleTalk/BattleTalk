@@ -25,8 +25,8 @@ const ModalPage = () => {
       <ImageModal />
       <BattleEnterModal />
       <div>
-        <Input size="title" />
-        <Input size="content" />
+        <Input size="small" />
+        <Input size="medium" />
       </div>
       <div>
         <ImageBox imgUrl="" size="tiny" imageShape="square" />

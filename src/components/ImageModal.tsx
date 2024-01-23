@@ -27,7 +27,7 @@ export function ImageModal() {
       </AlertDialogTrigger>
       <AlertDialogContent size="large">
         <ImageBox imgUrl="" size="big" imageShape="rounded" />
-        <Input size="title" />
+        <Input size="small" />
         <AlertDialogFooter>
           <AlertDialogAction size="large">확인</AlertDialogAction>
         </AlertDialogFooter>
