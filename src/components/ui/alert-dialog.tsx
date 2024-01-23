@@ -31,7 +31,7 @@ const AlertDialogContent = React.forwardRef<
   }
 >(({ className, size = 'small', ...props }, ref) => {
   const sizeClass =
-    size === 'large' ? 'w-[660px] h-[600px]' : 'w-[600px] h-[290px]';
+    size === 'large' ? 'w-[500px] h-[600px]' : 'w-[600px] h-[290px]';
 
   return (
     <AlertDialogPortal>
