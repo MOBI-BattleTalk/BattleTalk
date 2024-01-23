@@ -1,13 +1,8 @@
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogContent,
-  AlertDialogFooter,
-  AlertDialogTrigger,
-} from '@/components/ui/alert-dialog';
-import { Button } from '@/components/ui/button'; //shadcn/ui에서 제공하는 Modal을 컴포넌트화 시켰습니다.
+import {AlertDialogAction, AlertDialogContent, AlertDialogFooter,} from '@/components/ui/alert-dialog';
 import ImageBox from './ImageBox';
 import Input from './Input';
+import DeleteIcon from '@/assets/XDeleteIcon.svg?react';
+
 //shadcn/ui에서 제공하는 Modal을 컴포넌트화 시켰습니다.
 
 /*
@@ -19,39 +14,24 @@ import Input from './Input';
  *       <BasicModal {...modalProps1} />
  * */
 
-export function ImageModal() {
+const ImageModal = () => {
   return (
-    <AlertDialog>
-      <AlertDialogTrigger asChild>
-        <Button variant="outline">프로필 등록하기</Button>
-      </AlertDialogTrigger>
-      <AlertDialogContent size="large">
-        <ImageBox imgUrl="" size="big" imageShape="rounded" />
-        <Input size="small" />
-        <AlertDialogFooter>
-          <AlertDialogAction size="large">확인</AlertDialogAction>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
+    // <AlertDialog>
+    //   <AlertDialogTrigger asChild>
+    //     <Button variant="outline">프로필 등록하기</Button>
+    //   </AlertDialogTrigger>
+    <AlertDialogContent size="large">
+      <ImageBox imgUrl="" size="big" imageShape="rounded" />
+      <Input size="small" />
+      <div className="absolute top-[20px] right-[20px]">
+        <DeleteIcon />
+      </div>
+      <AlertDialogFooter>
+        <AlertDialogAction size="large">확인</AlertDialogAction>
+      </AlertDialogFooter>
+    </AlertDialogContent>
+    // </AlertDialog>
   );
-}
+};
 
-export function BattleEnterModal() {
-  return (
-    <AlertDialog>
-      <AlertDialogTrigger asChild>
-        <Button variant="outline">배틀 참여하기</Button>
-      </AlertDialogTrigger>
-      <AlertDialogContent size="large">
-        <div className="flex w-[400px] justify-between">
-          <ImageBox imgUrl="" size="small" imageShape="square" />
-          <ImageBox imgUrl="" size="small" imageShape="square" />
-        </div>
-        <Input size="box" />
-        <AlertDialogFooter>
-          <AlertDialogAction size="large">확인</AlertDialogAction>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
-  );
-}
+export default ImageModal;

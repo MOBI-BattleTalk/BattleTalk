@@ -1,4 +1,3 @@
-// @ts-ignore
 import GoBackBtn from '@/assets/GoBack.svg?react';
 import { flexCenter } from '@/styles/common.style';
 import SignIn from './components/SignIn';
@@ -13,8 +12,10 @@ const LoginPage: React.FC = () => {
 
   return (
     <>
-      <div onClick={() => navigate('/main')}>
-        <GoBackBtn />
+      <div className="">
+        <div onClick={() => navigate('/main')}>
+          <GoBackBtn />
+        </div>
       </div>
       <div className={`${flexCenter}`}>
         <img src="../../../public/Logo.png" className="w-[600px] m-[64px]" />
