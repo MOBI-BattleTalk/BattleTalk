@@ -1,5 +1,6 @@
 import { BasicModal } from '@/components/BasicModal.tsx';
 import ImageBox from '@/components/ImageBox';
+import { BattleEnterModal, ImageModal } from '@/components/ImageModal';
 import Input from '@/components/Input';
 import { MODAL } from '@/const/ModalMessage';
 
@@ -21,6 +22,8 @@ const ModalPage = () => {
         content={MODAL.DELETE_COMMENT.content}
         modalType="delete"
       />
+      <ImageModal />
+      <BattleEnterModal />
       <div>
         <Input size="title" />
         <Input size="content" />

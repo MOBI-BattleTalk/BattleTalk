@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 // 'size' prop을 위한 타입을 정의합니다.
-type InputSize = 'title' | 'content';
+type InputSize = 'title' | 'content' | 'box';
 
-// 컴포넌트의 props 타입을 정의합니다.
+// 컴포넌트의 props 타입을 정의합니다.s
 interface InputProps {
   size?: InputSize; // 'size' prop은 'InputSize' 타입이며, 선택적입니다.
   // ... 나머지 props를 위한 타입을 여기에 추가할 수 있습니다.
@@ -19,6 +19,7 @@ const Input: React.FC<InputProps> = ({
   const sizeStyles = {
     title: 'w-[580px] h-[57px] border-4 border-lineGrey rounded-xl',
     content: 'w-[580px] h-[461px] border-4 border-lineGrey rounded-xl',
+    box: 'w-[400px] h-[150px] border-4 border-lineGrey rounded-xl',
   };
 
   return (
