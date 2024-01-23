@@ -1,15 +1,15 @@
 import {
-    AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogTitle,
-    AlertDialogTrigger,
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
-import {Button} from '@/components/ui/button'; //shadcn/ui에서 제공하는 Modal을 컴포넌트화 시켰습니다.
+import { Button } from '@/components/ui/button'; //shadcn/ui에서 제공하는 Modal을 컴포넌트화 시켰습니다.
 //shadcn/ui에서 제공하는 Modal을 컴포넌트화 시켰습니다.
 
 /*
@@ -35,7 +35,7 @@ export function BasicModal({ title, content, modalType }: ModalProps) {
       <AlertDialogTrigger asChild>
         <Button variant="outline">{title}</Button>
       </AlertDialogTrigger>
-      <AlertDialogContent>
+      <AlertDialogContent size="small">
         <AlertDialogHeader>
           <AlertDialogTitle></AlertDialogTitle>
           <AlertDialogDescription>{content}</AlertDialogDescription>

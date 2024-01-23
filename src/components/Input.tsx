@@ -3,7 +3,7 @@ import { InputHTMLAttributes } from 'react';
 // 컴포넌트의 props 타입을 정의합니다.
 interface InputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
-  size: 'small' | 'medium' | 'large'; // 'size' prop은 'InputSize' 타입이며, 선택적입니다.
+  size: 'small' | 'medium' | 'large' | 'box'; // 'size' prop은 'InputSize' 타입이며, 선택적입니다.
 }
 
 const Input: React.FC<InputProps> = ({ size, ...rest }) => {
@@ -12,6 +12,7 @@ const Input: React.FC<InputProps> = ({ size, ...rest }) => {
     small: 'w-[76px] h-[57px] border-4 border-lineGrey rounded-xl',
     medium: 'w-[580px] h-[57px] border-4 border-lineGrey rounded-xl',
     large: 'w-[640px] h-[57px] border-4 border-lineGrey rounded-xl',
+    box: 'w-[400px] h-[150px] border-4 border-lineGrey rounded-xl',
   };
 
   return (
