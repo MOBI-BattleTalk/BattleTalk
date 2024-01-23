@@ -44,7 +44,7 @@ const NavigateBox: React.FC<Props> = ({ type, OptionsArr }) => {
   if (type === 'horizontal') {
     return (
       <div className="flex text-textGrey">
-        <div className="bg-blue"></div>
+        <div></div>
         {OptionsArr.map((option, index) => {
           return (
             <div
@@ -65,22 +65,23 @@ const NavigateBox: React.FC<Props> = ({ type, OptionsArr }) => {
 
   //수직일떄
   return (
-    <div className="flex text-textGrey flex-col w-[100px] bg-white rounded-xl">
-      <div className="bg-blue"></div>
-      {OptionsArr.map((option, index) => {
-        return (
-          <div
-            className={`${
-              index === OptionsArr.length - 1
-                ? vOptionCSS.noBorder
-                : vOptionCSS.border
-            } w-[100px]`}
-            onClick={option.func}
-          >
-            {option.name}
-          </div>
-        );
-      })}
+    <div className="flex text-textGrey flex-col min-w-[130px] bg-white rounded-xl">
+      <div className="flex justify-center items-center flex-col">
+        {OptionsArr.map((option, index) => {
+          return (
+            <div
+              className={`${
+                index === OptionsArr.length - 1
+                  ? vOptionCSS.noBorder
+                  : vOptionCSS.border
+              } w-[130px]`}
+              onClick={option.func}
+            >
+              {option.name}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
