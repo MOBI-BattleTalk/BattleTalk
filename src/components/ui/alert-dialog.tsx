@@ -31,7 +31,7 @@ const AlertDialogContent = React.forwardRef<
   }
 >(({ className, size = 'small', ...props }, ref) => {
   const sizeClass =
-    size === 'large' ? 'w-[500px] h-[600px]' : 'w-[600px] h-[290px]';
+    size === 'large' ? 'w-[600px] h-[680px]' : 'w-[600px] h-[290px]';
 
   return (
     <AlertDialogPortal>
@@ -109,30 +109,6 @@ const AlertDialogDescription = React.forwardRef<
 AlertDialogDescription.displayName =
   AlertDialogPrimitive.Description.displayName;
 
-// const AlertDialogAction = React.forwardRef<
-//   React.ElementRef<typeof AlertDialogPrimitive.Action>,
-//   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Action>
-// >(({ className, ...props }, ref) => (
-//   <AlertDialogPrimitive.Action
-//     ref={ref}
-//     className={cn(
-//       buttonVariants({ variant: 'outline' }),
-//       'hover:bg-deepRed',
-//       'hover:text-white',
-//       'bg-pink',
-//       'w-[100px] h-[40px]',
-//       'text-lg',
-//       'text-white',
-//       'mb-[20px]',
-//       '-mt-4 sm:-mt-4',
-//       className,
-//     )}
-//     style={{ borderRadius: '0.8rem' }}
-//     {...props}
-//   />
-// ));
-// AlertDialogAction.displayName = AlertDialogPrimitive.Action.displayName;
-
 const AlertDialogAction = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Action>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Action> & {
@@ -148,9 +124,9 @@ const AlertDialogAction = React.forwardRef<
       ref={ref}
       className={cn(
         buttonVariants({ variant: 'outline' }),
-        'hover:bg-deepRed',
+        'hover:bg-deepBlue',
         'hover:text-white',
-        'bg-pink',
+        'bg-skyblue',
         'text-lg',
         'text-white',
         'mb-[20px]',
@@ -173,9 +149,9 @@ const AlertDialogCancel = React.forwardRef<
     ref={ref}
     className={cn(
       buttonVariants({ variant: 'outline' }),
-      'hover:bg-deepBlue',
+      'hover:bg-deepRed',
       'hover:text-white',
-      'bg-skyblue',
+      'bg-pink',
       'mt-2 sm:mt-0',
       'w-[100px] h-[40px]',
       'text-lg',

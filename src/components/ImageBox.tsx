@@ -1,7 +1,7 @@
 import React from 'react';
 
 // 이미지 스타일을 위한 타입을 정의합니다.
-type ImageSize = 'tiny' | 'smallest' | 'small' | 'medium' | 'large' | 'big';
+type ImageSize = 'tiny' | 'smallest' | 'medium' | 'large' | 'big';
 type ImageShape = 'rounded' | 'square';
 
 // ImgUploader 컴포넌트의 props 타입을 정의합니다.
@@ -19,8 +19,7 @@ const ImageBox: React.FC<ImageBoxProps> = ({
   const sizeClasses = {
     tiny: 'w-[45px] h-[45px]',
     smallest: 'w-[105px] h-[99px]',
-    small: 'w-[190px] h-[180px]',
-    medium: 'w-[180px] h-[180px]',
+    medium: 'w-[170px] h-[170px]',
     large: 'w-[224px] h-[224px]',
     big: 'w-[243px] h-[243px]',
   };
