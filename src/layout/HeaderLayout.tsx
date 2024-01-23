@@ -8,7 +8,7 @@ const HeaderLayout = () => {
   return (
     <>
       <Header />
-      <div className="pt-[130px] flex flex-col items-center justify-center">
+      <div className="pt-[80px] flex flex-col items-center justify-center">
         <Outlet />
       </div>
       <div className="fixed left-[30px] bottom-[30px]">
