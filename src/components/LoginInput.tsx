@@ -8,6 +8,7 @@ interface LoginInputProps
   bgColor: 'gray' | 'white'; //input의 배경색입니다.
   size: 'small' | 'large' | 'full'; //input의 크기 옵션입니다. 'small', 'large', 'full' 중 하나를 선택합니다.
   label: string; //input 태그의 label에 들어갈 문자열입니다.
+  error?: string;
 }
 
 /**
@@ -20,6 +21,7 @@ const LoginInput: React.FC<LoginInputProps> = ({
   label,
   bgColor,
   size,
+  error,
   ...rest
 }) => {
   const bgColorCSS = {
@@ -44,6 +46,7 @@ const LoginInput: React.FC<LoginInputProps> = ({
         {...rest}
         className={`${bgColorCSS[bgColor]} ${sizeCSS[size].input}  font-extrabold text-lg outline-none justify-end`}
       />
+      <span className="text-deepRed">{error}</span>
     </div>
   );
 };
