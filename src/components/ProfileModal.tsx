@@ -7,15 +7,13 @@ import ImageBox from './ImageBox';
 import Input from './Input';
 import DeleteIcon from '@/assets/XDeleteIcon.svg?react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
+import CharaterCounter from '@/components/CharaterCounter.tsx';
+import useInput from '@/hooks/useInput.tsx';
 
 const ProfileModal = () => {
+  const [value, onChange] = useInput({ nickname: '' });
+  console.log(value);
   return (
-    // <AlertDialog>
-    //   {/*버튼*/}
-    //   <AlertDialogTrigger asChild>
-    //     <button>프로필 등록하기</button>
-    //   </AlertDialogTrigger>
-
     <AlertDialogContent size="medium">
       <div className="absolute top-[-50px] left-[0px]">
         <div
@@ -27,7 +25,17 @@ const ProfileModal = () => {
       <ImageBox imgUrl="" size="big" imageShape="rounded" />
       <div className="flex items-center gap-[20px]">
         <label>닉네임</label>
-        <Input size="smallMedi" />
+        <div className="flex items-center gap-[10px]">
+          <Input
+            size="smallMedi"
+            isValueLengthCounter={false}
+            value={value.nickname}
+            name="nickname"
+            onChange={onChange}
+          />
+
+          <CharaterCounter currentNum={value.nickname.length} maxNum={20} />
+        </div>
       </div>
       <div className="absolute top-[20px] right-[20px]">
         <AlertDialogPrimitive.Cancel>

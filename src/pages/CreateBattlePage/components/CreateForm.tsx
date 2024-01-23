@@ -16,9 +16,11 @@ const CreateForm: React.FC = () => {
         setCategoryValue={setCategoryValue}
       />
       <BattleOption />
-      <Button bgColor="gray" size="large" fontSize="large" radius="round">
-        배틀 업로드
-      </Button>
+      <div className="mt-[50px]">
+        <Button bgColor="gray" size="large" fontSize="large" radius="round">
+          배틀 업로드
+        </Button>
+      </div>
     </form>
   );
 };

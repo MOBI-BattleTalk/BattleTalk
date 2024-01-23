@@ -1,8 +1,6 @@
 import {
-  AlertDialog,
   AlertDialogContent,
   AlertDialogFooter,
-  AlertDialogTrigger,
 } from '@/components/ui/alert-dialog.tsx';
 import ImageBox from '@/components/ImageBox.tsx';
 import DeleteIcon from '@/assets/XDeleteIcon.svg?react';
@@ -12,10 +10,7 @@ import Button from '@/components/Button.tsx';
 
 const BattleEnterModal = () => {
   return (
-    <AlertDialog>
-      <AlertDialogTrigger asChild>
-        <button>배틀 참여하기</button>
-      </AlertDialogTrigger>
+    <>
       <AlertDialogContent size="large">
         <div className="absolute top-[-50px] left-[0px]">
           <div
@@ -50,7 +45,7 @@ const BattleEnterModal = () => {
           </Button>
         </AlertDialogFooter>
       </AlertDialogContent>
-    </AlertDialog>
+    </>
   );
 };
 
