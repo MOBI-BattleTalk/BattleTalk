@@ -33,14 +33,19 @@ const BattleCategory: React.FC<CategoryProps> = ({
   return (
     <div className="flex gap-[10px] m-[20px] w-[820px] ml-[180px]">
       <label className="text-xl font-extrabold pt-[16px]">카테고리</label>
-      <div className="pointer-events-none">
-        <Input size="small" value={categoryValue} />
-      </div>
-      <div className="cursor-pointer mt-[20px]" onClick={onOpenCategory}>
-        {isOpen ? <OpenIcon /> : <CloseIcon />}
+      <div className="flex relative ">
+        <div className="pointer-events-none">
+          <Input size="small" value={categoryValue} />
+        </div>
+        <div
+          className="cursor-pointer mt-[20px] absolute ml-[76px]"
+          onClick={onOpenCategory}
+        >
+          {isOpen ? <OpenIcon /> : <CloseIcon />}
+        </div>
       </div>
       {isOpen && (
-        <div className="border-4 border-lineGrey rounded-xl">
+        <div className="border-4 border-lineGrey rounded-xl absolute ml-[90px] mt-[54px]">
           <NavigateBox type={'vertical'} OptionsArr={categoryArr} />
         </div>
       )}

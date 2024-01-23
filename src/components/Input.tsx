@@ -9,7 +9,7 @@ interface InputProps
 const Input: React.FC<InputProps> = ({ size, ...rest }) => {
   // 입력 박스 크기에 따른 스타일 설정
   const sizeStyles = {
-    small: 'w-[76px] h-[57px] border-4 border-lineGrey rounded-xl',
+    small: 'w-[108px] h-[57px] border-4 border-lineGrey rounded-xl',
     medium: 'w-[580px] h-[57px] border-4 border-lineGrey rounded-xl',
     large: 'w-[640px] h-[57px] border-4 border-lineGrey rounded-xl',
   };
