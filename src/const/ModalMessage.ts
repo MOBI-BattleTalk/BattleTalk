@@ -1,4 +1,4 @@
-export type ModalType = 'confirm' | 'alert' | 'delete';
+type ModalType = 'confirm' | 'alert' | 'delete';
 
 interface ModalObject {
   content: string;

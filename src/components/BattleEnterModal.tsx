@@ -19,7 +19,7 @@ const BattleEnterModal = () => {
       <AlertDialogContent size="large">
         <div className="absolute top-[-50px] left-[0px]">
           <div
-            className={`bg-violet rounded-t-xl text-white text-2xl font-extrabold text-center pt-[8px] ml-[30px] w-[180px] h-[48px] `}
+            className={`bg-violet rounded-t-xl text-white text-xl font-extrabold text-center pt-[8px] ml-[30px] w-[180px] h-[48px] `}
           >
             배틀 참여하기
           </div>

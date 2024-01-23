@@ -24,7 +24,7 @@ const FormCard: React.FC<FormCardProps> = ({ children, label, size }) => {
       className={`${flexCenter} items-center justify-center grid justify-items-start`}
     >
       <div
-        className={`bg-violet rounded-t-xl text-white text-2xl font-extrabold text-center pt-[8px] ml-[30px] w-[180px] h-[48px] `}
+        className={`bg-violet rounded-t-xl text-white text-xl font-extrabold text-center pt-[8px] ml-[30px] w-[180px] h-[48px] `}
       >
         {label}
       </div>

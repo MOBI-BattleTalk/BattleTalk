@@ -21,7 +21,7 @@ const ImageBox: React.FC<ImageBoxProps> = ({
     smallest: 'w-[105px] h-[99px]',
     medium: 'w-[170px] h-[170px]',
     large: 'w-[224px] h-[224px]',
-    big: 'w-[243px] h-[243px]',
+    big: 'w-[200px] h-[200px]',
   };
 
   const shapeClasses = {
