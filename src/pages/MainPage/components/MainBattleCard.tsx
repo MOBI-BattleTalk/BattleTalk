@@ -1,22 +1,14 @@
 import ResultBar from '@/components/ResultBar.tsx';
 import ImageBox from '@/components/ImageBox.tsx';
+import BattleHeader from '@/pages/MainPage/components/BattleHeader.tsx';
 
 const MainBattleCard = () => {
   return (
     <div
-      className="w-[800px] h-[265px] bg-backgroundGrey rounded-[20px] flex
+      className="xl:w-[800px] md:w-[700px] w-[500px] min-h-[230px] bg-backgroundGrey rounded-[20px] flex
              flex-col "
     >
-      <div className="flex justify-between pt-[10px]">
-        <div className="flex items-center justify-start gap-[10px] pl-[20px]">
-          <ImageBox imgUrl={''} size={'tiny'} imageShape={'rounded'} />
-          <div>도라에몽</div>
-          <div className="text-commonGrey">3시간 전</div>
-        </div>
-        <div className="flex text-darkGrey items-center justify-start gap-[10px] pr-[20px]">
-          <span>23명 참여</span>
-        </div>
-      </div>
+      <BattleHeader />
       <div className="text-center text-xl mt-[10px]">
         나의 소울 푸드는? <br />
         <div className="flex gap-[10px] justify-center text-[18px]">
@@ -25,12 +17,25 @@ const MainBattleCard = () => {
           <span className="text-deepBlue">칼칼한 해물 짬뽕</span>
         </div>
       </div>
+      {/*사이즈에 따라 Result 바가 다릅니다.*/}
+      <div className="flex items-center justify-center">
+        <div className="block md:hidden p-[20px]">
+          <ResultBar redCount={13} blueCount={26} type="small" />
+        </div>
+      </div>
       <div className="flex gap-[10px] align-center justify-center">
         <div className="flex align-center flex-col text-center">
           <ImageBox imgUrl={''} size={'smallest'} imageShape={'square'} />
         </div>
-        <ResultBar redCount={13} blueCount={26} type="small" />
-        <div className="flex align-center flex-col text-center">
+        {/*사이즈에 따라 Result 바가 다릅니다.*/}
+        <div className="align-center flex-col text-center hidden xl:block mt-[40px]">
+          <ResultBar redCount={13} blueCount={26} type="medium" />
+        </div>
+        {/*사이즈에 따라 Result 바가 다릅니다.*/}
+        <div className="hidden md:block lg:block xl:hidden mt-[40px]">
+          <ResultBar redCount={13} blueCount={26} type="small" />
+        </div>
+        <div className="flex align-center flex-col text-center pb-[20px]">
           <ImageBox imgUrl={''} size={'smallest'} imageShape={'square'} />
         </div>
       </div>
