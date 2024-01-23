@@ -1,21 +1,18 @@
 import ResultBar from '@/components/ResultBar.tsx';
 import ImageBox from '@/components/ImageBox.tsx';
 import BattleHeader from '@/pages/MainPage/components/BattleHeader.tsx';
-import { useNavigate } from 'react-router-dom';
 
-interface Props {
-  postId: number;
-}
+interface Props {}
 
-const MainBattleCard: React.FC<Props> = ({ postId }) => {
-  const navigate = useNavigate();
+const MainBattleCard: React.FC<Props> = ({}) => {
+  //const navigate = useNavigate();
 
-  const onMovePostId = () => {
-    navigate(`/detail?id=${postId}`);
-  };
+  // const onMovePostId = () => {
+  //   navigate(`/detail?id=${postId}`);
+  // };
   return (
     <div
-      onClick={onMovePostId}
+      // onClick={onMovePostId}
       className="md:w-[700px] w-[500px] min-h-[230px] bg-backgroundGrey rounded-[20px] flex
              flex-col "
     >
