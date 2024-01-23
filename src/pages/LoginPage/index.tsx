@@ -13,7 +13,9 @@ const LoginPage: React.FC = () => {
 
   return (
     <>
-      <GoBackBtn onClick={() => navigate('/main')} />
+      <div onClick={() => navigate('/main')}>
+        <GoBackBtn />
+      </div>
       <div className={`${flexCenter}`}>
         <img src="../../../public/Logo.png" className="w-[600px] m-[64px]" />
       </div>

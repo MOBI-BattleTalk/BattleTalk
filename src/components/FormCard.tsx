@@ -16,7 +16,7 @@ const FormCard: React.FC<FormCardProps> = ({ children, label, size }) => {
   const sizeCSS = {
     small: 'w-[732px] h-[420px]',
     medium: 'w-[732px] h-[480px]',
-    large: 'w-[830px] h-[1320px]',
+    large: 'w-[830px] h-[1540px]',
   };
 
   return (
