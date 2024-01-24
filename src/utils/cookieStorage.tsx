@@ -1,3 +1,8 @@
+/**
+ * 쿠키를 보관하는 cookieStorage입니다
+ * accessToken 및 refreshToken을 보관합니다.
+ * */
+
 const cookieStorage = {
   setCookie: (key: string, value: string, maxAgeInMinutes: number) => {
     const todayDate = new Date();

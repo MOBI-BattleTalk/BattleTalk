@@ -13,7 +13,3 @@ export const axiosInstance = axios.create({
   },
   withCredentials: true,
 });
-
-export const axiosInstanceWithHeaders = axios.create({
-  baseURL: import.meta.env.VITE_BACKEND_BASE_URL,
-});
