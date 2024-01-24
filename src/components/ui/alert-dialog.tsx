@@ -27,11 +27,15 @@ AlertDialogOverlay.displayName = AlertDialogPrimitive.Overlay.displayName;
 const AlertDialogContent = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Content> & {
-    size?: 'small' | 'large';
+    size?: 'small' | 'medium' | 'large';
   }
 >(({ className, size = 'small', ...props }, ref) => {
   const sizeClass =
-    size === 'large' ? 'w-[600px] h-[680px]' : 'w-[600px] h-[290px]';
+    size === 'large'
+      ? 'w-[600px] h-[680px]'
+      : size === 'medium'
+        ? 'w-[400px] h-[550px]'
+        : 'w-[640px] h-[290px]';
 
   return (
     <AlertDialogPortal>

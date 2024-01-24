@@ -22,11 +22,11 @@ const BattleTopic: React.FC = () => {
           value={topicValue.title}
           onChange={onInputChange}
         />
-        <div className="absolute ml-[554px] mt-[16px]">
+        <div className="absolute ml-[520px] mt-[16px]">
           <CharacterCounter currentNum={topicValue.title.length} maxNum={100} />
         </div>
       </div>
-      <div className="flex gap-[50px] m-[20px] relative">
+      <div className="flex gap-[50px] relative">
         <label className="text-xl font-extrabold pt-[16px]">내용</label>
         <Textarea
           size="large"
@@ -34,7 +34,7 @@ const BattleTopic: React.FC = () => {
           value={topicValue.content}
           onChange={onInputChange}
         />
-        <div className="absolute ml-[554px] mt-[368px]">
+        <div className="absolute ml-[520px] mt-[368px]">
           <CharacterCounter
             currentNum={topicValue.content.length}
             maxNum={500}

@@ -6,7 +6,7 @@ import {
 } from '@/components/ui/alert-dialog.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import BasicModal from '@/components/BasicModal.tsx';
-import ImageModal from '@/components/ImageModal.tsx';
+import ProfileModal from '@/components/ProfileModal.tsx';
 import BattleEnterModal from '@/components/BattleEnterModal.tsx';
 
 const ModalPage = () => {
@@ -43,7 +43,7 @@ const ModalPage = () => {
           console.log('aa');
         }}
       />
-      <ImageModal />
+      <ProfileModal />
       <BattleEnterModal />
       <div>
         <Input size="small" />

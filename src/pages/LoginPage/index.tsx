@@ -12,7 +12,7 @@ const LoginPage: React.FC = () => {
 
   return (
     <>
-      <div className="">
+      <div className="m-[20px]">
         <div onClick={() => navigate('/main')}>
           <GoBackBtn />
         </div>
