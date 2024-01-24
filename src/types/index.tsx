@@ -58,5 +58,3 @@ export type SignUpType = {
 };
 
 export type SignInType = { userId: string; password: string };
-
-export type FormInterType = SignUpType & SignInType;

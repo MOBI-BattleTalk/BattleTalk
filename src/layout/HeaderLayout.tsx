@@ -11,10 +11,12 @@ const HeaderLayout = () => {
   const token = cookieStorage.getCookie('accessToken');
 
   useEffect(() => {
+    console.log('token', token);
     if (token) {
-      setIsLogin(true);
+      return setIsLogin(true);
     }
-  }, []);
+    return setIsLogin(false);
+  }, [token]);
 
   return (
     <>

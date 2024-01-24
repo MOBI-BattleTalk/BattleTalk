@@ -3,11 +3,18 @@
  * */
 
 const SessionStorage = {
-  setItem: ({ name, data }: { name: string; data: string }) => {
-    return sessionStorage.setItem(name, data);
+  /**
+   * @param key 쿠키의 이름이 되는 키
+   * @param data 쿠키에 넣을 데이터
+   * */
+  setItem: (key: string, data: string) => {
+    return sessionStorage.setItem(key, data);
   },
   getItem: (name: string) => {
     return sessionStorage.getItem(name);
+  },
+  removeItem: (name: string) => {
+    return sessionStorage.removeItem(name);
   },
 };
 

@@ -4,6 +4,11 @@
  * */
 
 const cookieStorage = {
+  /**
+   * @param key 쿠키의 이름이 되는 키
+   * @param value 쿠키에 넣을 값
+   * @param maxAgeInMinutes 쿠키의 지속 기간
+   * */
   setCookie: (key: string, value: string, maxAgeInMinutes: number) => {
     const todayDate = new Date();
     todayDate.setTime(todayDate.getTime() + maxAgeInMinutes * 1000 * 60);

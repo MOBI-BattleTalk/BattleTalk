@@ -7,7 +7,7 @@ interface Props {
   isLogin: boolean;
 }
 
-const Header: React.FC<Props> = ({ isLogin }: { isLogin: boolean }) => {
+const Header: React.FC<Props> = ({ isLogin }) => {
   const navigate = useNavigate();
 
   const nickName = SessionStorage.getItem('nickName');

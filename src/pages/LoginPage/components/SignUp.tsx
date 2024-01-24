@@ -19,10 +19,8 @@ const SignUp: React.FC = () => {
     },
   });
 
-  const onSubmit = async (data: SignUpType) => {
-    const res = await AuthApi.postSignUp(data);
-    console.log(res);
-    return res;
+  const onSubmitSignUp = async (data: SignUpType) => {
+    return await AuthApi.postSignUp(data);
   };
 
   return (
@@ -30,7 +28,7 @@ const SignUp: React.FC = () => {
       <FormCard label="회원가입" size="medium">
         <form
           className={`${flexCenter} justify-evenly h-[460px] pt-[40px]`}
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(onSubmitSignUp)}
         >
           <div
             className={`bg-backgroundGrey w-[400px] h-[44px] border-b-[2px] border-commonGrey flex flex-col`}

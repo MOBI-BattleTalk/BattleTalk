@@ -19,7 +19,7 @@ const SignIn: React.FC = () => {
     },
   });
 
-  const onSubmit = async (data: SignInType) => {
+  const onSubmitSignIn = async (data: SignInType) => {
     const res = await AuthApi.postSignIn(data);
     if (res!.status === 200) {
       navigate('/');
@@ -31,7 +31,7 @@ const SignIn: React.FC = () => {
     <>
       <FormCard label="로그인" size="small">
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(onSubmitSignIn)}
           className={`flex items-center flex-col pt-[100px] gap-[40px] w-[600px] h-[460px]`}
         >
           <div
