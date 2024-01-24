@@ -96,7 +96,6 @@
 | Library                                                                                                                                     |                                      |
 | <img src="https://img.shields.io/badge/React%20Query-FF4154?style=flat-square&logo=reactquery&logoColor=white">                             | api call, 백엔드 데이터 연결 및 관리 |
 | <img src="https://img.shields.io/badge/React%20Router-CA4245?style=flat-square&logo=reactrouter&logoColor=white">                           | 라우팅 연결                          |
-| <img src="https://img.shields.io/badge/msw-orange?style=flat-square&logoColor=white">                                                       | 목데이터 연결                        |
 
 <br />
 <h1>📝 Convention</h1>
@@ -128,7 +127,10 @@
 
 ### 플래닝 포커
 
-- 플래닝 포커, 다른 말로 스크럼 포커 라고도 불리는데, 이는 추정을 위한 합의 기반 기술(consensus-based technique)로써 대부분 소프트웨어 개발에 있어서 개발 목표를 위한 공수 산정이나 상대적 규모산정에 사용된다. 플래닝 포커에서 그 그룹의 구성원들은 공수 산정 시에 입으로 크게 말하는 대신에 숫자로된 카드를 테이블에 엎어놓는 방식으로 놀이처럼 진행한다. 그 카드들을 확인 하면서 해당 공수들이 논의된다. 숫자를 숨기는 이런 방식은 구성원들의 편향적인 고정관념을 피할 수 있게 해준다. 누군가 처음 숫자를 크게 말하면서 다음 사람들의 공수 산정에 영향을 미칠 수 있는 것처럼 말이다.
+- 플래닝 포커, 다른 말로 스크럼 포커 라고도 불리는데, 이는 추정을 위한 합의 기반 기술(consensus-based technique)로써 대부분 소프트웨어 개발에 있어서 개발 목표를 위한 공수 산정이나 상대적 규모산정에 사용된다. <br />
+  플래닝 포커에서 그 그룹의 구성원들은 공수 산정 시에 입으로 크게 말하는 대신에 숫자로된 카드를 테이블에 엎어놓는 방식으로 놀이처럼 진행한다. 그 카드들을 확인 하면서 해당 공수들이 논의된다. <br />
+  숫자를 숨기는 이런 방식은 구성원들의 편향적인 고정관념을 피할 수 있게 해준다.<br />
+  누군가 처음 숫자를 크게 말하면서 다음 사람들의 공수 산정에 영향을 미칠 수 있는 것처럼 말이다.
 - 이 방법은 2002년 제임스 그레닝(James Grenning)[1] 에 의해서 정의되고 명명된 이후에, 마이크 콘(Mike Cohn)이 저술한 애자일 추정과 계획(Agile Estimating and Planning), [2] whose company trade marked the term.[3] 이라는 책으로 인해서 유명해졌다. -
   by 위키백과
 
