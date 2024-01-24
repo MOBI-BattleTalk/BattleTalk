@@ -3,7 +3,7 @@ import FormCard from '@/components/FormCard';
 import LoginInput from '@/components/LoginInput';
 
 const SignIn: React.FC = () => {
-  const inputLabelArr = ['아이디', '비밀번호'];
+  const inputLabelArr = ['id', 'password'];
 
   return (
     <>
