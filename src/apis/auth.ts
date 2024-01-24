@@ -1,4 +1,5 @@
 import { axiosInstance } from '@/apis/core.ts';
+import { SignInType } from '@/types';
 
 type SignUpType = {
   userId: string;
@@ -8,21 +9,24 @@ type SignUpType = {
   };
 };
 
-type SignInType = {
-  userId: string;
-  password: string;
-};
 const AuthApi = {
-  signUP: async (data: SignUpType) => {
-    return await axiosInstance.post('/user/sign-up', data);
+  postSignUp: async (data: SignInType) => {
+    try {
+      const res = await axiosInstance.post('/user/sign-up', data);
+      return res.data;
+    } catch (err) {
+      console.log(err);
+    }
   },
-  signIn: async (data: SignInType) => {
-    return await axiosInstance.post('/user/sign-in', data);
+  postSignIn: async (data: SignUpType) => {
+    try {
+      const res = await axiosInstance.post('/user/sign-in', data);
+      return res.data;
+    } catch (err) {
+      console.log(err);
+    }
   },
-  signOut: async () => {
-    return await axiosInstance.post('/user/sign-out');
-  },
-  postSignUp: async (data: SignUpType) => {
+  postSignOut: async (data: SignUpType) => {
     try {
       const res = await axiosInstance.post('/user/sign-up', data);
       return res.data;

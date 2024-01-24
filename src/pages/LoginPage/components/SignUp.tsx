@@ -1,27 +1,58 @@
 import FormCard from '@/components/FormCard';
+import { flexCenter } from '@/styles/common.style.ts';
+import { FieldValues, useForm } from 'react-hook-form';
+import LoginInput from '@/components/LoginInput.tsx';
+import { signUpSchema } from '@/const/authSchema.ts';
+import Button from '@/components/Button';
 
 const SignUp: React.FC = () => {
-  // const inputLabelArr = ['아이디', '닉네임', '비밀번호', '비밀번호 확인'];
-  // const [values, onChange, setValues] = useInput({
-  //   id: '',
-  //   nickname: '',
-  //   password: '',
-  // });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm<FieldValues>({
+    mode: 'onChange',
+    defaultValues: {
+      id: '',
+      pw: '',
+      nickname: '',
+    },
+  });
+
+  const onSubmit = (data: FieldValues) => {
+    return data;
+  };
 
   return (
     <>
       <FormCard label="회원가입" size="medium">
-        {/*<div className={`${flexCenter} justify-evenly h-[460px] pt-[40px]`}>*/}
-        {/*  /!*인풋 맵 돌리기*!/*/}
-        {/*  {inputLabelArr.map((el, idx) => (*/}
-        {/*    <LoginInput key={idx} bgColor="gray" size="large" label={el} />*/}
-        {/*  ))}*/}
-        {/*  <div className="pt-[20px]">*/}
-        {/*    <Button bgColor="gray" size="large" radius="round" fontSize="large">*/}
-        {/*      회원가입*/}
-        {/*    </Button>*/}
-        {/*  </div>*/}
-        {/*</div>*/}
+        <form
+          className={`${flexCenter} justify-evenly h-[460px] pt-[40px]`}
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          {signUpSchema.map((input) => {
+            return (
+              <LoginInput
+                bgColor="gray"
+                name={input.name}
+                size={'large'}
+                label={input.label}
+                register={register}
+                registerOption={input.registerOption}
+                errors={errors}
+              />
+            );
+          })}
+          <Button
+            bgColor="gray"
+            size="large"
+            radius="round"
+            fontSize="large"
+            disabled={!isValid}
+          >
+            회원가입
+          </Button>
+        </form>
       </FormCard>
     </>
   );
