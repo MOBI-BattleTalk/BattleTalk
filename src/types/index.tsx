@@ -52,11 +52,11 @@ export type CommentType = {
 };
 
 export type SignUpType = {
-  id: string;
-  pw: string;
+  userId: string;
+  password: string;
   nickname: string;
 };
 
-export type SignInType = { id: string; pw: string };
+export type SignInType = { userId: string; password: string };
 
 export type FormInterType = SignUpType & SignInType;

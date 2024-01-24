@@ -1,18 +1,25 @@
-import { InputHTMLAttributes } from 'react';
-import { FormInterType } from '@/types';
-import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
-import { RegisterOptionType } from '@/const/authSchema.ts';
+import {InputHTMLAttributes} from 'react';
+import {FormInterType} from '@/types';
+import {FieldErrors, FieldValues, UseFormRegister} from 'react-hook-form';
+import {RegisterOptionType} from '@/const/authSchema.ts';
 
 /**
  * <InputHTMLAttributes<HTMLInputElement>태그에 "size" 속성이 있어 에러가 발생하여 Omit type을 사용했습니다.
  */
+
+interface formFieldType extends FieldValues {
+  userId: string;
+  password: string;
+  nickname: string;
+}
+
 interface LoginInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   bgColor: 'gray' | 'white'; //input의 배경색입니다.
   size: 'small' | 'large' | 'full'; //input의 크기 옵션입니다. 'small', 'large', 'full' 중 하나를 선택합니다.
   label: keyof FormInterType;
   name: string;
-  register?: UseFormRegister<FieldValues>;
+  register?: UseFormRegister<formFieldType>;
   registerOption?: RegisterOptionType;
   errors?: FieldErrors<FormInterType>;
 }

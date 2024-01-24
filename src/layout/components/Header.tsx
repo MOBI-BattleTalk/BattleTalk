@@ -1,11 +1,18 @@
 import ProfileButton from '@/layout/components/ProfileButton.tsx';
 import LoginButton from '@/layout/components/LoginButton.tsx';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SessionStorage from '@/utils/sessionStorage.tsx';
 
-const Header = () => {
-  const [isLogin] = useState(true);
+interface Props {
+  isLogin: boolean;
+}
+
+const Header: React.FC<Props> = ({ isLogin }: { isLogin: boolean }) => {
   const navigate = useNavigate();
+
+  const nickName = SessionStorage.getItem('nickName');
+  const profileUrl = SessionStorage.getItem('profileUrl');
+
   return (
     <div className="w-full flex items-center h-[80px] justify-between bg-white bg-opacity-50 fixed top-0">
       <div
@@ -22,10 +29,7 @@ const Header = () => {
       </div>
       <div className="w-[160px]">
         {isLogin ? (
-          <ProfileButton
-            imgUrl={'../../../Profile.png'}
-            nickname={'도라에몽'}
-          />
+          <ProfileButton imgUrl={profileUrl || ''} nickname={nickName!} />
         ) : (
           <LoginButton />
         )}

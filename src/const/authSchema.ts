@@ -1,4 +1,4 @@
-import { ValidationRule } from 'react-hook-form';
+import {ValidationRule} from 'react-hook-form';
 
 /**
  * required : 해당 인풋 값이 필수 인지를 알려주는 속성
@@ -14,7 +14,7 @@ export type RegisterOptionType = {
  * registerOption? : 인풋에 들어갈 유효성 검사입니다.
  */
 export type SignInRegisterArrType = {
-  label: 'id' | 'pw';
+  label: 'userId' | 'password';
   name: string;
   registerOption?: RegisterOptionType | undefined;
 };
@@ -25,14 +25,14 @@ export type SignInRegisterArrType = {
  */
 export const loginSchema: SignInRegisterArrType[] = [
   {
-    label: 'id',
+    label: 'userId',
     name: '아이디',
     registerOption: {
       required: true,
     },
   },
   {
-    label: 'pw',
+    label: 'password',
     name: '비밀번호',
     registerOption: {
       required: true,
@@ -41,7 +41,7 @@ export const loginSchema: SignInRegisterArrType[] = [
 ];
 
 export type SignUpRegisterArrType = {
-  label: 'id' | 'pw' | 'nickname';
+  label: 'userId' | 'password' | 'nickname';
   name: string;
   registerOption?: RegisterOptionType;
 };
@@ -54,7 +54,7 @@ export type SignUpRegisterArrType = {
  */
 export const signUpSchema: SignUpRegisterArrType[] = [
   {
-    label: 'id',
+    label: 'userId',
     name: '아이디',
     registerOption: {
       required: true,
@@ -65,7 +65,7 @@ export const signUpSchema: SignUpRegisterArrType[] = [
     },
   },
   {
-    label: 'pw',
+    label: 'password',
     name: '비밀번호',
     registerOption: {
       required: true,
