@@ -13,12 +13,7 @@ const ModalPage = () => {
       <AlertDialogTrigger asChild>
         <Button variant="outline">버튼</Button>
       </AlertDialogTrigger>
-      <BasicModal
-        {...modalProps1}
-        func={() => {
-          console.log('aa');
-        }}
-      />
+      <BasicModal {...modalProps1} func={() => {}} />
     </AlertDialog>
   );
 };

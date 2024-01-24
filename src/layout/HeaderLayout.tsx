@@ -11,7 +11,6 @@ const HeaderLayout = () => {
   const token = cookieStorage.getCookie('accessToken');
 
   useEffect(() => {
-    console.log('token', token);
     if (token) {
       return setIsLogin(true);
     }
