@@ -1,16 +1,21 @@
 import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
-import { Button } from '@/components/ui/button'; //shadcn/ui에서 제공하는 Modal을 컴포넌트화 시켰습니다.
-//shadcn/ui에서 제공하는 Modal을 컴포넌트화 시켰습니다.
+import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
+import DeleteIcon from '@/assets/XDeleteIcon.svg?react'; /*
+ * 사용방법
+ * 1. 모달 상수에서 원하는 메세지를 꺼낸다.
+ *   const modalProps1 = MODAL.CONFIRM_BATTLE_JOIN;
+ *
+ * 2. 모달에 props를 전개연산자로 전달합니다.
+ *       <BasicModal {...modalProps1} />
+ * */
 
 /*
  * 사용방법
@@ -22,40 +27,52 @@ import { Button } from '@/components/ui/button'; //shadcn/ui에서 제공하는 
  * */
 
 export type ModalType = 'confirm' | 'alert' | 'delete';
-// Props 타입을 정의합니다.
-type ModalProps = {
-  title: string; // 제목을 위한 prop
-  content: string; // 내용을 위한 prop
-  modalType: ModalType; // 모달 타입을 위한 prop
+
+type ModalProps =
+  | {
+      content: string; // 내용을 위한 prop
+      modalType: 'confirm'; // confirm 타입만 선택하도록 함
+      func: () => void; // confirm 타입일 때는 필수로 func을 지정
+    }
+  | {
+      content: string; // 내용을 위한 prop
+      modalType: 'alert' | 'delete'; // confirm 타입이 아닌 경우
+      func?: () => void; // func는 옵셔널로 설정
+    };
+
+const BasicModal: React.FC<ModalProps> = ({
+  content,
+  modalType,
+  func,
+}: ModalProps) => {
+  return (
+    <AlertDialogContent size="small">
+      <div className="position absolute top-[20px] right-[20px]">
+        <AlertDialogPrimitive.Cancel>
+          <DeleteIcon />
+        </AlertDialogPrimitive.Cancel>
+      </div>
+      <AlertDialogHeader>
+        <AlertDialogTitle></AlertDialogTitle>
+        <AlertDialogDescription>{content}</AlertDialogDescription>
+      </AlertDialogHeader>
+      <AlertDialogFooter>
+        {modalType === 'confirm' && (
+          <div className="flex gap-[20px]">
+            <AlertDialogCancel>취소</AlertDialogCancel>
+            <AlertDialogAction onClick={func}>이동</AlertDialogAction>
+          </div>
+        )}
+        {modalType === 'delete' && (
+          <div className="flex gap-[20px]">
+            <AlertDialogCancel>취소</AlertDialogCancel>
+            <AlertDialogAction onClick={func}>삭제</AlertDialogAction>
+          </div>
+        )}
+        {modalType === 'alert' && <AlertDialogAction>확인</AlertDialogAction>}
+      </AlertDialogFooter>
+    </AlertDialogContent>
+  );
 };
 
-export function BasicModal({ title, content, modalType }: ModalProps) {
-  return (
-    <AlertDialog>
-      <AlertDialogTrigger asChild>
-        <Button variant="outline">{title}</Button>
-      </AlertDialogTrigger>
-      <AlertDialogContent size="small">
-        <AlertDialogHeader>
-          <AlertDialogTitle></AlertDialogTitle>
-          <AlertDialogDescription>{content}</AlertDialogDescription>
-        </AlertDialogHeader>
-        <AlertDialogFooter>
-          {modalType === 'confirm' && (
-            <>
-              <AlertDialogCancel>이동</AlertDialogCancel>
-              <AlertDialogAction>취소</AlertDialogAction>
-            </>
-          )}
-          {modalType === 'delete' && (
-            <>
-              <AlertDialogCancel>취소</AlertDialogCancel>
-              <AlertDialogAction>삭제</AlertDialogAction>
-            </>
-          )}
-          {modalType === 'alert' && <AlertDialogAction>확인</AlertDialogAction>}
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
-  );
-}
+export default BasicModal;

@@ -13,7 +13,7 @@ interface Props {
  */
 const CharacterCounter: React.FC<Props> = ({ currentNum, maxNum }) => {
   return (
-    <div className="flex gap-[3px] text-gray-600 font-semibold">
+    <div className="flex gap-[1px] text-darkGrey font-semibold text-sm">
       <span>{currentNum}</span>
       <span>/</span>
       <span>{maxNum}</span>

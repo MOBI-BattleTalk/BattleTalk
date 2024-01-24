@@ -9,13 +9,15 @@ const SignUp: React.FC = () => {
   return (
     <>
       <FormCard label="회원가입" size="medium">
-        <div className={`${flexCenter} justify-evenly w-[732px] h-[460px]`}>
+        <div className={`${flexCenter} justify-evenly h-[460px] pt-[40px]`}>
           {inputLabelArr.map((el, idx) => (
             <LoginInput key={idx} bgColor="gray" size="large" label={el} />
           ))}
-          <Button bgColor="gray" size="large" radius="round" fontSize="large">
-            회원가입
-          </Button>
+          <div className="pt-[20px]">
+            <Button bgColor="gray" size="large" radius="round" fontSize="large">
+              회원가입
+            </Button>
+          </div>
         </div>
       </FormCard>
     </>

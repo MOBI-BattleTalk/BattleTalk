@@ -12,16 +12,16 @@ const BattleOption: React.FC = () => {
 
   return (
     <>
-      <div className="flex gap-[50px] m-[20px] w-[820px] ml-[220px]">
-        <label className="text-xl font-extrabold pt-[16px] text-blue">
+      <div className="flex w-[820px] ml-[240px]">
+        <label className="w-[80px] text-xl font-extrabold pt-[16px] text-blue">
           사진
         </label>
         <div className="w-[180px] h-[180px] border-4 border-lineGrey rounded-xl">
           <input className="w-full h-full rounded-xl" />
         </div>
       </div>
-      <div className="flex gap-[50px] m-[20px] w-[820px] ml-[220px]">
-        <label className="text-xl font-extrabold pt-[16px] text-blue">
+      <div className="flex relative mt-[20px]">
+        <label className="w-[80px] text-xl font-extrabold pt-[16px] text-blue">
           제목
         </label>
         <Input
@@ -31,23 +31,24 @@ const BattleOption: React.FC = () => {
           value={optionValue.blueOptionTitle}
           onChange={onOptionChange}
         />
-        <div className="absolute ml-[554px] mt-[16px]">
+        <div className="absolute ml-[520px] mt-[16px]">
           <CharacterCounter
             currentNum={optionValue.blueOptionTitle.length}
-            maxNum={20}
+            maxNum={100}
           />
         </div>
       </div>
-      <div className="flex gap-[50px] m-[20px] w-[820px] ml-[220px]">
-        <label className="text-xl font-extrabold pt-[16px] text-red">
+
+      <div className="flex w-[820px] ml-[240px] mt-[20px]">
+        <label className="w-[80px] text-xl font-extrabold pt-[16px] text-red">
           사진
         </label>
         <div className="w-[180px] h-[180px] border-4 border-lineGrey rounded-xl">
           <input className="w-full h-full rounded-xl" />
         </div>
       </div>
-      <div className="flex gap-[50px] m-[20px] w-[820px] ml-[220px] mb-[40px]">
-        <label className="text-xl font-extrabold pt-[16px] text-red">
+      <div className="flex relative mt-[20px]">
+        <label className="w-[80px] text-xl font-extrabold pt-[16px] text-red">
           제목
         </label>
         <Input
@@ -57,10 +58,10 @@ const BattleOption: React.FC = () => {
           value={optionValue.redOptionTitle}
           onChange={onOptionChange}
         />
-        <div className="absolute ml-[554px] mt-[16px]">
+        <div className="absolute ml-[520px] mt-[16px]">
           <CharacterCounter
             currentNum={optionValue.redOptionTitle.length}
-            maxNum={20}
+            maxNum={100}
           />
         </div>
       </div>

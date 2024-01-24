@@ -9,8 +9,10 @@ const CreateBattlePage: React.FC = () => {
   const navigate = useNavigate();
   return (
     <div className="mb-[100px]">
-      <div onClick={() => navigate('/main')}>
-        <GoBackBtn />
+      <div className={'p-[20px]'}>
+        <div onClick={() => navigate('/main')}>
+          <GoBackBtn />
+        </div>
       </div>
       <div className={`${flexCenter}`}>
         <img src="../../../public/Logo.png" className="w-[600px] m-[40px]" />
