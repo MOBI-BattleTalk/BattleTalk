@@ -12,7 +12,6 @@ import useInput from '@/hooks/useInput.tsx';
 
 const ProfileModal = () => {
   const [value, onChange] = useInput({ nickname: '' });
-  console.log(value);
   return (
     <AlertDialogContent size="medium">
       <div className="absolute top-[-50px] left-[0px]">

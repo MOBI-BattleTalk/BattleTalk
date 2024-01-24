@@ -6,6 +6,8 @@ import ImageBox from '@/components/ImageBox.tsx';
 import { AlertDialog } from '@radix-ui/react-alert-dialog';
 import { AlertDialogTrigger } from '@/components/ui/alert-dialog.tsx';
 import ProfileModal from '@/components/ProfileModal.tsx';
+import AuthApi from '@/apis/auth.ts';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {
   imgUrl: string;
@@ -15,6 +17,7 @@ type Props = {
 const ProfileButton: React.FC<Props> = ({ imgUrl, nickname }) => {
   const [isOpen, setIsOpen] = useState(false);
   const modalButton = useRef<HTMLButtonElement | null>(null);
+  const navigate = useNavigate();
 
   const onClickModalButton = () => {
     modalButton.current!.click();
@@ -27,6 +30,16 @@ const ProfileButton: React.FC<Props> = ({ imgUrl, nickname }) => {
   const onCloseProfile = () => {
     setIsOpen(false);
   };
+
+  //로그아웃 로직
+  const onClickLogout = async () => {
+    const res = await AuthApi.postSignOut();
+    //로그아웃 성공시에 새로고침
+    if (res.message === 'success') {
+      navigate('/login');
+    }
+  };
+
   return (
     <AlertDialog>
       <div className="relative w-[150px] flex items-center justify-center">
@@ -61,7 +74,7 @@ const ProfileButton: React.FC<Props> = ({ imgUrl, nickname }) => {
                 },
                 {
                   name: '로그아웃',
-                  func: () => {},
+                  func: onClickLogout,
                 },
               ]}
             />

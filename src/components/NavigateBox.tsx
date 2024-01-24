@@ -48,6 +48,7 @@ const NavigateBox: React.FC<Props> = ({ type, OptionsArr }) => {
         {OptionsArr.map((option, index) => {
           return (
             <div
+              key={index}
               className={
                 index === OptionsArr.length - 1
                   ? hOptionCSS.noBorder
@@ -70,6 +71,7 @@ const NavigateBox: React.FC<Props> = ({ type, OptionsArr }) => {
         {OptionsArr.map((option, index) => {
           return (
             <div
+              key={index}
               className={`${
                 index === OptionsArr.length - 1
                   ? vOptionCSS.noBorder

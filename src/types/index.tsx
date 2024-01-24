@@ -12,7 +12,7 @@ export type UserType = {
   id: string;
   pw: string;
   nickName: string;
-  imgUrl: File;
+  imgUrl: string;
 };
 
 export type UserInfoType = Omit<UserType, 'id' | 'pw'>;
@@ -52,11 +52,10 @@ export type CommentType = {
 };
 
 export type SignUpType = {
-  id: string;
-  pw: string;
+  userId: string;
+  password: string;
+  passwordCheck: string;
   nickname: string;
 };
 
-export type SignInType = { id: string; pw: string };
-
-export type FormInterType = SignUpType & SignInType;
+export type SignInType = { userId: string; password: string };

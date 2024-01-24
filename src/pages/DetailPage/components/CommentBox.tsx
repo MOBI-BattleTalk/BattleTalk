@@ -1,5 +1,5 @@
-import { timeHelper } from '@/utils/timeHelper.tsx';
 import { CommentType } from '@/types';
+import { timeHelper } from '@/utils/timeHelper.tsx';
 
 type Props = {
   comment: CommentType;
@@ -7,10 +7,8 @@ type Props = {
 };
 
 const CommentBox: React.FC<Props> = ({ comment, colorType }) => {
-  const { userImgUrl, nickname, content, isMine, createdAt, option } = comment;
-  console.log(isMine);
-  console.log(option);
-
+  const { userInfo, content, createdAt } = comment;
+  //
   const borderColor =
     colorType === 'blue' ? 'border-lineSkyblue' : 'border-linePink';
 
@@ -19,8 +17,8 @@ const CommentBox: React.FC<Props> = ({ comment, colorType }) => {
       className={`border-[3px] p-[10px] ${borderColor} rounded-[10px] w-[450px] md:w-[380px] lg:w-[460px]`}
     >
       <div className="flex">
-        <img src={userImgUrl} alt="프로필" />
-        <div>{nickname}</div>
+        <img src={userInfo.imgUrl || ''} alt="프로필" />
+        <div>{userInfo.nickName}</div>
         <div className="text-commonGrey ml-[10px]">{timeHelper(createdAt)}</div>
       </div>
       <div className="mt-[10px] mr-[3px]">{content}</div>
