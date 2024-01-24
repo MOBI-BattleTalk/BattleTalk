@@ -31,13 +31,13 @@ export type ModalType = 'confirm' | 'alert' | 'delete';
 type ModalProps =
   | {
       content: string; // 내용을 위한 prop
-      modalType: 'confirm'; // confirm 타입만 선택하도록 함
+      modalType: 'confirm' | 'delete'; // confirm 타입만 선택하도록 함
       func: () => void; // confirm 타입일 때는 필수로 func을 지정
     }
   | {
       content: string; // 내용을 위한 prop
-      modalType: 'alert' | 'delete'; // confirm 타입이 아닌 경우
-      func?: () => void; // func는 옵셔널로 설정
+      modalType: 'alert';
+      func?: () => void;
     };
 
 const BasicModal: React.FC<ModalProps> = ({

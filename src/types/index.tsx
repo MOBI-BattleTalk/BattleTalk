@@ -50,3 +50,20 @@ export type CommentType = {
   createdAt: Date;
   option: 1 | 2; //어떤 옵션을 선택했는지
 };
+
+// export type SignUpType = Partial<{ id: string; pw: string }>;
+
+type SignUpType = { id: string; pw: string; nickname: string };
+type SignInType = { id: string; pw: string };
+
+export type FormType = SignUpType | SignInType;
+//
+// = {
+//   id: string;
+//   pw: string;
+// };
+
+// export type LoginType = {};
+// export type StringType = {
+//   [key: string]: string | number;
+// };
