@@ -10,7 +10,7 @@ import AuthApi from '@/apis/auth.ts';
 import { useNavigate } from 'react-router-dom';
 
 type Props = {
-  imgUrl: string;
+  imgUrl: string | null;
   nickname: string;
 };
 
@@ -48,7 +48,20 @@ const ProfileButton: React.FC<Props> = ({ imgUrl, nickname }) => {
           onMouseEnter={onOpenProfile}
           onMouseLeave={onCloseProfile}
         >
-          <ImageBox imgUrl={imgUrl} size="tiny" imageShape="rounded" />
+          {imgUrl ? (
+            <>
+              <ImageBox imgUrl={imgUrl} size="tiny" imageShape="rounded" />
+            </>
+          ) : (
+            <>
+              <ImageBox
+                imgUrl={'../../../public/defaultProfile.png'}
+                size="tiny"
+                imageShape="rounded"
+              />
+            </>
+          )}
+
           <div>{nickname}</div>
           <div className="flex items-center justify-center">
             {isOpen ? <OpenIcon /> : <CloseIcon />}
