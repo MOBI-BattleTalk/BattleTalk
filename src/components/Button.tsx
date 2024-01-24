@@ -1,4 +1,21 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import React, {ButtonHTMLAttributes} from 'react';
+
+/**
+
+ 공용으로 사용 가능한 버튼 컴포넌트입니다.
+ @component
+ *
+ @param {object} props - 버튼의 속성들입니다.
+ @param {'gray' | 'blue' | 'red'} props.bgColor - 버튼의 배경색입니다.
+ @param {'small' | 'medium' | 'large'} props.size - 버튼의 크기입니다.
+ @param {'basic' | 'round'} props.radius - 버튼의 굴곡입니다.
+ @param {React.ReactNode} props.children - 버튼 내부의 내용입니다.
+ @param {React.ButtonHTMLAttributes<HTMLButtonElement>} props...rest -  HTML button 태그 고유 속성입니다.
+ *
+ @example
+ // Button 컴포넌트의 사용 예시
+ <Button bgColor="gray" size="medium" radius="round">로그인</Button>
+ */
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   bgColor: 'gray' | 'blue' | 'red' | 'violet' | 'darkGray'; //버튼의 배경색입니다.
@@ -6,12 +23,6 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   radius: 'basic' | 'round'; //버튼의 굴곡입니다.
   fontSize: 'small' | 'medium' | 'large'; //버튼내 폰트 크기입니다.
 }
-
-/**
- * 공용으로 사용 가능한 버튼 컴포넌트입니다.
- * // Button 컴포넌트의 사용 예시
- * <Button bgColor="gray" size="medium" radius="round">로그인</Button>
- */
 
 const Button: React.FC<ButtonProps> = ({
   children,
@@ -22,7 +33,7 @@ const Button: React.FC<ButtonProps> = ({
   ...rest
 }) => {
   const bgColorCSS = {
-    gray: `bg-commonGrey hover:bg-violet`,
+    gray: `bg-violet disabled:bg-commonGrey`,
     blue: `bg-skyblue`,
     red: 'bg-pink',
     violet: 'bg-violet hover:bg-skyblue',
