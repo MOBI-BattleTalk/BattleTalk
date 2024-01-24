@@ -1,10 +1,10 @@
 import GoBackBtn from '@/assets/GoBack.svg?react';
-import { flexCenter } from '@/styles/common.style';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import FormChangeBtn from './components/FormChangeBtn';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { flexCenter } from '@/styles/common.style.ts';
 
 const LoginPage: React.FC = () => {
   const [isSignFormChange, setIsSignFormChange] = useState<boolean>(true);
@@ -18,7 +18,7 @@ const LoginPage: React.FC = () => {
         </div>
       </div>
       <div className={`${flexCenter}`}>
-        <img src="../../../public/Logo.png" className="w-[600px] m-[64px]" />
+        <img src="../../../public/Logo.png" className="w-[600px]" />
       </div>
       {isSignFormChange ? <SignIn /> : <SignUp />}
       <FormChangeBtn
