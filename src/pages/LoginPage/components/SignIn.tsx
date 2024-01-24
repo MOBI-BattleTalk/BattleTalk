@@ -1,66 +1,56 @@
 import Button from '@/components/Button';
 import FormCard from '@/components/FormCard';
-import Input from '@/components/Input.tsx';
-import {useForm} from 'react-hook-form';
-
-// export type UserInfo = {
-//   id: string;
-//   pw: string;
-//   nickname: string;
-// };
-
-export type InputType = {
-  id: string;
-  pw: string;
-};
+import { FieldValues, useForm } from 'react-hook-form';
+import LoginInput from '@/components/LoginInput.tsx'; // export type UserInfo = {
+import { loginSchema } from '@/const/authSchema.ts';
 
 const SignIn: React.FC = () => {
-  // const inputLabelArr = ['아이디', '비밀번호'];
-
-  // const onSubmit = (data) => console.log(data);
-
   const {
     register,
-    // handleSubmit,
-    formState: { errors },
-  } = useForm<InputType>({
-    mode: 'onChange', //값이 변할때마다 감지
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm<FieldValues>({
+    mode: 'onChange',
     defaultValues: {
       id: '',
       pw: '',
     },
   });
 
-  console.log(errors);
+  const onSubmit = (data: FieldValues) => {
+    return data;
+  };
+
   return (
     <>
       <FormCard label="로그인" size="small">
-        <div
+        <form
+          onSubmit={handleSubmit(onSubmit)}
           className={`flex items-center flex-col pt-[100px] gap-[40px] w-[600px] h-[460px]`}
         >
-          <Input size="large" label="id" register={register} />
-
-          {/*{inputLabelArr.map((el, idx) => (*/}
-          {/*  <LoginInput*/}
-          {/*    key={idx}*/}
-          {/*    bgColor="gray"*/}
-          {/*    size="large"*/}
-          {/*    label={el}*/}
-          {/*    {...register('id', {*/}
-          {/*      required: true,*/}
-          {/*      pattern: {*/}
-          {/*        value: /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/,*/}
-          {/*        message: '유효하지 않은 아이디입니다.',*/}
-          {/*      },*/}
-          {/*    })}*/}
-          {/*  />*/}
-          {/*))}*/}
-          <div className="pt-[40px]">
-            <Button bgColor="gray" size="large" radius="round" fontSize="large">
-              로그인
-            </Button>
-          </div>
-        </div>
+          {loginSchema.map((input) => {
+            return (
+              <LoginInput
+                bgColor="gray"
+                size={'large'}
+                name={input.name}
+                label={input.label}
+                register={register}
+                registerOption={input.registerOption}
+                errors={errors}
+              />
+            );
+          })}
+          <Button
+            bgColor="gray"
+            size="large"
+            radius="round"
+            fontSize="large"
+            disabled={!isValid}
+          >
+            로그인
+          </Button>
+        </form>
       </FormCard>
     </>
   );
