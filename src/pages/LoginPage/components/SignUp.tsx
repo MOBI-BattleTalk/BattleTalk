@@ -4,20 +4,41 @@ import { useForm } from 'react-hook-form';
 import Button from '@/components/Button';
 import { SignUpType } from '@/types';
 import AuthApi from '@/apis/auth.ts';
+import { useEffect } from 'react';
 
 const SignUp: React.FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
+    getValues,
+    setError,
+    clearErrors,
+    watch,
   } = useForm<SignUpType>({
     mode: 'onChange',
     defaultValues: {
       userId: '',
       password: '',
+      passwordCheck: '',
       nickname: '',
     },
   });
+
+  //비밀번호 확인 입력후 비밀번호 수정시 일치하는지 검사
+  useEffect(() => {
+    if (
+      watch('password') !== watch('passwordCheck') &&
+      watch('passwordCheck')
+    ) {
+      setError('passwordCheck', {
+        type: 'password-mismatch',
+        message: '비밀번호가 일치하지 않습니다',
+      });
+    } else {
+      clearErrors('passwordCheck');
+    }
+  }, [watch('password'), watch('passwordCheck')]);
 
   const onSubmitSignUp = async (data: SignUpType) => {
     return await AuthApi.postSignUp(data);
@@ -71,6 +92,35 @@ const SignUp: React.FC = () => {
             </div>
             <div className={'text-red pl-[40px] pt-[10px]'}>
               {errors.password?.message}
+            </div>
+          </div>
+          <div
+            className={`bg-backgroundGrey w-[400px] h-[44px] border-b-[2px] border-commonGrey flex flex-col`}
+          >
+            <div>
+              <label className="font-extrabold text-lg text-darkGrey mt-[8px] mr-[16px] justify-start">
+                비밀번호 확인
+              </label>
+              <input
+                className={`bg-backgroundGrey w-[280px] h-[42px] font-extrabold text-lg outline-none justify-end`}
+                {...register('passwordCheck', {
+                  required: true,
+                  pattern: {
+                    value: /^.{4,9}$/,
+                    message: '4자에서 10자 사이로 적어주세요.',
+                  },
+                  validate: {
+                    check: (val) => {
+                      if (getValues('password') !== val) {
+                        return '비밀번호가 일치하지 않습니다.';
+                      }
+                    },
+                  },
+                })}
+              />
+            </div>
+            <div className={'text-red pl-[40px] pt-[10px]'}>
+              {errors.passwordCheck?.message}
             </div>
           </div>
           <div

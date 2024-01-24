@@ -54,6 +54,7 @@ export type CommentType = {
 export type SignUpType = {
   userId: string;
   password: string;
+  passwordCheck: string;
   nickname: string;
 };
 
