@@ -12,8 +12,8 @@ import useInput from '@/hooks/useInput.tsx';
 import { useRef, useState } from 'react';
 
 const ProfileModal = () => {
-  const oldProfileImg = sessionStorage.getItem('profileUrl');
-  const oldNickname = sessionStorage.getItem('nickName');
+  const oldProfileImg = localStorage.getItem('profileUrl');
+  const oldNickname = localStorage.getItem('nickName');
   const [value, onChangeNickname] = useInput({
     nickname: oldNickname ? oldNickname : '',
   });
