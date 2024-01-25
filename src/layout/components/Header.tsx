@@ -18,11 +18,10 @@ const Header: React.FC<Props> = ({ isLogin }) => {
   let profileUrl;
 
   if (isLogin) {
-    const userInfoStr: string = LocalStorage.getItem('userInfo')!;
-    const userInfo: { nickName: string; profileUrl: string | null } =
-      JSON.parse(userInfoStr);
-    nickName = userInfo['nickName'];
-    profileUrl = userInfo['profileUrl'];
+    const userInfoStr: { nickName: string; profileUrl: string | null } =
+      LocalStorage.getItem('userInfo')!;
+    nickName = userInfoStr['nickName'];
+    profileUrl = userInfoStr['profileUrl'];
   }
 
   const [isHover, setIsHover] = useState(false);

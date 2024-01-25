@@ -1,5 +1,5 @@
 /**
- * sessionStorage에서는 유저 정보를 저장합니다.
+ * localStorage를 사용하는 로직을 담았습니다.
  * */
 
 const LocalStorage = {
@@ -9,10 +9,13 @@ const LocalStorage = {
    * */
   setItem: (key: string, data: string) => {
     return localStorage.setItem(key, data);
-    sessionStorage;
   },
+  /**
+   * @param 키를 넣으면 해당 데이터를 파싱해서 가져옵니다.
+   * */
   getItem: (name: string) => {
-    return localStorage.getItem(name);
+    const data = localStorage.getItem(name)!;
+    return JSON.parse(data);
   },
   removeItem: (name: string) => {
     return localStorage.removeItem(name);
