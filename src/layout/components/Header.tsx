@@ -1,10 +1,11 @@
 import ProfileButton from '@/layout/components/ProfileButton.tsx';
 import LoginButton from '@/layout/components/LoginButton.tsx';
 import { useNavigate } from 'react-router-dom';
-import SessionStorage from '@/utils/sessionStorage.tsx';
+import LocalStorage from '@/utils/localStorage.tsx';
 import HeaderLogo from '../../../public/HeaderLogo.png';
 import HeaderLogoAction from '../../../public/HeaderLogoAction.png';
 import { useState } from 'react';
+import DefaultProfileImg from '../../../public/defaultProfile.png';
 
 interface Props {
   isLogin: boolean;
@@ -13,8 +14,16 @@ interface Props {
 const Header: React.FC<Props> = ({ isLogin }) => {
   const navigate = useNavigate();
 
-  const nickName = SessionStorage.getItem('nickName');
-  const profileUrl = SessionStorage.getItem('profileUrl');
+  let nickName;
+  let profileUrl;
+
+  if (isLogin) {
+    const userInfoStr: string = LocalStorage.getItem('userInfo')!;
+    const userInfo: { nickName: string; profileUrl: string | null } =
+      JSON.parse(userInfoStr);
+    nickName = userInfo['nickName'];
+    profileUrl = userInfo['profileUrl'];
+  }
 
   const [isHover, setIsHover] = useState(false);
 
@@ -37,7 +46,10 @@ const Header: React.FC<Props> = ({ isLogin }) => {
       </div>
       <div className="w-[160px]">
         {isLogin ? (
-          <ProfileButton imgUrl={profileUrl} nickname={nickName!} />
+          <ProfileButton
+            imgUrl={profileUrl || DefaultProfileImg}
+            nickname={nickName!}
+          />
         ) : (
           <LoginButton />
         )}

@@ -2,6 +2,7 @@ import {axiosInstance} from '@/apis/core.ts';
 import cookieStorage from '@/utils/cookieStorage.tsx';
 import {AxiosResponse} from 'axios';
 import {SignInType, SignUpType} from '@/types';
+import LocalStorage from '@/utils/localStorage.tsx';
 
 //로그인시 받아오는 데이터 타입
 type SignInDataType = {
@@ -22,10 +23,14 @@ const AuthApi = {
       //토큰 저장
       cookieStorage.setCookie('accessToken', res.data.token, 60);
       //유저의 정보 저장
-      sessionStorage.setItem('userId', res.data.userId);
-      sessionStorage.setItem('nickName', res.data.info.nickName);
-      res.data.info.profileUrl &&
-        sessionStorage.setItem('profileUrl', res.data.info.profileUrl);
+      LocalStorage.setItem(
+        'userInfo',
+        JSON.stringify({
+          userId: res.data.userId,
+          nickName: res.data.info.nickName,
+          profileUrl: res.data?.info?.profileUrl,
+        }),
+      );
       return res;
     } catch (err) {
       console.log(err);
@@ -52,9 +57,7 @@ const AuthApi = {
       //저장된 토큰 삭제
       cookieStorage.deleteCookie('accessToken');
       //저장된 유저 정보 삭제
-      sessionStorage.removeItem('userId');
-      sessionStorage.removeItem('nickName');
-      sessionStorage.removeItem('profileUrl');
+      LocalStorage.removeItem('userInfo');
       return res.data;
     } catch (err) {
       console.log(err);
