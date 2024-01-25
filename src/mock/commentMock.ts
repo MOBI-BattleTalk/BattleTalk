@@ -1,4 +1,4 @@
-import { CommentType } from '@/types';
+import { CommentType } from '@/types/userType';
 
 export const commentMock: CommentType[] = [
   {

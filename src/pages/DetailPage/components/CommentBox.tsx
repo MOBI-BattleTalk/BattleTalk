@@ -1,4 +1,4 @@
-import { CommentType } from '@/types';
+import { CommentType } from '@/types/postType';
 import { timeHelper } from '@/utils/timeHelper.tsx';
 
 type Props = {

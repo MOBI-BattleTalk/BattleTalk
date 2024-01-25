@@ -3,11 +3,11 @@ import NavigateBox from '@/components/NavigateBox';
 import OpenIcon from '@/assets/OpenArrow.svg?react';
 import CloseIcon from '@/assets/CloseArrowIcon.svg?react';
 import { useState } from 'react';
-import { Category } from '@/types';
+import { Category } from '@/types/postType';
 
 interface CategoryProps {
-  categoryValue: string;
-  setCategoryValue: React.Dispatch<React.SetStateAction<string>>;
+  categoryValue: Category;
+  setCategoryValue: React.Dispatch<React.SetStateAction<Category>>;
 }
 
 const BattleCategory: React.FC<CategoryProps> = ({
@@ -20,7 +20,7 @@ const BattleCategory: React.FC<CategoryProps> = ({
     setIsOpen((prev) => !prev);
   };
 
-  const onChangeCategoryValue = (name: string) => {
+  const onChangeCategoryValue = (name: Category) => {
     setCategoryValue(name);
     setIsOpen((prev) => !prev);
   };
