@@ -9,12 +9,14 @@ interface ImageBoxProps {
   imgUrl: string;
   size: ImageSize;
   imageShape: ImageShape;
+  onClick?: () => void;
 }
 
 const ImageBox: React.FC<ImageBoxProps> = ({
   imgUrl,
   size = 'medium',
   imageShape = 'square',
+  onClick,
 }) => {
   const sizeClasses = {
     tiny: 'w-[45px] h-[45px]',
@@ -31,15 +33,10 @@ const ImageBox: React.FC<ImageBoxProps> = ({
 
   return (
     <div
-      className={`flex justify-center items-center bg-lightGrey ${sizeClasses[size]} ${shapeClasses[imageShape]}`}
-    >
-      <img
-        src={imgUrl}
-        alt={'사진'}
-        className={`${shapeClasses[imageShape]}`}
-      />
-      {/* <Photo className="object-cover cursor-pointer" /> */}
-    </div>
+      className={`flex justify-center items-center bg-cover ${sizeClasses[size]} ${shapeClasses[imageShape]}`}
+      style={{ backgroundImage: `url(${imgUrl})` }}
+      onClick={onClick}
+    ></div>
   );
 };
 

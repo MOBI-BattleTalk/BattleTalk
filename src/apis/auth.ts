@@ -24,7 +24,8 @@ const AuthApi = {
       //유저의 정보 저장
       sessionStorage.setItem('userId', res.data.userId);
       sessionStorage.setItem('nickName', res.data.info.nickName);
-      sessionStorage.setItem('profileUrl', res.data.info.profileUrl);
+      res.data.info.profileUrl &&
+        sessionStorage.setItem('profileUrl', res.data.info.profileUrl);
       return res;
     } catch (err) {
       console.log(err);

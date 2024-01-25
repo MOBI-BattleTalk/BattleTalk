@@ -29,7 +29,7 @@ const Header: React.FC<Props> = ({ isLogin }) => {
       </div>
       <div className="w-[160px]">
         {isLogin ? (
-          <ProfileButton imgUrl={profileUrl || ''} nickname={nickName!} />
+          <ProfileButton imgUrl={profileUrl} nickname={nickName!} />
         ) : (
           <LoginButton />
         )}
