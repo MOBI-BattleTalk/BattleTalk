@@ -46,7 +46,7 @@ const ProfileModal = () => {
         type="file"
         accept="image/*"
         className="hidden"
-        onChange={(e) => onFileChanges(e)}
+        onChange={onFileChanges}
       />
       {/*프로필 이미지 박스*/}
       <div className="pt-[30px]">
