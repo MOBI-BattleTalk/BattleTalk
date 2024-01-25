@@ -8,6 +8,7 @@ import { AlertDialogTrigger } from '@/components/ui/alert-dialog.tsx';
 import ProfileModal from '@/components/ProfileModal.tsx';
 import AuthApi from '@/apis/auth.ts';
 import { useNavigate } from 'react-router-dom';
+import { END_POINTS } from '@/const/EndPoint.ts';
 
 type Props = {
   imgUrl: string | null;
@@ -36,7 +37,7 @@ const ProfileButton: React.FC<Props> = ({ imgUrl, nickname }) => {
     const res = await AuthApi.postSignOut();
     //로그아웃 성공시에 새로고침
     if (res.message === 'success') {
-      navigate('/login');
+      navigate(END_POINTS.LOGIN);
     }
   };
 

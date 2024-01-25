@@ -6,6 +6,7 @@ import HeaderLogo from '../../../public/HeaderLogo.png';
 import HeaderLogoAction from '../../../public/HeaderLogoAction.png';
 import { useState } from 'react';
 import DefaultProfileImg from '../../../public/defaultProfile.png';
+import { END_POINTS } from '@/const/EndPoint.ts';
 
 interface Props {
   isLogin: boolean;
@@ -31,13 +32,13 @@ const Header: React.FC<Props> = ({ isLogin }) => {
       <div
         className="w-[200px] flex justify-center"
         onClick={() => {
-          navigate('/');
+          navigate(END_POINTS.HOME);
         }}
       >
         <img
           onMouseOver={() => setIsHover(true)}
           onMouseOut={() => setIsHover(false)}
-          onClick={() => navigate('/')}
+          onClick={() => navigate(END_POINTS.HOME)}
           src={isHover ? HeaderLogoAction : HeaderLogo}
           className={'scale-150 ml-[80px]'}
           alt="logo"

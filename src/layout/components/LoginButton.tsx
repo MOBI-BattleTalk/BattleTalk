@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router-dom';
+import { END_POINTS } from '@/const/EndPoint.ts';
 
 const LoginButton = () => {
   const navigate = useNavigate();
   return (
     <div
       onClick={() => {
-        navigate('/login');
+        navigate(END_POINTS.LOGIN);
       }}
       className="font-extrabold"
     >

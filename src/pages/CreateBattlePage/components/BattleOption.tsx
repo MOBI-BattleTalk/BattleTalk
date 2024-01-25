@@ -67,7 +67,7 @@ const BattleOption: React.FC<BattleOptionProps> = ({
           {selectedImage.blueOptionImgSrc ? (
             <label htmlFor="blueOptionImg">
               <img
-                className="w-full h-full rounded-xl"
+                className="w-full h-full rounded-xl bg-contain"
                 src={selectedImage.blueOptionImgSrc}
                 alt="Selected Option"
               />
@@ -116,7 +116,7 @@ const BattleOption: React.FC<BattleOptionProps> = ({
           {selectedImage.redOptionImgSrc ? (
             <label htmlFor="redOptionImg">
               <img
-                className="w-full h-full rounded-xl"
+                className="w-full h-full rounded-xl bg-contain"
                 src={selectedImage.redOptionImgSrc}
                 alt="Selected Option"
               />
