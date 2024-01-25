@@ -1,7 +1,7 @@
 import Button from '@/components/Button';
 import FormCard from '@/components/FormCard';
 import Input from '@/components/Input.tsx';
-import {useForm} from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 // export type UserInfo = {
 //   id: string;

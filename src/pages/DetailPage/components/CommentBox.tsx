@@ -1,5 +1,5 @@
 import { timeHelper } from '@/utils/timeHelper.tsx';
-import { CommentType } from '@/types';
+import { CommentType } from '@/types/userType';
 
 type Props = {
   comment: CommentType;

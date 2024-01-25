@@ -1,4 +1,4 @@
-import { CommentType } from '@/types';
+import { CommentType } from '@/types/userType';
 import CommentBox from '@/pages/DetailPage/components/CommentBox.tsx';
 
 interface Props {
