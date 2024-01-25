@@ -15,7 +15,10 @@ const CreateBattlePage: React.FC = () => {
         </div>
       </div>
       <div className={`${flexCenter}`}>
-        <img src="../../../public/Logo.png" className="w-[600px] m-[40px]" />
+        <img
+          src="../../../public/MediumLogo.png"
+          className="w-[600px] mb-[40px]"
+        />
       </div>
       <FormCard size="large" label="배틀 생성">
         <CreateForm />

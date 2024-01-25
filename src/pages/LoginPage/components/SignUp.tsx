@@ -2,9 +2,9 @@ import FormCard from '@/components/FormCard';
 import { flexCenter } from '@/styles/common.style.ts';
 import { useForm } from 'react-hook-form';
 import Button from '@/components/Button';
-import { SignUpType } from '@/types';
 import AuthApi from '@/apis/auth.ts';
 import { useEffect } from 'react';
+import { SignUpType } from '@/types/userType';
 
 const SignUp: React.FC = () => {
   const {

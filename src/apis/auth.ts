@@ -1,8 +1,8 @@
-import {axiosInstance} from '@/apis/core.ts';
+import { axiosInstance } from '@/apis/core.ts';
 import cookieStorage from '@/utils/cookieStorage.tsx';
-import {AxiosResponse} from 'axios';
-import {SignInType, SignUpType} from '@/types';
+import { AxiosResponse } from 'axios';
 import LocalStorage from '@/utils/localStorage.tsx';
+import { SignInType, SignUpType } from '@/types/userType';
 
 //로그인시 받아오는 데이터 타입
 type SignInDataType = {

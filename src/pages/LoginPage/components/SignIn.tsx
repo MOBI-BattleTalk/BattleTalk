@@ -2,8 +2,8 @@ import Button from '@/components/Button';
 import FormCard from '@/components/FormCard';
 import { useForm } from 'react-hook-form';
 import AuthApi from '@/apis/auth.ts';
-import { SignInType } from '@/types';
 import { useNavigate } from 'react-router-dom';
+import { SignInType } from '@/types/userType';
 
 const SignIn: React.FC = () => {
   const navigate = useNavigate();

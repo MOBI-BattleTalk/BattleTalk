@@ -1,3 +1,5 @@
+import { UserInfoType } from './userType';
+
 export enum Category {
   'all' = '전체',
   'it' = 'IT',
@@ -8,17 +10,7 @@ export enum Category {
   'etc' = '기타',
 }
 
-export type UserType = {
-  id: string;
-  pw: string;
-  nickName: string;
-  imgUrl: string;
-};
-
-export type UserInfoType = Omit<UserType, 'id' | 'pw'>;
-
-//백에서 받아오는 타입
-export type PostType = {
+export type GetBattleInfoType = {
   userInfo: UserInfoType; //현재 유저의 정보를 담아서 보냄
   userId: string; //내 유저 id랑 일치하면 삭제 버튼
   id: string; //✅댓글 작성시 parentId로 사용
@@ -32,11 +24,13 @@ export type PostType = {
 };
 
 //프론트에서 보내는 타입
-export type PostPostType = {
+export type PostBattleInfoType = {
   userInfo: UserInfoType; //현재 유저의 정보를 담아서 보냄
   title: string;
   content: string;
-  imgUrl: [File, File];
+  blueOptionTitle: string;
+  redOptionTitle: string;
+  imgUrl: [string, string];
   createAt: Date;
   category: Category;
   voteCount: [number, number]; //생성시 0으로 설정하고 보내기
@@ -50,12 +44,3 @@ export type CommentType = {
   createdAt: Date;
   option: 1 | 2; //어떤 옵션을 선택했는지
 };
-
-export type SignUpType = {
-  userId: string;
-  password: string;
-  passwordCheck: string;
-  nickname: string;
-};
-
-export type SignInType = { userId: string; password: string };
