@@ -31,6 +31,11 @@ const AuthApi = {
           profileUrl: res.data?.info?.profileUrl,
         }),
       );
+      //리프레시 토큰이 없을 때 만 재발급
+      const refreshToken = cookieStorage.getCookie('refreshToken');
+      if (!refreshToken) {
+        await AuthApi.postRefresh();
+      }
       return res;
     } catch (err) {
       console.log(err);
@@ -59,6 +64,14 @@ const AuthApi = {
       //저장된 유저 정보 삭제
       LocalStorage.removeItem('userInfo');
       return res.data;
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  postRefresh: async () => {
+    try {
+      const res = await axiosInstance.get('/user/refresh');
+      cookieStorage.setCookie('refreshToken', res.data.token, 60 * 24 * 14);
     } catch (err) {
       console.log(err);
     }
