@@ -7,6 +7,12 @@ export type UserType = {
 
 export type UserInfoType = Omit<UserType, 'id' | 'pw'>;
 
-type SignUpType = { id: string; pw: string; nickname: string };
-type SignInType = { id: string; pw: string };
+export type SignUpType = {
+  userId: string;
+  password: string;
+  passwordCheck: string;
+  nickname: string;
+};
+
+export type SignInType = { userId: string; password: string };
 export type FormType = SignUpType | SignInType;

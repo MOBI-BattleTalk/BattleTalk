@@ -7,11 +7,11 @@ import BattleOption from './BattleOption';
 import BattleCategory from './Category';
 import useInput from '@/hooks/useInput';
 import useGetInputFile from '@/hooks/useGetInputFile';
-// import Photo from '@/assets/Photo.svg?react';
 
 const CreateForm: React.FC = () => {
   const [categoryValue, setCategoryValue] = useState<Category>(Category.all);
 
+  // 유저가 작성한 주제, 내용, 옵션1제목, 옵션2제목
   const [
     { title, content, blueOptionTitle, redOptionTitle },
     onCreateBattleFormValueChange,
@@ -22,15 +22,15 @@ const CreateForm: React.FC = () => {
     redOptionTitle: '',
   });
 
-  const [{ blueOptionEmg, redOptionEmg }, onOptionEmgChange] = useGetInputFile({
-    blueOptionEmg: '',
-    redOptionEmg: '',
+  // 유저가 올린 옵션1사진, 옵션2사진
+  const [{ blueOptionImg, redOptionImg }, onOptionImgChange] = useGetInputFile({
+    blueOptionEmg: undefined,
+    redOptionImg: undefined,
   });
 
   const onCreateBattle = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    console.log('qdqwdqwd', blueOptionEmg, redOptionEmg);
+    // 이제 여기서 formData로 api 요청 로직 구현 예정입니다.
   };
 
   return (
@@ -47,8 +47,10 @@ const CreateForm: React.FC = () => {
       <BattleOption
         blueOptionTitle={blueOptionTitle}
         redOptionTitle={redOptionTitle}
+        blueOptionImg={blueOptionImg}
+        redOptionImg={redOptionImg}
         onCreateBattleFormValueChange={onCreateBattleFormValueChange}
-        onOptionEmgChange={onOptionEmgChange}
+        onOptionImgChange={onOptionImgChange}
       />
       <div className="mt-[50px]">
         <Button

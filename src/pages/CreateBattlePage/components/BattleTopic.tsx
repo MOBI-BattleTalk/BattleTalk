@@ -3,6 +3,7 @@ import Input from '@/components/Input';
 import Textarea from '@/components/Textarea';
 import { ChangeEvent } from 'react';
 
+// CreateForm.tsx에서 useInput으로 정의한 title, content 값과 onChange 이벤트 함수에 전달 할 함수를 받아옵니다.
 interface BattleTopicProps {
   title: string;
   content: string;
