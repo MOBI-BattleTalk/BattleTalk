@@ -1,7 +1,11 @@
 import ProfileButton from '@/layout/components/ProfileButton.tsx';
 import LoginButton from '@/layout/components/LoginButton.tsx';
 import { useNavigate } from 'react-router-dom';
-import SessionStorage from '@/utils/sessionStorage.tsx';
+import LocalStorage from '@/utils/localStorage.tsx';
+import HeaderLogo from '../../../public/HeaderLogo.png';
+import HeaderLogoAction from '../../../public/HeaderLogoAction.png';
+import { useState } from 'react';
+import DefaultProfileImg from '../../../public/defaultProfile.png';
 
 interface Props {
   isLogin: boolean;
@@ -10,8 +14,17 @@ interface Props {
 const Header: React.FC<Props> = ({ isLogin }) => {
   const navigate = useNavigate();
 
-  const nickName = SessionStorage.getItem('nickName');
-  const profileUrl = SessionStorage.getItem('profileUrl');
+  let nickName;
+  let profileUrl;
+
+  if (isLogin) {
+    const userInfoStr: { nickName: string; profileUrl: string | null } =
+      LocalStorage.getItem('userInfo')!;
+    nickName = userInfoStr['nickName'];
+    profileUrl = userInfoStr['profileUrl'];
+  }
+
+  const [isHover, setIsHover] = useState(false);
 
   return (
     <div className="w-full flex items-center h-[80px] justify-between bg-white bg-opacity-50 fixed top-0">
@@ -22,14 +35,20 @@ const Header: React.FC<Props> = ({ isLogin }) => {
         }}
       >
         <img
-          className="w-[200px] pl-[20px]"
-          src="../../../public/Logo.png"
+          onMouseOver={() => setIsHover(true)}
+          onMouseOut={() => setIsHover(false)}
+          onClick={() => navigate('/')}
+          src={isHover ? HeaderLogoAction : HeaderLogo}
+          className={'scale-150 ml-[80px]'}
           alt="logo"
         />
       </div>
       <div className="w-[160px]">
         {isLogin ? (
-          <ProfileButton imgUrl={profileUrl} nickname={nickName!} />
+          <ProfileButton
+            imgUrl={profileUrl || DefaultProfileImg}
+            nickname={nickName!}
+          />
         ) : (
           <LoginButton />
         )}
