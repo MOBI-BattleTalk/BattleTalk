@@ -8,7 +8,7 @@ const LoginButton = () => {
       onClick={() => {
         navigate(END_POINTS.LOGIN);
       }}
-      className="font-extrabold"
+      className="font-extrabold hover: cursor-pointer"
     >
       로그인
     </div>

@@ -43,7 +43,7 @@ const ProfileButton: React.FC<Props> = ({ imgUrl, nickname }) => {
 
   return (
     <AlertDialog>
-      <div className="relative w-[150px] flex items-center justify-center">
+      <div className="relative w-[150px] flex items-center justify-center hover: cursor-pointer">
         <div
           className="flex gap-[10px] items-center justify-center"
           onMouseEnter={onOpenProfile}

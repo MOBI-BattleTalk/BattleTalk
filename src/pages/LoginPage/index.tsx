@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { flexCenter } from '@/styles/common.style.ts';
 import Logo from '../../../public/MediumLogo.png';
+import { END_POINTS } from '@/const/EndPoint.ts';
 
 const LoginPage: React.FC = () => {
   const [isSignFormChange, setIsSignFormChange] = useState<boolean>(true);
@@ -14,7 +15,7 @@ const LoginPage: React.FC = () => {
   return (
     <>
       <div
-        onClick={() => navigate('/main')}
+        onClick={() => navigate(END_POINTS.HOME)}
         className="absolute top-[20px] left-[20px]"
       >
         <GoBackBtn />

@@ -40,7 +40,7 @@ const Header: React.FC<Props> = ({ isLogin }) => {
           onMouseOut={() => setIsHover(false)}
           onClick={() => navigate(END_POINTS.HOME)}
           src={isHover ? HeaderLogoAction : HeaderLogo}
-          className={'scale-150 ml-[80px]'}
+          className={'scale-150 ml-[80px] hover : cursor-pointer'}
           alt="logo"
         />
       </div>

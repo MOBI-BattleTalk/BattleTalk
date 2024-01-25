@@ -16,6 +16,6 @@ export const END_POINTS = {
   /*프론트 url 주소*/
   CREATE_BATTLE: '/createBattle',
   HOME: '/',
-  DETAIL: '/detail',
+  DETAIL: '/detail/:id',
   LOGIN: '/login',
 } as const;

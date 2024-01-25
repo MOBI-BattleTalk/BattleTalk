@@ -1,5 +1,6 @@
 import { flexCenter } from '@/styles/common.style';
 import { useNavigate } from 'react-router-dom';
+import { END_POINTS } from '@/const/EndPoint.ts';
 
 interface FormChangeBtnProp {
   isSignFormChange: boolean;
@@ -17,7 +18,7 @@ const FormChangeBtn: React.FC<FormChangeBtnProp> = ({
   };
 
   const onMoveMainPage = () => {
-    navigate('/main');
+    navigate(END_POINTS.HOME);
   };
 
   return (

@@ -2,7 +2,7 @@ export type UserType = {
   id: string;
   pw: string;
   nickName: string;
-  imgUrl: File;
+  imgUrl: string;
 };
 
 export type UserInfoType = Omit<UserType, 'id' | 'pw'>;

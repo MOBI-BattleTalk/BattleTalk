@@ -17,7 +17,7 @@ const CommentBox: React.FC<Props> = ({ comment, colorType }) => {
       className={`border-[3px] p-[10px] ${borderColor} rounded-[10px] w-[450px] md:w-[380px] lg:w-[460px]`}
     >
       <div className="flex">
-        <img src={userInfo.imgUrl || ''} alt="프로필" />
+        <img src={''} alt="프로필" />
         <div>{userInfo.nickName}</div>
         <div className="text-commonGrey ml-[10px]">{timeHelper(createdAt)}</div>
       </div>
