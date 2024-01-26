@@ -10,6 +10,7 @@ interface ImageBoxProps {
   size: ImageSize;
   imageShape: ImageShape;
   onClick?: () => void;
+  clickColor: 'blue' | 'red' | 'none';
 }
 
 const ImageBox: React.FC<ImageBoxProps> = ({
@@ -17,6 +18,7 @@ const ImageBox: React.FC<ImageBoxProps> = ({
   size = 'medium',
   imageShape = 'square',
   onClick,
+  clickColor,
 }) => {
   const sizeClasses = {
     tiny: 'w-[45px] h-[45px]',
@@ -31,9 +33,15 @@ const ImageBox: React.FC<ImageBoxProps> = ({
     square: 'rounded-xl',
   };
 
+  const clickCSS = {
+    red: 'border-[6px] border-red',
+    blue: 'border-[6px] border-blue',
+    none: '',
+  };
+
   return (
     <div
-      className={`flex justify-center items-center bg-cover border-[1px] ${sizeClasses[size]} ${shapeClasses[imageShape]}`}
+      className={`flex justify-center items-center bg-cover border-[1px] ${sizeClasses[size]} ${shapeClasses[imageShape]} ${clickCSS[clickColor]}`}
       style={{ backgroundImage: `url(${imgUrl})` }}
       onClick={onClick}
     ></div>

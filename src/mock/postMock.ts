@@ -5,7 +5,7 @@ export const BattleMock: GetBattleInfoType = {
     nickName: '하니좋아하니',
     profileUrl: '',
     userId: '12',
-    title: '아이브 vs 뉴진스',
+    title: '4세대 걸그룹에서 당신의 선택은??',
     content: '아이브 대 뉴진스 당신의 선택은?',
     blueOptionTitle: '아이브',
     redOptionTitle: '뉴진스',
@@ -16,7 +16,10 @@ export const BattleMock: GetBattleInfoType = {
   },
   id: 'asdfasdasd',
   createAt: '2023-01-27',
-  dataImage: [{ url: '' }, { url: '' }],
+  dataImage: [
+    { url: 'https://i.ibb.co/xG6WYQD/image.jpg' },
+    { url: 'https://i.ibb.co/pfBfWyv/image.jpg' },
+  ],
   dataUser: null,
 };
 

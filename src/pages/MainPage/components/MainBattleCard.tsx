@@ -25,7 +25,6 @@ const MainBattleCard: React.FC<Props> = ({ post }) => {
         nickName={post.data.nickName}
         profileUrl={post.data.profileUrl}
         totalCount={post.data.voteTotalCount}
-        category={post.data.category}
         createdAt={post.createAt}
       />
       <div className="text-center text-xl mt-[10px]">
