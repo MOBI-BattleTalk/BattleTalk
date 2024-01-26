@@ -1,20 +1,22 @@
 import ResultBar from '@/components/ResultBar.tsx';
 import ImageBox from '@/components/ImageBox.tsx';
 import BattleHeader from '@/pages/MainPage/components/BattleHeader.tsx';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {}
 
 const MainBattleCard: React.FC<Props> = ({}) => {
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // const onMovePostId = () => {
-  //   navigate(`/detail?id=${postId}`);
-  // };
+  const onMovePostId = () => {
+    //1을 postId로 바꿔야 합니다.
+    navigate(`/detail/1`);
+  };
   return (
     <div
-      // onClick={onMovePostId}
+      onClick={onMovePostId}
       className="md:w-[700px] w-[500px] min-h-[230px] bg-backgroundGrey rounded-[20px] flex
-             flex-col "
+             flex-col hover: cursor-pointer"
     >
       <BattleHeader />
       <div className="text-center text-xl mt-[10px]">

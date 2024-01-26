@@ -1,7 +1,8 @@
 import axios from 'axios';
 import cookieStorage from '@/utils/cookieStorage.tsx';
+import { ACCESS_TOKEN } from '@/const/Keys.ts';
 
-const token = cookieStorage.getCookie('accessToken');
+const token = cookieStorage.getCookie(ACCESS_TOKEN);
 export const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_BACKEND_BASE_URL,
   headers: {

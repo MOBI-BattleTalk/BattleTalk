@@ -1,22 +1,14 @@
 import {
-    AlertDialogAction,
-    AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogTitle,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 import DeleteIcon from '@/assets/XDeleteIcon.svg?react'; /*
- * 사용방법
- * 1. 모달 상수에서 원하는 메세지를 꺼낸다.
- *   const modalProps1 = MODAL.CONFIRM_BATTLE_JOIN;
- *
- * 2. 모달에 props를 전개연산자로 전달합니다.
- *       <BasicModal {...modalProps1} />
- * */
-
 /*
  * 사용방법
  * 1. 모달 상수에서 원하는 메세지를 꺼낸다.

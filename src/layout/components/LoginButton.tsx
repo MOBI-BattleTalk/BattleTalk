@@ -1,13 +1,14 @@
 import { useNavigate } from 'react-router-dom';
+import { END_POINTS } from '@/const/EndPoint.ts';
 
 const LoginButton = () => {
   const navigate = useNavigate();
   return (
     <div
       onClick={() => {
-        navigate('/login');
+        navigate(END_POINTS.LOGIN);
       }}
-      className="font-extrabold"
+      className="font-extrabold hover: cursor-pointer"
     >
       로그인
     </div>

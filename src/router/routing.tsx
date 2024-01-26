@@ -5,33 +5,31 @@ import HeaderLayout from '@/layout/HeaderLayout.tsx';
 import DetailPage from '@/pages/DetailPage';
 import LoginPage from '@/pages/LoginPage';
 import CreateBattlePage from '@/pages/CreateBattlePage';
+import { END_POINTS } from '@/const/EndPoint.ts';
 
 const router = createBrowserRouter([
   {
     element: <HeaderLayout />,
     children: [
       {
-        path: '/main',
+        path: END_POINTS.HOME,
         element: <MainPage />,
       },
       {
-        path: '/',
-        element: <MainPage />,
-      },
-      {
-        path: '/detail',
+        path: END_POINTS.DETAIL,
         element: <DetailPage />,
       },
     ],
   },
   {
-    path: '/login',
+    path: END_POINTS.LOGIN,
     element: <LoginPage />,
   },
   {
-    path: '/createBattle',
+    path: END_POINTS.CREATE_BATTLE,
     element: <CreateBattlePage />,
   },
+  /*나중에 삭제*/
   {
     path: '/modal',
     element: <ModalPage />,

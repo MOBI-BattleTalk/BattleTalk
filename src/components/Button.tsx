@@ -62,7 +62,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       {...rest}
-      className={`${bgColorCSS[bgColor]} ${sizeCSS[size]} ${radiusCSS[radius]} ${fontCSS[fontSize]} text-white hover:bg-violet font-bold`}
+      className={`${bgColorCSS[bgColor]} ${sizeCSS[size]} ${radiusCSS[radius]} ${fontCSS[fontSize]} text-white hover:bg-violet font-bold hover: cursor-pointer`}
     >
       <div className={'flex items-center justify-center gap-[7px]'}>
         {children}

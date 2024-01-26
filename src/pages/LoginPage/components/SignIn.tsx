@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import AuthApi from '@/apis/auth.ts';
 import { useNavigate } from 'react-router-dom';
 import { SignInType } from '@/types/userType';
+import { END_POINTS } from '@/const/EndPoint.ts';
 
 const SignIn: React.FC = () => {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const SignIn: React.FC = () => {
   const onSubmitSignIn = async (data: SignInType) => {
     const res = await AuthApi.postSignIn(data);
     if (res!.status === 200) {
-      navigate('/');
+      navigate(END_POINTS.HOME);
     }
     return res;
   };

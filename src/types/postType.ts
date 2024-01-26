@@ -40,7 +40,7 @@ export type PostBattleInfoType = {
 export type CommentType = {
   userInfo: UserInfoType;
   content: string;
-  parentId: string;
+  parentId: number;
   createdAt: Date;
   option: 1 | 2; //어떤 옵션을 선택했는지
 };

@@ -33,7 +33,7 @@ const ImageBox: React.FC<ImageBoxProps> = ({
 
   return (
     <div
-      className={`flex justify-center items-center bg-cover ${sizeClasses[size]} ${shapeClasses[imageShape]}`}
+      className={`flex justify-center items-center bg-cover border-[1px] ${sizeClasses[size]} ${shapeClasses[imageShape]}`}
       style={{ backgroundImage: `url(${imgUrl})` }}
       onClick={onClick}
     ></div>

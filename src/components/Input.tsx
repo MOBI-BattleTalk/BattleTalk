@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from 'react'; // 컴포넌트의 props 타입을 정의합니다.
+import {InputHTMLAttributes} from 'react'; // 컴포넌트의 props 타입을 정의합니다.
 
 // 컴포넌트의 props 타입을 정의합니다.
 interface InputProps
@@ -26,7 +26,7 @@ const Input: React.FC<InputProps> = ({
     <div className={`${sizeStyles[size]}  border-4 border-lineGrey rounded-xl`}>
       <input
         {...rest}
-        className={`w-full h-full text-lg font-extrabold rounded-xl p-[4px] ${isValueLengthCounter && 'pr-[80px]'}`}
+        className={`pl-[10px] w-full h-full text-lg font-extrabold rounded-xl p-[4px] ${isValueLengthCounter && 'pr-[80px]'}`}
       />
     </div>
   );
