@@ -5,8 +5,14 @@ import Button from '@/components/Button';
 import AuthApi from '@/apis/auth.ts';
 import { useEffect } from 'react';
 import { SignUpType } from '@/types/userType';
+import toastMessage from '@/utils/toastMessage';
+import { Toaster } from 'react-hot-toast';
 
-const SignUp: React.FC = () => {
+interface SignUpProps {
+  setIsSignFormChange: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const SignUp: React.FC<SignUpProps> = ({ setIsSignFormChange }) => {
   const {
     register,
     handleSubmit,
@@ -41,11 +47,20 @@ const SignUp: React.FC = () => {
   }, [watch('password'), watch('passwordCheck')]);
 
   const onSubmitSignUp = async (data: SignUpType) => {
-    return await AuthApi.postSignUp(data);
+    try {
+      await AuthApi.postSignUp(data);
+      toastMessage.signUpSuccessNotify();
+      setTimeout(() => {
+        setIsSignFormChange((prev) => !prev);
+      }, 2000);
+    } catch {
+      toastMessage.signUpErrorNotify();
+    }
   };
 
   return (
     <>
+      <Toaster />
       <FormCard label="회원가입" size="medium">
         <form
           className={`${flexCenter} justify-evenly h-[460px] pt-[40px]`}
@@ -102,7 +117,7 @@ const SignUp: React.FC = () => {
                 비밀번호 확인
               </label>
               <input
-                className={`bg-backgroundGrey w-[280px] h-[42px] font-extrabold text-lg outline-none justify-end`}
+                className={`bg-backgroundGrey w-[200px] h-[42px] font-extrabold text-lg outline-none justify-end`}
                 {...register('passwordCheck', {
                   required: true,
                   pattern: {
