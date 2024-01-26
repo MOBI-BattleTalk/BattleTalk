@@ -26,6 +26,7 @@ const AuthApi = {
     );
     //토큰 저장
     cookieStorage.setCookie(ACCESS_TOKEN, res.data.token, 60);
+
     //유저의 정보 저장
     LocalStorage.setItem(
       STORAGE_KEYS.USER_INFO,
@@ -35,6 +36,7 @@ const AuthApi = {
         profileUrl: res.data?.info?.profileUrl,
       }),
     );
+    //JSON.parse => 객체 형태로 가져오고 => 객체에서 nickName 부분만 수정 => 다시 JSON.stringfy => localStorage에 넣어준다.
     return res;
   },
   //회원가입
@@ -79,7 +81,7 @@ const AuthApi = {
   },
   postUpdateInfo: async (data: nickNameType) => {
     const { nickName } = data;
-    const res = await axiosInstance.post(END_POINTS.UPDATE_INFO, {
+    const res = await axiosInstance.patch(END_POINTS.UPDATE_INFO, {
       nickName,
     });
     return res.data;

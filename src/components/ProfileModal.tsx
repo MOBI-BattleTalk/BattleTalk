@@ -3,7 +3,7 @@ import {
   AlertDialogFooter,
 } from '@/components/ui/alert-dialog';
 import Button from '@/components/Button.tsx';
-import ImageBox from './ImageBox';
+// import ImageBox from './ImageBox';
 import Input from './Input';
 import DeleteIcon from '@/assets/XDeleteIcon.svg?react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
@@ -11,17 +11,22 @@ import CharaterCounter from '@/components/CharaterCounter.tsx';
 import useInput from '@/hooks/useInput.tsx';
 import { FormEvent, useRef, useState } from 'react';
 import AuthApi from '@/apis/auth';
-
+import LocalStorage from '@/utils/localStorage';
+import { STORAGE_KEYS } from '@/const/Keys';
+import defaultImage from '../../public/defaultProfile.png';
+import ImageBox from './ImageBox';
 const ProfileModal = () => {
   // 기존에 저장되어 있는 프로필 이미지와 닉네임을 불러옵니다.
-  const oldProfileImg = localStorage.getItem('profileUrl');
-  const oldNickname = localStorage.getItem('nickName');
-  // oldNickName을 기본값으로 value는 현재값, onChangeNickname은 value를 업데이트 하는 함수를 반환합니다.
+  const userInfoJSON = localStorage.getItem(STORAGE_KEYS.USER_INFO);
+  const userInfo = JSON.parse(userInfoJSON!);
+
   const [value, onChangeNickname] = useInput({
-    nickname: oldNickname ? oldNickname : '',
+    nickName: userInfo ? userInfo.nickName : '',
   });
   // 프로필 이미지를 업로드 하기 위한 state입니다. 기존의 값이 있으면 oldProfileImg=string을, 없으면 ""=null을 반환합니다.
-  const [image, setProfileimage] = useState<string | null>(oldProfileImg);
+  const [profileImage, setProfileImage] = useState<string | null>(
+    userInfo ? userInfo.profileUrl : null,
+  );
   // inputref를 사용해 input요소에 직접 접근합니다.
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -36,7 +41,7 @@ const ProfileModal = () => {
       reader.readAsDataURL(file);
       // 파일 읽기 작업이 완료되면 실행될 콜백 함수입니다.
       reader.onloadend = () => {
-        setProfileimage(reader.result as string);
+        setProfileImage(reader.result as string);
       };
     }
   };
@@ -44,15 +49,15 @@ const ProfileModal = () => {
   const onPostUpdateInfo = async (
     event: FormEvent<HTMLFormElement> & {
       target: {
-        nickname: HTMLInputElement;
+        nickName: HTMLInputElement;
         profile: HTMLInputElement;
       };
     },
   ) => {
     event.preventDefault();
-    console.log(event.target.profile.files![0]);
+    // console.log(event.target.profile.files![0]);
     //formData 생성 (이미지가 들어갈 수 있는 데이터 형식)
-    const formData = new FormData();
+    // const formData = new FormData();
     //formData에 이미지 추가
     // if (event.target.profile.files![0]) {
     //   console.log('이미지 들어감');
@@ -63,12 +68,19 @@ const ProfileModal = () => {
     // }
     // console.log(event.target.profile.files![0]);
     const updateInfoRes = await AuthApi.postUpdateInfo({
-      nickName: event.target.nickname.value,
+      nickName: event.target.nickName.value,
     });
     console.log(updateInfoRes);
 
-    const updateProfile = await AuthApi.patchUpdateProfile(formData);
-    console.log(updateProfile);
+    userInfo.nickName = event.target.nickName.value;
+    //userInfo 를 다시 stirngfy 해서 넣기
+    //닉네임만 수정
+    //JSON.stringfy(data)
+    LocalStorage.setItem(STORAGE_KEYS.USER_INFO, JSON.stringify(userInfo));
+    console.log('바뀐 유저 데이터', JSON.stringify(userInfo));
+
+    // const updateProfile = await AuthApi.patchUpdateProfile(formData);
+    // console.log(updateProfile);
   };
 
   // const onPatchUpdateProfile = async (
@@ -107,17 +119,11 @@ const ProfileModal = () => {
           className="hidden"
           onChange={onFileChanges}
         />
-        {/*프로필 이미지 박스*/}
+        {/* 프로필 이미지 박스*/}
         <div className="pt-[30px]">
           <ImageBox
             onClick={() => inputRef.current?.click()}
-            imgUrl={
-              oldProfileImg
-                ? oldProfileImg
-                : image
-                  ? image
-                  : '../../public/defaultProfile.png'
-            }
+            imgUrl={profileImage ? profileImage : defaultImage}
             size="big"
             imageShape="rounded"
           />
@@ -129,11 +135,11 @@ const ProfileModal = () => {
             <Input
               size="smallMedi"
               isValueLengthCounter={false}
-              value={value.nickname}
-              name="nickname"
+              value={value.nickName}
+              name="nickName"
               onChange={onChangeNickname}
             />
-            <CharaterCounter currentNum={value.nickname.length} maxNum={20} />
+            <CharaterCounter currentNum={value.nickName.length} maxNum={20} />
           </div>
         </div>
         <div className="absolute top-[20px] right-[20px]">
