@@ -9,8 +9,7 @@ import DeleteIcon from '@/assets/XDeleteIcon.svg?react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 import CharaterCounter from '@/components/CharaterCounter.tsx';
 import useInput from '@/hooks/useInput.tsx';
-import { useRef, useState } from 'react';
-import { InfoDataType } from '@/types/userType';
+import { FormEvent, useRef, useState } from 'react';
 import AuthApi from '@/apis/auth';
 
 const ProfileModal = () => {
@@ -22,7 +21,7 @@ const ProfileModal = () => {
     nickname: oldNickname ? oldNickname : '',
   });
   // 프로필 이미지를 업로드 하기 위한 state입니다. 기존의 값이 있으면 oldProfileImg=string을, 없으면 ""=null을 반환합니다.
-  const [image, setProfileImage] = useState<string | null>(oldProfileImg);
+  const [profile, setProfile] = useState<string | null>(oldProfileImg);
   // inputref를 사용해 input요소에 직접 접근합니다.
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -37,14 +36,55 @@ const ProfileModal = () => {
       reader.readAsDataURL(file);
       // 파일 읽기 작업이 완료되면 실행될 콜백 함수입니다.
       reader.onloadend = () => {
-        setProfileImage(reader.result as string);
+        setProfile(reader.result as string);
       };
     }
   };
 
-  const handleSubmit = async (data: InfoDataType) => {
-    return await AuthApi.postUpdateInfo(data);
+  const onPostUpdateInfo = async (
+    event: FormEvent<HTMLFormElement> & {
+      target: {
+        nickname: HTMLInputElement;
+      };
+    },
+  ) => {
+    console.log(event);
+    return await AuthApi.postUpdateInfo({
+      nickName: event.target.nickname.value,
+    });
   };
+
+  const onPatchUpdateProfile = async (
+    event: FormEvent<HTMLFormElement> & {
+      target: {
+        profile: HTMLInputElement;
+      };
+    },
+  ) => {
+    console.log(event);
+    return await AuthApi.patchUpdateProfile({
+      profileUrl: event.target.profile.value,
+    });
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // onPostUpdateInfo(event);
+    // onPatchUpdateProfile(event);
+    await onPostUpdateInfo(
+      event as FormEvent<HTMLFormElement> & {
+        target: { nickname: HTMLInputElement };
+      },
+    );
+    await onPatchUpdateProfile(
+      event as FormEvent<HTMLFormElement> & {
+        target: { profile: HTMLInputElement };
+      },
+    );
+  };
+
+  //   const emailElement = e.currentTarget.elements.namedItem('email') as HTMLInputElement
+  // console.log(emailElement.value)
 
   return (
     <AlertDialogContent size="medium">
@@ -71,8 +111,8 @@ const ProfileModal = () => {
             imgUrl={
               oldProfileImg
                 ? oldProfileImg
-                : image
-                  ? image
+                : profile
+                  ? profile
                   : '../../public/defaultProfile.png'
             }
             size="big"

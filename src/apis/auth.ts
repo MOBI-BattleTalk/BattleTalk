@@ -2,7 +2,12 @@ import { axiosInstance } from '@/apis/core.ts';
 import cookieStorage from '@/utils/cookieStorage.tsx';
 import { AxiosResponse } from 'axios';
 import LocalStorage from '@/utils/localStorage.tsx';
-import { InfoDataType, SignInType, SignUpType } from '@/types/userType';
+import {
+  SignInType,
+  SignUpType,
+  nickNameType,
+  profileUrlType,
+} from '@/types/userType';
 import { ACCESS_TOKEN, REFRESH_TOKEN, STORAGE_KEYS } from '@/const/Keys.ts';
 import { END_POINTS } from '@/const/EndPoint.ts';
 
@@ -82,27 +87,20 @@ const AuthApi = {
       console.log(err);
     }
   },
-  patchUpdateProfile: async (data: InfoDataType) => {
+  patchUpdateProfile: async (data: profileUrlType) => {
     const { profileUrl } = data;
-    try {
-      const res = await axiosInstance.patch(END_POINTS.UPDATE_PROFILE, {
-        data: { profileUrl: profileUrl },
-      });
-      return res.data;
-    } catch (err) {
-      console.log(err);
-    }
+
+    const res = await axiosInstance.patch(END_POINTS.UPDATE_PROFILE, {
+      data: { profileUrl: profileUrl },
+    });
+    return res.data;
   },
-  postUpdateInfo: async (data: InfoDataType) => {
+  postUpdateInfo: async (data: nickNameType) => {
     const { nickName } = data;
-    try {
-      const res = await axiosInstance.post(END_POINTS.UPDATE_INFO, {
-        data: { nickName: nickName },
-      });
-      return res.data;
-    } catch (err) {
-      console.log(err);
-    }
+    const res = await axiosInstance.post(END_POINTS.UPDATE_INFO, {
+      data: { nickName: nickName },
+    });
+    return res.data;
   },
 };
 

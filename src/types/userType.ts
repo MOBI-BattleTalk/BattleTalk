@@ -14,8 +14,11 @@ export type SignUpType = {
   nickname: string;
 };
 
-export type InfoDataType = {
+export type nickNameType = {
   nickName: string;
+};
+
+export type profileUrlType = {
   profileUrl: string;
 };
 
