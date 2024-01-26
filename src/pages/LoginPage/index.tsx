@@ -22,7 +22,11 @@ const LoginPage: React.FC = () => {
           />
         </div>
         <div>
-          {isSignFormChange ? <SignIn /> : <SignUp />}
+          {isSignFormChange ? (
+            <SignIn />
+          ) : (
+            <SignUp setIsSignFormChange={setIsSignFormChange} />
+          )}
           <FormChangeBtn
             isSignFormChange={isSignFormChange}
             setIsSignFormChange={setIsSignFormChange}
