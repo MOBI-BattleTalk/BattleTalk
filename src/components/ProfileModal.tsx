@@ -21,7 +21,7 @@ const ProfileModal = () => {
     nickname: oldNickname ? oldNickname : '',
   });
   // 프로필 이미지를 업로드 하기 위한 state입니다. 기존의 값이 있으면 oldProfileImg=string을, 없으면 ""=null을 반환합니다.
-  const [profile, setProfile] = useState<string | null>(oldProfileImg);
+  const [image, setProfileimage] = useState<string | null>(oldProfileImg);
   // inputref를 사용해 input요소에 직접 접근합니다.
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -36,7 +36,7 @@ const ProfileModal = () => {
       reader.readAsDataURL(file);
       // 파일 읽기 작업이 완료되면 실행될 콜백 함수입니다.
       reader.onloadend = () => {
-        setProfile(reader.result as string);
+        setProfileimage(reader.result as string);
       };
     }
   };
@@ -45,50 +45,52 @@ const ProfileModal = () => {
     event: FormEvent<HTMLFormElement> & {
       target: {
         nickname: HTMLInputElement;
-      };
-    },
-  ) => {
-    console.log(event);
-    return await AuthApi.postUpdateInfo({
-      nickName: event.target.nickname.value,
-    });
-  };
-
-  const onPatchUpdateProfile = async (
-    event: FormEvent<HTMLFormElement> & {
-      target: {
         profile: HTMLInputElement;
       };
     },
   ) => {
-    console.log(event);
-    return await AuthApi.patchUpdateProfile({
-      profileUrl: event.target.profile.value,
+    event.preventDefault();
+    console.log(event.target.profile.files![0]);
+    //formData 생성 (이미지가 들어갈 수 있는 데이터 형식)
+    const formData = new FormData();
+    //formData에 이미지 추가
+    // if (event.target.profile.files![0]) {
+    //   console.log('이미지 들어감');
+    //   formData.append('image', event.target.profile.files![0]);
+    // } else {
+    //   console.log('이미지 안들어감');
+    //   formData.append('image', '');
+    // }
+    // console.log(event.target.profile.files![0]);
+    const updateInfoRes = await AuthApi.postUpdateInfo({
+      nickName: event.target.nickname.value,
     });
+    console.log(updateInfoRes);
+
+    const updateProfile = await AuthApi.patchUpdateProfile(formData);
+    console.log(updateProfile);
   };
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    // onPostUpdateInfo(event);
-    // onPatchUpdateProfile(event);
-    await onPostUpdateInfo(
-      event as FormEvent<HTMLFormElement> & {
-        target: { nickname: HTMLInputElement };
-      },
-    );
-    await onPatchUpdateProfile(
-      event as FormEvent<HTMLFormElement> & {
-        target: { profile: HTMLInputElement };
-      },
-    );
-  };
+  // const onPatchUpdateProfile = async (
+  //   event: FormEvent<HTMLFormElement> & {
+  //     target: {
+  //       profile: HTMLInputElement;
+  //     };
+  //   },
+  // ) => {
+  //   event.preventDefault();
+  //   console.log(event);
+  //   return await AuthApi.patchUpdateProfile({
+  //     profileUrl: event.target.profile.value,
+  //   });
+  // };
 
   //   const emailElement = e.currentTarget.elements.namedItem('email') as HTMLInputElement
   // console.log(emailElement.value)
 
   return (
     <AlertDialogContent size="medium">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={onPostUpdateInfo}>
         <div className="absolute top-[-50px] left-[0px]">
           <div
             className={`bg-violet rounded-t-xl text-white text-xl font-extrabold text-center pt-[8px] ml-[30px] w-[180px] h-[48px]`}
@@ -98,6 +100,7 @@ const ProfileModal = () => {
         </div>
         {/*숨겨진 인풋*/}
         <input
+          name="profile"
           ref={inputRef}
           type="file"
           accept="image/*"
@@ -111,8 +114,8 @@ const ProfileModal = () => {
             imgUrl={
               oldProfileImg
                 ? oldProfileImg
-                : profile
-                  ? profile
+                : image
+                  ? image
                   : '../../public/defaultProfile.png'
             }
             size="big"
