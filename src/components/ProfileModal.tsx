@@ -15,6 +15,7 @@ import LocalStorage from '@/utils/localStorage';
 import { STORAGE_KEYS } from '@/const/Keys';
 import defaultImage from '../../public/defaultProfile.png';
 import ImageBox from './ImageBox';
+import { flexCenter } from '@/styles/common.style';
 const ProfileModal = () => {
   // 기존에 저장되어 있는 프로필 이미지와 닉네임을 불러옵니다.
   const userInfoJSON = localStorage.getItem(STORAGE_KEYS.USER_INFO);
@@ -105,7 +106,7 @@ const ProfileModal = () => {
       <form onSubmit={onPostUpdateInfo}>
         <div className="absolute top-[-50px] left-[0px]">
           <div
-            className={`bg-violet rounded-t-xl text-white text-xl font-extrabold text-center pt-[8px] ml-[30px] w-[180px] h-[48px]`}
+            className={`bg-violet rounded-t-xl text-white text-xl font-extrabold text-center pt-[8px] ml-[30px] w-[180px] h-[48px] `}
           >
             프로필 수정
           </div>
@@ -120,7 +121,7 @@ const ProfileModal = () => {
           onChange={onFileChanges}
         />
         {/* 프로필 이미지 박스*/}
-        <div className="pt-[30px]">
+        <div className={`pb-[30px] ${flexCenter}`}>
           <ImageBox
             onClick={() => inputRef.current?.click()}
             imgUrl={profileImage ? profileImage : defaultImage}
@@ -147,16 +148,18 @@ const ProfileModal = () => {
             <DeleteIcon />
           </AlertDialogPrimitive.Cancel>
         </div>
-        <AlertDialogFooter>
-          <Button
-            bgColor="gray"
-            size={'medium'}
-            fontSize={'medium'}
-            radius={'round'}
-          >
-            프로필 수정
-          </Button>
-        </AlertDialogFooter>
+        <div className={`pt-[30px] `}>
+          <AlertDialogFooter>
+            <Button
+              bgColor="gray"
+              size={'medium'}
+              fontSize={'medium'}
+              radius={'round'}
+            >
+              프로필 수정
+            </Button>
+          </AlertDialogFooter>
+        </div>
       </form>
     </AlertDialogContent>
   );
