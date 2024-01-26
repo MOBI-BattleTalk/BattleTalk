@@ -5,7 +5,7 @@ import Button from '@/components/Button';
 import AuthApi from '@/apis/auth.ts';
 import { useEffect } from 'react';
 import { SignUpType } from '@/types/userType';
-import toastMessage from '@/utils/toast';
+import toastMessage from '@/utils/toastMessage';
 import { Toaster } from 'react-hot-toast';
 
 interface SignUpProps {
