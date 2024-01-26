@@ -47,17 +47,16 @@ const BattleOption: React.FC<BattleOptionProps> = ({
 
   // 유저가 이미지를 업로드하면 blueOptionImg, redOptionImg 값이 바뀌면서 useEffect가 실행합니다.
   useEffect(() => {
-    if (blueOptionImg) {
-      loadImage(blueOptionImg, (src) => {
-        setSelectedImage((prev) => ({ ...prev, blueOptionImgSrc: src }));
-      });
-    }
-    if (redOptionImg) {
-      loadImage(redOptionImg, (src) => {
-        setSelectedImage((prev) => ({ ...prev, redOptionImgSrc: src }));
-      });
-    }
-  }, [blueOptionImg, redOptionImg]);
+    loadImage(blueOptionImg, (src) => {
+      setSelectedImage((prev) => ({ ...prev, blueOptionImgSrc: src }));
+    });
+  }, [blueOptionImg]);
+
+  useEffect(() => {
+    loadImage(redOptionImg, (src) => {
+      setSelectedImage((prev) => ({ ...prev, redOptionImgSrc: src }));
+    });
+  }, [redOptionImg]);
 
   return (
     <>
