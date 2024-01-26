@@ -12,7 +12,7 @@ const CreateBattlePage: React.FC = () => {
         <img
           alt={'로고'}
           src="../../../public/MediumLogo.png"
-          className="w-[600px] mb-[40px]"
+          className="w-[400px] pt-[30px] lg:w-[500px] mb-[40px]"
         />
       </div>
       <FormCard size="large" label="배틀 생성">

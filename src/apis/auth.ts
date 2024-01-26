@@ -37,11 +37,11 @@ const AuthApi = {
       if (res.status === 200) {
         return res;
       }
+      //리프레시 요청 로직
       if (res.status === 401) {
-        return console.log('잘못 입력하셨습니다.');
+        await AuthApi.postRefresh();
       }
       if (res.status === 403) {
-        await AuthApi.postRefresh();
       }
       return res.data;
     } catch (err) {
@@ -81,7 +81,7 @@ const AuthApi = {
   postRefresh: async () => {
     try {
       const res = await axiosInstance.get(END_POINTS.USER_REFRESH);
-      cookieStorage.setCookie('refreshToken', res.data.token, 60 * 24 * 14);
+      console.log(res);
     } catch (err) {
       console.log(err);
     }
