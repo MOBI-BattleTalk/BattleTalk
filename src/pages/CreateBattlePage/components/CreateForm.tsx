@@ -67,7 +67,7 @@ const CreateForm: React.FC = () => {
     navigate(END_POINTS.HOME);
   };
 
-  // 모달 유형
+  // 모달 유형 입니다.
   const successModalProp = MODAL.ALERT_SUCCESS_BATTLE_UPLOAD;
 
   return (
