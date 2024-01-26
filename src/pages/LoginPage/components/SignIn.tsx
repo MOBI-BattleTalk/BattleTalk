@@ -22,10 +22,9 @@ const SignIn: React.FC = () => {
 
   const onSubmitSignIn = async (data: SignInType) => {
     const res = await AuthApi.postSignIn(data);
-    if (res!.status === 200) {
+    if (res) {
       navigate(END_POINTS.HOME);
     }
-    return res;
   };
 
   return (

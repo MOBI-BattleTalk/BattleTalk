@@ -3,7 +3,7 @@ import cookieStorage from '@/utils/cookieStorage.tsx';
 import {AxiosResponse} from 'axios';
 import LocalStorage from '@/utils/localStorage.tsx';
 import {SignInType, SignUpType} from '@/types/userType';
-import {ACCESS_TOKEN, REFRESH_TOKEN, STORAGE_KEYS} from '@/const/Keys.ts';
+import {ACCESS_TOKEN, STORAGE_KEYS} from '@/const/Keys.ts';
 import {END_POINTS} from '@/const/EndPoint.ts';
 
 //로그인시 받아오는 데이터 타입
@@ -34,12 +34,16 @@ const AuthApi = {
           profileUrl: res.data?.info?.profileUrl,
         }),
       );
-      //리프레시 토큰이 없을 때 만 재발급
-      const refreshToken = cookieStorage.getCookie(REFRESH_TOKEN);
-      if (!refreshToken) {
+      if (res.status === 200) {
+        return res;
+      }
+      if (res.status === 401) {
+        return console.log('잘못 입력하셨습니다.');
+      }
+      if (res.status === 403) {
         await AuthApi.postRefresh();
       }
-      return res;
+      return res.data;
     } catch (err) {
       console.log(err);
     }
