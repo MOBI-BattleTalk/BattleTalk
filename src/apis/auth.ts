@@ -35,6 +35,10 @@ const AuthApi = {
         profileUrl: res.data?.info?.profileUrl,
       }),
     );
+    if (res.status === 200) {
+      window.location.href = END_POINTS.HOME;
+    }
+    //로그인 실패시 다른 로직 실행
   },
   //회원가입
   postSignUp: async (data: SignUpType) => {

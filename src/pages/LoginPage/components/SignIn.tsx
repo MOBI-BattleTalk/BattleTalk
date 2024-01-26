@@ -2,12 +2,9 @@ import Button from '@/components/Button';
 import FormCard from '@/components/FormCard';
 import { useForm } from 'react-hook-form';
 import AuthApi from '@/apis/auth.ts';
-import { useNavigate } from 'react-router-dom';
 import { SignInType } from '@/types/userType';
-import { END_POINTS } from '@/const/EndPoint.ts';
 
 const SignIn: React.FC = () => {
-  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -21,10 +18,7 @@ const SignIn: React.FC = () => {
   });
 
   const onSubmitSignIn = async (data: SignInType) => {
-    const res = await AuthApi.postSignIn(data);
-    if (res) {
-      navigate(END_POINTS.HOME);
-    }
+    await AuthApi.postSignIn(data);
   };
 
   return (
