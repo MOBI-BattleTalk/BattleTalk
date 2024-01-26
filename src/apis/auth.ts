@@ -1,10 +1,10 @@
-import {axiosInstance} from '@/apis/core.ts';
+import { axiosInstance } from '@/apis/core.ts';
 import cookieStorage from '@/utils/cookieStorage.tsx';
-import {AxiosResponse} from 'axios';
+import { AxiosResponse } from 'axios';
 import LocalStorage from '@/utils/localStorage.tsx';
-import {SignInType, SignUpType} from '@/types/userType';
-import {ACCESS_TOKEN, REFRESH_TOKEN, STORAGE_KEYS} from '@/const/Keys.ts';
-import {END_POINTS} from '@/const/EndPoint.ts';
+import { InfoDataType, SignInType, SignUpType } from '@/types/userType';
+import { ACCESS_TOKEN, REFRESH_TOKEN, STORAGE_KEYS } from '@/const/Keys.ts';
+import { END_POINTS } from '@/const/EndPoint.ts';
 
 //로그인시 받아오는 데이터 타입
 type SignInDataType = {
@@ -78,6 +78,28 @@ const AuthApi = {
     try {
       const res = await axiosInstance.get(END_POINTS.USER_REFRESH);
       cookieStorage.setCookie('refreshToken', res.data.token, 60 * 24 * 14);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  patchUpdateProfile: async (data: InfoDataType) => {
+    const { profileUrl } = data;
+    try {
+      const res = await axiosInstance.patch(END_POINTS.UPDATE_PROFILE, {
+        data: { profileUrl: profileUrl },
+      });
+      return res.data;
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  postUpdateInfo: async (data: InfoDataType) => {
+    const { nickName } = data;
+    try {
+      const res = await axiosInstance.post(END_POINTS.UPDATE_INFO, {
+        data: { nickName: nickName },
+      });
+      return res.data;
     } catch (err) {
       console.log(err);
     }
