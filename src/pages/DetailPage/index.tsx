@@ -5,7 +5,9 @@ const DetailPage = () => {
   return (
     <div>
       <DetailBattleCard />
-      <CommentList />
+      <div className="mb-[60px]">
+        <CommentList />
+      </div>
     </div>
   );
 };

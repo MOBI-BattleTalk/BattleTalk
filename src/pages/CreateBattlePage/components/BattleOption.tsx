@@ -50,11 +50,13 @@ const BattleOption: React.FC<BattleOptionProps> = ({
     loadImage(blueOptionImg, (src) => {
       setSelectedImage((prev) => ({ ...prev, blueOptionImgSrc: src }));
     });
+  }, [blueOptionImg]);
 
+  useEffect(() => {
     loadImage(redOptionImg, (src) => {
       setSelectedImage((prev) => ({ ...prev, redOptionImgSrc: src }));
     });
-  }, [blueOptionImg, redOptionImg]);
+  }, [redOptionImg]);
 
   return (
     <>

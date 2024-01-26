@@ -26,7 +26,6 @@ const AuthApi = {
     );
     //토큰 저장
     cookieStorage.setCookie(ACCESS_TOKEN, res.data.token, 60);
-
     //유저의 정보 저장
     LocalStorage.setItem(
       STORAGE_KEYS.USER_INFO,
@@ -36,8 +35,10 @@ const AuthApi = {
         profileUrl: res.data?.info?.profileUrl,
       }),
     );
-    //JSON.parse => 객체 형태로 가져오고 => 객체에서 nickName 부분만 수정 => 다시 JSON.stringfy => localStorage에 넣어준다.
-    return res;
+    if (res.status === 200) {
+      window.location.href = END_POINTS.HOME;
+    }
+    //로그인 실패시 다른 로직 실행
   },
   //회원가입
   postSignUp: async (data: SignUpType) => {
@@ -53,25 +54,17 @@ const AuthApi = {
   },
   //로그아웃
   postSignOut: async () => {
-    try {
-      const res = await axiosInstance.post(END_POINTS.USER_SIGN_OUT);
-      //저장된 토큰 삭제
-      cookieStorage.deleteCookie('accessToken');
-      //저장된 유저 정보 삭제
-      LocalStorage.removeItem('userInfo');
-      return res.data;
-    } catch (err) {
-      console.log(err);
-    }
+    const res = await axiosInstance.post(END_POINTS.USER_SIGN_OUT);
+    //저장된 토큰 삭제
+    cookieStorage.deleteCookie(ACCESS_TOKEN);
+    //저장된 유저 정보 삭제
+    LocalStorage.removeItem('userInfo');
+    return res.data;
   },
   //리프레시 토큰 발급
   postRefresh: async () => {
-    try {
-      const res = await axiosInstance.get(END_POINTS.USER_REFRESH);
-      cookieStorage.setCookie('refreshToken', res.data.token, 60 * 24 * 14);
-    } catch (err) {
-      console.log(err);
-    }
+    const res = await axiosInstance.get(END_POINTS.USER_REFRESH);
+    return res.data.token;
   },
   patchUpdateProfile: async (data: FormData) => {
     console.log('profile', data);

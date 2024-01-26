@@ -10,31 +10,41 @@ export enum Category {
   'etc' = '기타',
 }
 
+// 백엔드에서 받는 post 타입
 export type GetBattleInfoType = {
-  userInfo: UserInfoType; //현재 유저의 정보를 담아서 보냄
-  userId: string; //내 유저 id랑 일치하면 삭제 버튼
-  id: string; //✅댓글 작성시 parentId로 사용
-  createAt: Date; //✅
-  title: string;
-  content: string;
-  imgUrl: [string, string]; //첫번째 사진은 blue, 두번째 사진은 red
-  category: Category;
-  voteCount: [number, number];
-  voteTotalCount: number;
+  data: {
+    nickName: string;
+    profileUrl: string;
+    userId: string;
+    title: string;
+    content: string;
+    blueOptionTitle: string;
+    redOptionTitle: string;
+    category: Category;
+    blueVoteCount: string;
+    redVoteCount: string;
+    voteTotalCount: string;
+  };
+  id: string;
+  createAt: string;
+  dataImage: { url: string }[];
+  dataUser: null;
 };
 
-//프론트에서 보내는 타입
+//프론트에서 보내는 post 타입
 export type PostBattleInfoType = {
-  userInfo: UserInfoType; //현재 유저의 정보를 담아서 보냄
+  nickName: string;
+  profileImg: string;
+  userId: string;
   title: string;
   content: string;
   blueOptionTitle: string;
   redOptionTitle: string;
-  imgUrl: [string, string];
-  createAt: Date;
+  images: [File, File];
   category: Category;
-  voteCount: [number, number]; //생성시 0으로 설정하고 보내기
-  voteTotalCount: number; //생성시 0으로 설정하고 보내기
+  blueVoteCount: string;
+  redVoteCount: string;
+  voteTotalCount: string;
 };
 
 export type CommentType = {

@@ -12,11 +12,21 @@ const LoginPage: React.FC = () => {
     <div>
       <GoBackButton />
       <div
-        className={`flex items-center justify-center mt-[-40px] w-[100vw] h-[100vh]`}
+        className={`w-[100vw] h-[100vh] lg:flex items-center justify-center mt-[-40px] `}
       >
-        <img alt="로고" src={Logo} className="w-[700px] ml-[-100px] scale-75" />
+        <div className="flex justify-center items-center">
+          <img
+            alt="로고"
+            src={Logo}
+            className="w-[300px] pt-[30px] lg:w-[700px] lg:ml-[-100px] scale-75"
+          />
+        </div>
         <div>
-          {isSignFormChange ? <SignIn /> : <SignUp />}
+          {isSignFormChange ? (
+            <SignIn />
+          ) : (
+            <SignUp setIsSignFormChange={setIsSignFormChange} />
+          )}
           <FormChangeBtn
             isSignFormChange={isSignFormChange}
             setIsSignFormChange={setIsSignFormChange}

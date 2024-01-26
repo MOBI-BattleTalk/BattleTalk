@@ -2,12 +2,15 @@ import Button from '@/components/Button';
 import FormCard from '@/components/FormCard';
 import { useForm } from 'react-hook-form';
 import AuthApi from '@/apis/auth.ts';
-import { useNavigate } from 'react-router-dom';
 import { SignInType } from '@/types/userType';
 import { END_POINTS } from '@/const/EndPoint.ts';
+import { Toaster } from 'react-hot-toast';
+import toastMessage from '@/utils/toastMessage';
+import { useNavigate } from 'react-router-dom';
 
 const SignIn: React.FC = () => {
   const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -21,15 +24,21 @@ const SignIn: React.FC = () => {
   });
 
   const onSubmitSignIn = async (data: SignInType) => {
-    const res = await AuthApi.postSignIn(data);
-    if (res!.status === 200) {
-      navigate(END_POINTS.HOME);
+    try {
+      const res = await AuthApi.postSignIn(data);
+      toastMessage.signInSuccessNotify();
+      setTimeout(() => {
+        navigate(END_POINTS.HOME);
+      }, 2000);
+      return res;
+    } catch {
+      toastMessage.signInErrorNotify();
     }
-    return res;
   };
 
   return (
     <>
+      <Toaster />
       <FormCard label="로그인" size="small">
         <form
           onSubmit={handleSubmit(onSubmitSignIn)}
