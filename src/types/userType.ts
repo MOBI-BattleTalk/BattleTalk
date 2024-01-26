@@ -14,5 +14,13 @@ export type SignUpType = {
   nickname: string;
 };
 
+export type nickNameType = {
+  nickName: string;
+};
+
+export type profileUrlType = {
+  profileUrl: string;
+};
+
 export type SignInType = { userId: string; password: string };
 export type FormType = SignUpType | SignInType;
