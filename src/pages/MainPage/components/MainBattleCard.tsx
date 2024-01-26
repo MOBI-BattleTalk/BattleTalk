@@ -1,11 +1,13 @@
 import ResultBar from '@/components/ResultBar.tsx';
 import ImageBox from '@/components/ImageBox.tsx';
 import BattleHeader from '@/pages/MainPage/components/BattleHeader.tsx';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
-interface Props {}
+// interface Props {
+//   post: GetBattleInfoType;
+// }
 
-const MainBattleCard: React.FC<Props> = ({}) => {
+const MainBattleCard = () => {
   const navigate = useNavigate();
 
   const onMovePostId = () => {

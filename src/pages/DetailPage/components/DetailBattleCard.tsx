@@ -6,6 +6,7 @@ import {
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog.tsx';
 import BattleEnterModal from '@/components/BattleEnterModal.tsx';
+import { flexCenter } from '@/styles/common.style.ts';
 
 const DetailBattleCard = () => {
   return (
@@ -37,9 +38,13 @@ const DetailBattleCard = () => {
               <span className="pt-[10px]">신라호텔 최고급 해물 짬뽕</span>
             </div>
           </div>
-
-          <div className="flex gap-[10px] align-center justify-center pt-[30px]">
-            <ResultBar redCount={13} blueCount={26} type="large" />
+          <div className={`${flexCenter}`}>
+            <div className={'hidden w-[500px] pt-[20px] lg:block'}>
+              <ResultBar redCount={13} blueCount={26} type="large" />
+            </div>
+          </div>
+          <div className="flex gap-[10px] align-center justify-center pt-[30px] lg:hidden">
+            <ResultBar redCount={13} blueCount={26} type="medium" />
           </div>
           <div className="text-center text-textGrey pt-[20px]">
             23명이 배틀 참여중!

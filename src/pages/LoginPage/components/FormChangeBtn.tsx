@@ -22,7 +22,7 @@ const FormChangeBtn: React.FC<FormChangeBtnProp> = ({
   };
 
   return (
-    <div className={`${flexCenter} pt-[30px]`}>
+    <div className={`${flexCenter} pt-[30px] pb-[30px]`}>
       <div className="flex gap-2 text-darkGrey text-lg">
         {isSignFormChange ? (
           <button onClick={onSignFormChange}>회원가입</button>
