@@ -1,5 +1,3 @@
-import { UserInfoType } from './userType';
-
 export enum Category {
   'all' = '전체',
   'it' = 'IT',
@@ -47,10 +45,21 @@ export type PostBattleInfoType = {
   voteTotalCount: string;
 };
 
-export type CommentType = {
-  userInfo: UserInfoType;
+export type PostCommentType = {
+  nickName: string;
+  profileUrl: string;
+  userId: string;
   content: string;
-  parentId: number;
+  parentId: string;
+  option: 1 | 2; //어떤 옵션을 선택했는지
+};
+
+export type GetCommentType = {
+  nickName: string;
+  profileUrl: string;
+  userId: string;
+  content: string;
+  parentId: string;
   createdAt: Date;
   option: 1 | 2; //어떤 옵션을 선택했는지
 };

@@ -27,7 +27,7 @@ const MainBattleCard: React.FC<Props> = ({ post }) => {
         totalCount={post.data.voteTotalCount}
         createdAt={post.createAt}
       />
-      <div className="text-center text-xl mt-[10px]">
+      <div className="text-center text-lg mt-[10px]">
         {post.data.title} <br />
         <div className="flex gap-[10px] justify-center text-[18px]">
           <span className="text-deepBlue">{post.data.blueOptionTitle}</span>
@@ -44,6 +44,7 @@ const MainBattleCard: React.FC<Props> = ({ post }) => {
       <div className="flex gap-[10px] align-center justify-center">
         <div className="flex align-center flex-col text-center">
           <ImageBox
+            clickColor={'none'}
             imgUrl={post.dataImage[0].url}
             size={'smallest'}
             imageShape={'square'}
@@ -59,6 +60,7 @@ const MainBattleCard: React.FC<Props> = ({ post }) => {
         </div>
         <div className="flex align-center flex-col text-center pb-[20px]">
           <ImageBox
+            clickColor={'none'}
             imgUrl={post.dataImage[1].url}
             size={'smallest'}
             imageShape={'square'}

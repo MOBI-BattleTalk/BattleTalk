@@ -7,8 +7,11 @@ import DeleteIcon from '@/assets/XDeleteIcon.svg?react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 import Textarea from '@/components/Textarea.tsx';
 import Button from '@/components/Button.tsx';
-import { GetBattleInfoType } from '@/types/postType.ts';
-import { useEffect, useState } from 'react';
+import { GetBattleInfoType, PostCommentType } from '@/types/postType.ts';
+import { useState } from 'react';
+import useInput from '@/hooks/useInput.tsx';
+import BattleApi from '@/apis/post.ts';
+import { STORAGE_KEYS } from '@/const/Keys.ts';
 
 interface Props {
   post: GetBattleInfoType;
@@ -29,13 +32,9 @@ const BattleEnterModal: React.FC<Props> = ({ post }) => {
   // });
   const [option, setOption] = useState<[boolean, boolean]>([false, false]);
 
-  useEffect(() => {
-    console.log(option);
-  }, [option]);
-
-  // const [values, onChange] = useInput({
-  //   content: '',
-  // });
+  const [values, onChange] = useInput({
+    content: '',
+  });
 
   const onClickOption = (optionIndex: number) => {
     setOption(() => {
@@ -45,8 +44,23 @@ const BattleEnterModal: React.FC<Props> = ({ post }) => {
     });
   };
 
+  const onSubmitComment = async () => {
+    const selectedOption = option[0] ? 1 : 2;
+    const userInfoJSON = localStorage.getItem(STORAGE_KEYS.USER_INFO)!;
+    const userInfo = JSON.parse(userInfoJSON);
+    const data: PostCommentType = {
+      nickName: userInfo.nickName,
+      userId: userInfo.userId,
+      profileUrl: userInfo.profileUrl,
+      option: selectedOption,
+      content: values.content,
+      parentId: post.id,
+    };
+    const res = await BattleApi.postComment(data);
+  };
+
   return (
-    <>
+    <form>
       <AlertDialogContent size="large">
         <div className="absolute top-[-50px] left-[0px]">
           <div
@@ -80,7 +94,12 @@ const BattleEnterModal: React.FC<Props> = ({ post }) => {
           <span className="w-[50px] pt-[5px] font-bold text-textGrey">
             내용
           </span>
-          <Textarea size={'box'} name={'content'} onChange={onChange} />
+          <Textarea
+            size={'box'}
+            name={'content'}
+            onChange={onChange}
+            value={values.content}
+          />
         </div>
         <div className="absolute top-[20px] right-[20px]">
           <AlertDialogPrimitive.Cancel>
@@ -88,12 +107,18 @@ const BattleEnterModal: React.FC<Props> = ({ post }) => {
           </AlertDialogPrimitive.Cancel>
         </div>
         <AlertDialogFooter>
-          <Button radius="round" fontSize="large" bgColor="gray" size={'large'}>
+          <Button
+            radius="round"
+            fontSize="large"
+            bgColor="gray"
+            size={'large'}
+            onClick={onSubmitComment}
+          >
             배틀 참여하기
           </Button>
         </AlertDialogFooter>
       </AlertDialogContent>
-    </>
+    </form>
   );
 };
 

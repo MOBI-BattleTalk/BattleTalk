@@ -15,4 +15,9 @@ export type SignUpType = {
 };
 
 export type SignInType = { userId: string; password: string };
-export type FormType = SignUpType | SignInType;
+
+export type StorageUserType = {
+  nickName: string;
+  profileUrl: string;
+  userId: string;
+};

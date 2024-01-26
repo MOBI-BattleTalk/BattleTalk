@@ -22,6 +22,7 @@ const DetailBattleCard: React.FC<Props> = ({ post }) => {
           <div className="flex items-center justify-start gap-[10px] pl-[20px]">
             {/*유저 프로필 이미지*/}
             <ImageBox
+              clickColor={'none'}
               imgUrl={post.data.profileUrl}
               size={'tiny'}
               imageShape={'rounded'}
@@ -47,6 +48,7 @@ const DetailBattleCard: React.FC<Props> = ({ post }) => {
             {/*배틀 첫번째 파란 옵션 이미지*/}
             <div className="flex flex-col text-center text-deepRed">
               <ImageBox
+                clickColor={'none'}
                 imgUrl={post.dataImage[0].url || ''}
                 size={'large'}
                 imageShape={'square'}
@@ -58,6 +60,7 @@ const DetailBattleCard: React.FC<Props> = ({ post }) => {
             {/*배틀 두번째 빨간 옵션 이미지*/}
             <div className="flex flex-col text-center text-deepBlue">
               <ImageBox
+                clickColor={'none'}
                 imgUrl={post.dataImage[1].url || ''}
                 size={'large'}
                 imageShape={'square'}

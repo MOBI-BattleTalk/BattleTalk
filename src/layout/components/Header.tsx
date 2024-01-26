@@ -20,7 +20,7 @@ const Header: React.FC<Props> = ({ isLogin }) => {
 
   if (isLogin) {
     const userInfoStr: { nickName: string; profileUrl: string | null } =
-      LocalStorage.getItem('userInfo')!;
+      LocalStorage.getItem('userInfo') || '';
     nickName = userInfoStr['nickName'];
     profileUrl = userInfoStr['profileUrl'];
   }
