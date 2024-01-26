@@ -7,8 +7,16 @@ import BattleOption from './BattleOption';
 import BattleCategory from './Category';
 import useInput from '@/hooks/useInput';
 import useGetInputFile from '@/hooks/useGetInputFile';
+import LocalStorage from '@/utils/localStorage';
+import BattleApi from '@/apis/post';
+import { AlertDialogTrigger } from '@radix-ui/react-alert-dialog';
+import { MODAL } from '@/const/ModalMessage';
+import BasicModal from '@/components/BasicModal';
+import { useNavigate } from 'react-router-dom';
+import { END_POINTS } from '@/const/EndPoint';
 
 const CreateForm: React.FC = () => {
+  const navigate = useNavigate();
   const [categoryValue, setCategoryValue] = useState<Category>(Category.all);
 
   // 유저가 작성한 주제, 내용, 옵션1제목, 옵션2제목
@@ -28,10 +36,39 @@ const CreateForm: React.FC = () => {
     redOptionImg: undefined,
   });
 
-  const onCreateBattle = (e: React.FormEvent<HTMLFormElement>) => {
+  // 배틀 생성 api 요청 함수
+  const onCreateBattle = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // 이제 여기서 formData로 api 요청 로직 구현 예정입니다.
+
+    const { nickName, userId, profileUrl } = LocalStorage.getItem('userInfo');
+    const fileArr = [blueOptionImg, redOptionImg];
+    const formData = new FormData();
+
+    formData.append('nickName', nickName);
+    formData.append('userId', userId);
+    if (profileUrl) {
+      formData.append('profileUrl', profileUrl);
+    } else {
+      formData.append('profileUrl', '');
+    }
+    formData.append('title', title);
+    formData.append('content', content);
+    formData.append('blueOptionTitle', blueOptionTitle);
+    formData.append('redOptionTitle', redOptionTitle);
+    for (const file of fileArr) {
+      if (!file) return;
+      formData.append('images', file);
+    }
+    formData.append('category', categoryValue);
+    formData.append('blueVoteCount', '0');
+    formData.append('redVoteCount', '0');
+    formData.append('voteTotalCount', '0');
+    await BattleApi.postCreateBattle(formData);
+    navigate(END_POINTS.HOME);
   };
+
+  // 모달 유형
+  const successModalProp = MODAL.ALERT_SUCCESS_BATTLE_UPLOAD;
 
   return (
     <form className={`${flexCenter} m-[40px]`} onSubmit={onCreateBattle}>
@@ -53,15 +90,26 @@ const CreateForm: React.FC = () => {
         onOptionImgChange={onOptionImgChange}
       />
       <div className="mt-[50px]">
-        <Button
-          bgColor="gray"
-          size="large"
-          fontSize="large"
-          radius="round"
-          type="submit"
-        >
-          배틀 업로드
-        </Button>
+        <BasicModal {...successModalProp} func={() => {}} />
+        <AlertDialogTrigger asChild>
+          <Button
+            bgColor="gray"
+            size="large"
+            fontSize="large"
+            radius="round"
+            type="submit"
+            disabled={
+              !title ||
+              !content ||
+              !blueOptionTitle ||
+              !redOptionTitle ||
+              !blueOptionImg ||
+              !redOptionImg
+            }
+          >
+            배틀 업로드
+          </Button>
+        </AlertDialogTrigger>
       </div>
     </form>
   );
