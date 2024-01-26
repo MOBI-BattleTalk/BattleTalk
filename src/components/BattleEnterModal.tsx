@@ -17,25 +17,19 @@ interface Props {
   post: GetBattleInfoType;
 }
 
-// export type CommentType = {
-//   userInfo: UserInfoType;
-//   content: string;
-//   parentId: number;
-//   createdAt: Date;
-//   option: 1 | 2; //어떤 옵션을 선택했는지
-// };
-
 const BattleEnterModal: React.FC<Props> = ({ post }) => {
-  // const [values, onChange, setValues] = useInput({
-  //   content: '',
-  //   option: '',
-  // });
+  /**
+   * @description 어떤  옵션을 선택할 건지
+   * index [0] : 파란 옵션, 데이터를 보낼떄는 1로 보냅니다.
+   * index [1] : 빨간 옵션, 데이터를 보낼떄는 2로 보냅니다.
+   * */
   const [option, setOption] = useState<[boolean, boolean]>([false, false]);
 
   const [values, onChange] = useInput({
     content: '',
   });
 
+  //옵션을 변경하는 함수
   const onClickOption = (optionIndex: number) => {
     setOption(() => {
       const newOption = [false, false];
@@ -44,6 +38,7 @@ const BattleEnterModal: React.FC<Props> = ({ post }) => {
     });
   };
 
+  //댓글 제출 함수
   const onSubmitComment = async () => {
     const selectedOption = option[0] ? 1 : 2;
     const userInfoJSON = localStorage.getItem(STORAGE_KEYS.USER_INFO)!;
@@ -57,6 +52,7 @@ const BattleEnterModal: React.FC<Props> = ({ post }) => {
       parentId: post.id,
     };
     const res = await BattleApi.postComment(data);
+    console.log(res);
   };
 
   return (
