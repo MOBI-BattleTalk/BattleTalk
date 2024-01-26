@@ -16,7 +16,11 @@ const LoginPage: React.FC = () => {
       >
         <img alt="로고" src={Logo} className="w-[700px] ml-[-100px] scale-75" />
         <div>
-          {isSignFormChange ? <SignIn /> : <SignUp />}
+          {isSignFormChange ? (
+            <SignIn />
+          ) : (
+            <SignUp setIsSignFormChange={setIsSignFormChange} />
+          )}
           <FormChangeBtn
             isSignFormChange={isSignFormChange}
             setIsSignFormChange={setIsSignFormChange}
