@@ -1,8 +1,8 @@
 import CommentBox from '@/pages/DetailPage/components/CommentBox.tsx';
-import { CommentType } from '@/types/postType';
+import { GetCommentType } from '@/types/postType';
 
 interface Props {
-  commentList: CommentType[];
+  commentList: GetCommentType[];
   colorType: 'red' | 'blue';
 }
 

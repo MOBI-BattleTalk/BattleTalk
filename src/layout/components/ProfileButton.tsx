@@ -51,7 +51,12 @@ const ProfileButton: React.FC<Props> = ({ imgUrl, nickname }) => {
         >
           {imgUrl ? (
             <>
-              <ImageBox imgUrl={imgUrl} size="tiny" imageShape="rounded" />
+              <ImageBox
+                imgUrl={imgUrl}
+                size="tiny"
+                imageShape="rounded"
+                clickColor="none"
+              />
             </>
           ) : (
             <>
@@ -59,6 +64,7 @@ const ProfileButton: React.FC<Props> = ({ imgUrl, nickname }) => {
                 imgUrl={'../../../public/defaultProfile.png'}
                 size="tiny"
                 imageShape="rounded"
+                clickColor="none"
               />
             </>
           )}
