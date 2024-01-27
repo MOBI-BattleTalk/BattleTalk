@@ -16,11 +16,38 @@ import { STORAGE_KEYS } from '@/const/Keys';
 import defaultImage from '../../public/defaultProfile.png';
 import ImageBox from './ImageBox';
 import { flexCenter } from '@/styles/common.style';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { axiosInstance } from '@/apis/core';
+import { useDispatch } from 'react-redux';
 
 const ProfileModal = () => {
   // 기존에 저장되어 있는 프로필 이미지와 닉네임을 불러옵니다.
   const userInfoJSON = localStorage.getItem(STORAGE_KEYS.USER_INFO);
   const userInfo = JSON.parse(userInfoJSON!);
+  const dispatch = useDispatch();
+  // dispatch 액션
+  const UPDATE_NICKNAME = 'refresh/UPDATE_NICKNAME';
+  // 액션함수 생성
+  const refreshnickName = (updatenickName: string) => ({
+    type: UPDATE_NICKNAME,
+    updatenickName,
+  });
+  //초기값
+  const initialState = {
+    nickName: '',
+  };
+  // 리덕스 스토어값 변경
+  const NickName = (state = initialState, action) => {
+    switch (action.type) {
+      case UPDATE_NICKNAME:
+        return {
+          ...state,
+          nickName: action.updatenickName,
+        };
+      default:
+        return state;
+    }
+  };
 
   const [value, onChangeNickname] = useInput({
     nickName: userInfo ? userInfo.nickName : '',
@@ -102,9 +129,48 @@ const ProfileModal = () => {
   //   const emailElement = e.currentTarget.elements.namedItem('email') as HTMLInputElement
   // console.log(emailElement.value)
 
+  // 바뀐 유저 데이터 실시간으로 변경하기
+  // 필요한거 react-query,invalidateQueries,useQuery,useMutation
+
+  // useQueryClient는 쿼리를 캐시하고 쿼리를 업데이트하는 데 사용할 수 있는 여러 가지 메서드를 제공
+  const qureyClient = useQueryClient();
+  // useMutation은 쿼리를 업데이트하는 데 사용할 수 있는 여러 가지 메서드를 제공
+  const { mutateAsync } = useMutation({
+    // mutationFn = 실제 서버함수를 호출하는 함수
+    mutationFn: axiosInstance,
+    // 일단 데이터를 수정하고 나서 서버에서 데이터를 받아오는 함수
+    onMutate: () => {
+      // dispatch란 액션을 발생시키는 함수
+      dispatch(refreshnickName(value.nickName));
+      console.log('mutate');
+      qureyClient.setQueryData(['????', null], (nickName: { data: string }) => [
+        ...nickName.data,
+        nickName,
+      ]);
+    },
+    onError: (error) => {
+      console.log(error);
+    },
+  });
+  // usestate로 이름 변경 -> 변경 상태 -> onMutate 안에 dispatch로 변경 -> 실패했을시 이전 이름값을 저장해뒀다가 다시 복구.
+  // form에 넣어야 되는 데이터
+  // async (e) => {
+  //   e.preventDefault();
+  //   await mutateAsync({
+  //     title: "test",
+  //     content: "test",
+  //   });
+  // }
+  //   //   qureyClient.invalidateQueries(["todo", null]);
   return (
     <AlertDialogContent size="medium">
-      <form onSubmit={onPostUpdateInfo}>
+      <form
+        onSubmit={async (onPostUpdateInfo) => {
+          onPostUpdateInfo.preventDefault();
+          await mutateAsync('nickName');
+          //   qureyClient.invalidateQueries(["todo", null]);
+        }}
+      >
         <div className="absolute top-[-50px] left-[0px]">
           <div
             className={`bg-violet rounded-t-xl text-white text-xl font-extrabold text-center pt-[8px] ml-[30px] w-[180px] h-[48px] `}
