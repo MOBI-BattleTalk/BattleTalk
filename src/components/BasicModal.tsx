@@ -61,7 +61,9 @@ const BasicModal: React.FC<ModalProps> = ({
             <AlertDialogAction onClick={func}>삭제</AlertDialogAction>
           </div>
         )}
-        {modalType === 'alert' && <AlertDialogAction>확인</AlertDialogAction>}
+        {modalType === 'alert' && (
+          <AlertDialogAction onClick={func}>확인</AlertDialogAction>
+        )}
       </AlertDialogFooter>
     </AlertDialogContent>
   );

@@ -2,17 +2,40 @@ import ResultBar from '@/components/ResultBar.tsx';
 import ImageBox from '@/components/ImageBox.tsx';
 import BattleHeader from '@/pages/MainPage/components/BattleHeader.tsx';
 import { useNavigate } from 'react-router-dom';
-import { GetBattleInfoType } from '@/types/postType.ts';
 
 interface Props {
-  post: GetBattleInfoType;
+  createAt: string;
+  nickName: string;
+  profileUrl: string;
+  title: string;
+  blueOptionTitle: string;
+  redOptionTitle: string;
+  blueVoteCount: string;
+  redVoteCount: string;
+  voteTotalCount: string;
+  blueOptionImg: string;
+  redOptionImg: string;
+  postId: string;
 }
 
-const MainBattleCard: React.FC<Props> = ({ post }) => {
+const MainBattleCard: React.FC<Props> = ({
+  createAt,
+  nickName,
+  profileUrl,
+  title,
+  blueOptionTitle,
+  redOptionTitle,
+  blueVoteCount,
+  redVoteCount,
+  voteTotalCount,
+  blueOptionImg,
+  redOptionImg,
+  postId,
+}) => {
   const navigate = useNavigate();
 
   const onMovePostId = () => {
-    navigate(`/detail/${post.id}`);
+    navigate(`/detail/${postId}`);
   };
 
   return (
@@ -22,46 +45,58 @@ const MainBattleCard: React.FC<Props> = ({ post }) => {
              flex-col hover: cursor-pointer"
     >
       <BattleHeader
-        nickName={post.data.nickName}
-        profileUrl={post.data.profileUrl}
-        totalCount={post.data.voteTotalCount}
-        createdAt={post.createAt}
+        nickName={nickName}
+        profileUrl={profileUrl}
+        totalCount={voteTotalCount}
+        createdAt={createAt}
       />
       <div className="text-center text-lg mt-[10px]">
-        {post.data.title} <br />
+        {title} <br />
         <div className="flex gap-[10px] justify-center text-[18px]">
-          <span className="text-deepBlue">{post.data.blueOptionTitle}</span>
+          <span className="text-blue">{blueOptionTitle}</span>
           <span className="">vs</span>
-          <span className="text-deepRed"> {post.data.redOptionTitle}</span>
+          <span className="text-red"> {redOptionTitle}</span>
         </div>
       </div>
       {/*사이즈에 따라 Result 바가 다릅니다.*/}
       <div className="flex items-center justify-center">
         <div className="block md:hidden p-[20px]">
-          <ResultBar redCount={13} blueCount={26} type="small" />
+          <ResultBar
+            redCount={Number(redVoteCount)}
+            blueCount={Number(blueVoteCount)}
+            type="small"
+          />
         </div>
       </div>
       <div className="flex gap-[10px] align-center justify-center">
         <div className="flex align-center flex-col text-center">
           <ImageBox
             clickColor={'none'}
-            imgUrl={post.dataImage[0].url}
+            imgUrl={blueOptionImg}
             size={'smallest'}
             imageShape={'square'}
           />
         </div>
         {/*사이즈에 따라 Result 바가 다릅니다.*/}
         <div className="align-center flex-col text-center hidden xl:block mt-[40px]">
-          <ResultBar redCount={13} blueCount={26} type="medium" />
+          <ResultBar
+            redCount={Number(redVoteCount)}
+            blueCount={Number(blueVoteCount)}
+            type="medium"
+          />
         </div>
         {/*사이즈에 따라 Result 바가 다릅니다.*/}
         <div className="hidden md:block lg:block xl:hidden mt-[40px]">
-          <ResultBar redCount={13} blueCount={26} type="small" />
+          <ResultBar
+            redCount={Number(redVoteCount)}
+            blueCount={Number(blueVoteCount)}
+            type="small"
+          />
         </div>
         <div className="flex align-center flex-col text-center pb-[20px]">
           <ImageBox
             clickColor={'none'}
-            imgUrl={post.dataImage[1].url}
+            imgUrl={redOptionImg}
             size={'smallest'}
             imageShape={'square'}
           />

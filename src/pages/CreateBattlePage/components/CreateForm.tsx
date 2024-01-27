@@ -64,7 +64,6 @@ const CreateForm: React.FC = () => {
     formData.append('redVoteCount', '0');
     formData.append('voteTotalCount', '0');
     await BattleApi.postCreateBattle(formData);
-    navigate(END_POINTS.HOME);
   };
 
   // 모달 유형 입니다.
@@ -90,7 +89,12 @@ const CreateForm: React.FC = () => {
         onOptionImgChange={onOptionImgChange}
       />
       <div className="mt-[50px]">
-        <BasicModal {...successModalProp} func={() => {}} />
+        <BasicModal
+          {...successModalProp}
+          func={() => {
+            navigate(END_POINTS.HOME);
+          }}
+        />
         <AlertDialogTrigger asChild>
           <Button
             bgColor="gray"

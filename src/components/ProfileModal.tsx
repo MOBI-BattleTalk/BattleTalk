@@ -69,17 +69,14 @@ const ProfileModal = () => {
     //   formData.append('image', '');
     // }
     // console.log(event.target.profile.files![0]);
-    const updateInfoRes = await AuthApi.patchUserNickName({
+    await AuthApi.patchUserNickName({
       nickName: event.target.nickName.value,
     });
-    console.log(updateInfoRes);
-
     userInfo.nickName = event.target.nickName.value;
     //userInfo 를 다시 stirngfy 해서 넣기
     //닉네임만 수정
     //JSON.stringfy(data)
     LocalStorage.setItem(STORAGE_KEYS.USER_INFO, JSON.stringify(userInfo));
-    console.log('바뀐 유저 데이터', JSON.stringify(userInfo));
 
     // const updateProfile = await AuthApi.patchUpdateProfile(formData);
     // console.log(updateProfile);

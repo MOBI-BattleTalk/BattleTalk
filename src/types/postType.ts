@@ -24,7 +24,7 @@ export type GetBattleInfoType = {
     voteTotalCount: string;
   };
   id: string;
-  createAt: string;
+  createdAt: string;
   dataImage: { url: string }[];
   dataUser: null;
 };

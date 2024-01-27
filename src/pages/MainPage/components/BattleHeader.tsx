@@ -22,6 +22,7 @@ const BattleHeader: React.FC<Props> = ({
           imgUrl={profileUrl || DefaultImg}
           size={'tiny'}
           imageShape={'rounded'}
+          clickColor="none"
         />
         <div>{nickName}</div>
         <div className="text-commonGrey">{timeHelper(createdAt)}</div>
