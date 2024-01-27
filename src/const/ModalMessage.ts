@@ -26,7 +26,7 @@ export const MODAL: Record<ModalNamesType, ModalObject> = {
   },
   CONFIRM_BATTLE_JOIN: {
     content:
-      '배틀에 참가하시려면 로그인이 필요합니다.\n로그인 페이지로 이동하시겠습니까?',
+      '배틀을 생성 하시려면 로그인이 필요합니다.\n로그인 페이지로 이동하시겠습니까?',
     modalType: 'confirm',
   },
   CONFIRM_COMMENT_LOGIN: {

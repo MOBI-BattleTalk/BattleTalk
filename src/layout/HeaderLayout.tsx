@@ -4,6 +4,7 @@ import BattleCreateButton from '@/layout/components/BattleCreateButton.tsx';
 import TopButton from '@/components/TopButton.tsx';
 import cookieStorage from '@/utils/cookieStorage.tsx';
 import { useEffect, useState } from 'react';
+import { AlertDialog } from '@radix-ui/react-alert-dialog';
 
 const HeaderLayout = () => {
   const [isLogin, setIsLogin] = useState<boolean>(false);
@@ -18,7 +19,7 @@ const HeaderLayout = () => {
   }, [token]);
 
   return (
-    <>
+    <AlertDialog>
       <Header isLogin={isLogin} />
       <div className="pt-[80px] flex flex-col items-center justify-center">
         <Outlet />
@@ -29,7 +30,7 @@ const HeaderLayout = () => {
       <div className="fixed right-[30px] bottom-[30px]">
         <TopButton />
       </div>
-    </>
+    </AlertDialog>
   );
 };
 
