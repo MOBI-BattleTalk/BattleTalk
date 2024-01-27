@@ -13,6 +13,8 @@ const TOAST_MESSAGE = {
   SIGN_IN_ERROR: '로그인 실패',
   SIGN_UP_SUCCESS: '회원가입 성공!',
   SIGN_UP_ERROR: '회원가입 실패',
+  COMMENT_SUCCESS: '배틀 참가 성공!',
+  COMMENT_FAILURE: '배틀 참가 실패',
 } as const;
 
 /**
@@ -40,6 +42,8 @@ const TOASTER_STYLE = {
  * @property {Function} signInErrorNotify - 로그인 실패 메시지를 알리는 함수입니다.
  * @property {Function} signUpSuccessNotify - 회원가입 성공 메시지를 알리는 함수입니다.
  * @property {Function} signUpErrorNotify - 회원가입 실패 메시지를 알리는 함수입니다.
+ * @property {Function} battleJoinSuccessNotify - 배틀 참여 성공 메시지를 알리는 함수입니다.
+ * @property {Function} battleJoinErrorNotify - 배틀 참여 실패 메시지를 알리는 함수입니다.
  */
 const toastMessage = {
   signInSuccessNotify: () => {
@@ -52,6 +56,12 @@ const toastMessage = {
     toast.success(TOAST_MESSAGE.SIGN_UP_SUCCESS, TOASTER_STYLE);
   },
   signUpErrorNotify: () => {
+    toast.error(TOAST_MESSAGE.SIGN_UP_ERROR, TOASTER_STYLE);
+  },
+  commentSuccessNotify: () => {
+    toast.success(TOAST_MESSAGE.SIGN_UP_SUCCESS, TOASTER_STYLE);
+  },
+  commentFailureNotify: () => {
     toast.error(TOAST_MESSAGE.SIGN_UP_ERROR, TOASTER_STYLE);
   },
 };

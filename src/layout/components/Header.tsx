@@ -7,6 +7,7 @@ import HeaderLogoAction from '../../../public/HeaderLogoAction.png';
 import { useState } from 'react';
 import DefaultProfileImg from '../../../public/defaultProfile.png';
 import { END_POINTS } from '@/const/EndPoint.ts';
+import { StorageUserType } from '@/types/userType.ts';
 
 interface Props {
   isLogin: boolean;
@@ -19,8 +20,7 @@ const Header: React.FC<Props> = ({ isLogin }) => {
   let profileUrl;
 
   if (isLogin) {
-    const userInfoStr: { nickName: string; profileUrl: string | null } =
-      LocalStorage.getItem('userInfo') || '';
+    const userInfoStr: StorageUserType = LocalStorage.getItem('userInfo') || '';
     nickName = userInfoStr['nickName'];
     profileUrl = userInfoStr['profileUrl'];
   }

@@ -12,19 +12,21 @@ import { useState } from 'react';
 import useInput from '@/hooks/useInput.tsx';
 import BattleApi from '@/apis/post.ts';
 import { STORAGE_KEYS } from '@/const/Keys.ts';
+import { Toaster } from 'react-hot-toast';
+import toastMessage from '@/utils/toastMessage.tsx';
 
 interface Props {
   post: GetBattleInfoType;
 }
 
-const BattleEnterModal: React.FC<Props> = ({ post }) => {
+const BattleJoinModal: React.FC<Props> = ({ post }) => {
   /**
    * @description 어떤  옵션을 선택할 건지
    * index [0] : 파란 옵션, 데이터를 보낼떄는 1로 보냅니다.
    * index [1] : 빨간 옵션, 데이터를 보낼떄는 2로 보냅니다.
    * */
   const [option, setOption] = useState<[boolean, boolean]>([false, false]);
-
+  //댓글을 작성하는 함수
   const [values, onChange] = useInput({
     content: '',
   });
@@ -41,9 +43,11 @@ const BattleEnterModal: React.FC<Props> = ({ post }) => {
   //댓글 제출 함수
   const onSubmitComment = async () => {
     const selectedOption = option[0] ? 1 : 2;
+    //유저 정보를 가져옴
     const userInfoJSON = localStorage.getItem(STORAGE_KEYS.USER_INFO)!;
     const userInfo = JSON.parse(userInfoJSON);
-    const data: PostCommentType = {
+    //댓글 객체
+    const CommentData: PostCommentType = {
       nickName: userInfo.nickName,
       userId: userInfo.userId,
       profileUrl: userInfo.profileUrl,
@@ -51,8 +55,16 @@ const BattleEnterModal: React.FC<Props> = ({ post }) => {
       content: values.content,
       parentId: post.id,
     };
-    const res = await BattleApi.postComment(data);
-    console.log(res);
+
+    console.log(CommentData);
+    //댓글 작성 성공 여부에 따라 다른 토스트 메세지를 보여줍니다.
+    try {
+      const res = await BattleApi.postComment(CommentData);
+      console.log(res);
+      toastMessage.commentSuccessNotify();
+    } catch (err) {
+      toastMessage.commentFailureNotify();
+    }
   };
 
   return (
@@ -112,10 +124,11 @@ const BattleEnterModal: React.FC<Props> = ({ post }) => {
           >
             배틀 참여하기
           </Button>
+          <Toaster />
         </AlertDialogFooter>
       </AlertDialogContent>
     </form>
   );
 };
 
-export default BattleEnterModal;
+export default BattleJoinModal;

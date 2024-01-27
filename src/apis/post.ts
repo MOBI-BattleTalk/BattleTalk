@@ -14,8 +14,10 @@ const BattleApi = {
     const res = await axiosInstance.get<GetBattleInfoType>(END_POINTS.POST);
     return res.data;
   },
+  //배틀 참여하기 api 요청(BattleJoinModal)s
   postComment: async (data: PostCommentType) => {
     const res = await axiosInstance.post(END_POINTS.COMMENT, data);
+    console.log('aaa', res);
     return res;
   },
 };
