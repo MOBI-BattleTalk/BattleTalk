@@ -56,11 +56,9 @@ const BattleJoinModal: React.FC<Props> = ({ post }) => {
       parentId: post.id,
     };
 
-    console.log(CommentData);
     //댓글 작성 성공 여부에 따라 다른 토스트 메세지를 보여줍니다.
     try {
-      const res = await BattleApi.postComment(CommentData);
-      console.log(res);
+      await BattleApi.postComment(CommentData);
       toastMessage.commentSuccessNotify();
     } catch (err) {
       toastMessage.commentFailureNotify();

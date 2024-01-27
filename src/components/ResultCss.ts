@@ -3,6 +3,7 @@ type ResultCssType = {
 };
 
 export const SmallWidthCSS: ResultCssType = {
+  0: 'w-[1px]',
   1: 'w-[1.5px]',
   2: 'w-[3px]',
   3: 'w-[4.5px]',
@@ -106,6 +107,7 @@ export const SmallWidthCSS: ResultCssType = {
 };
 
 export const MediumWidthCSS: ResultCssType = {
+  0: 'w-[1px]',
   1: 'w-[2.5px]',
   2: 'w-[5px]',
   3: 'w-[7.5px]',
@@ -209,6 +211,7 @@ export const MediumWidthCSS: ResultCssType = {
 };
 
 export const LargeWidthCSS: ResultCssType = {
+  0: 'w-[1px]',
   1: 'w-[3px]',
   2: 'w-[6px]',
   3: 'w-[9px]',

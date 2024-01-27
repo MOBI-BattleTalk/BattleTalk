@@ -13,10 +13,22 @@ interface Props {
 
 const ResultBar: React.FC<Props> = ({ type, redCount, blueCount }) => {
   const total = redCount + blueCount;
+
   //100%중 빨간 옵션의 선택 비율
-  const redRatio = Math.round((redCount / total) * 100);
+  let redRatio;
+  if (redCount === 0) {
+    redRatio = 0;
+  } else {
+    redRatio = Math.round((redCount / total) * 100);
+  }
+
   //100%중 파란 옵션의 선택 비율
-  const blueRatio = 100 - redRatio;
+  let blueRatio;
+  if (redCount === 0) {
+    blueRatio = 0;
+  } else {
+    blueRatio = 100 - redRatio;
+  }
 
   const redTextColor = redRatio > blueRatio ? 'text-deepRed' : 'text-red';
   const blueTextColor = redRatio < blueRatio ? 'text-deepBlue' : 'text-blue';
