@@ -13,8 +13,8 @@ const ColorCommentList: React.FC<Props> = ({ colorType, commentList }) => {
   return (
     <div className="flex gap-[20px] flex-col">
       <div className={`${textColor}`}>댓글 {commentLength}개</div>
-      {commentList.map((comment) => {
-        return <CommentBox comment={comment} colorType={colorType} />;
+      {commentList.map((comment, idx) => {
+        return <CommentBox key={idx} comment={comment} colorType={colorType} />;
       })}
     </div>
   );

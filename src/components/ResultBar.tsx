@@ -38,22 +38,22 @@ const ResultBar: React.FC<Props> = ({ type, redCount, blueCount }) => {
   const totalWidth = type === 'small' ? 'w-[300px]' : '';
   return (
     <div className={`grid grid-cols-5 ${totalWidth}`}>
-      {/*빨간옵션의 투표 비율입니다*/}
-      <span
-        className={`text-3xl ${redTextColor} font-bold col-span-1 flex items-center justify-center`}
-      >
-        {redRatio}%
-      </span>
-      {/*게이지 바*/}
-      <div className="flex col-span-3 items-center justify-center">
-        <div className={`bg-red ${redWidth} h-[20px]`}></div>
-        <div className={`bg-blue ${blueWidth} h-[20px]`}></div>
-      </div>
       {/*파란옵션의 투표 비율입니다*/}
       <span
         className={`text-3xl ${blueTextColor} font-bold col-span-1  flex items-center justify-center`}
       >
         {blueRatio}%
+      </span>
+      {/*게이지 바*/}
+      <div className="flex col-span-3 items-center justify-center">
+        <div className={`bg-blue ${blueWidth} h-[20px]`}></div>
+        <div className={`bg-red ${redWidth} h-[20px]`}></div>
+      </div>
+      {/*빨간옵션의 투표 비율입니다*/}
+      <span
+        className={`text-3xl ${redTextColor} font-bold col-span-1 flex items-center justify-center`}
+      >
+        {redRatio}%
       </span>
     </div>
   );

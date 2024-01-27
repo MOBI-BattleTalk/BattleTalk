@@ -16,6 +16,7 @@ import { STORAGE_KEYS } from '@/const/Keys';
 import defaultImage from '../../public/defaultProfile.png';
 import ImageBox from './ImageBox';
 import { flexCenter } from '@/styles/common.style';
+
 const ProfileModal = () => {
   // 기존에 저장되어 있는 프로필 이미지와 닉네임을 불러옵니다.
   const userInfoJSON = localStorage.getItem(STORAGE_KEYS.USER_INFO);
@@ -68,7 +69,7 @@ const ProfileModal = () => {
     //   formData.append('image', '');
     // }
     // console.log(event.target.profile.files![0]);
-    const updateInfoRes = await AuthApi.postUpdateInfo({
+    const updateInfoRes = await AuthApi.patchUserNickName({
       nickName: event.target.nickName.value,
     });
     console.log(updateInfoRes);
@@ -121,8 +122,9 @@ const ProfileModal = () => {
           onChange={onFileChanges}
         />
         {/* 프로필 이미지 박스*/}
-        <div className={`pb-[30px] ${flexCenter}`}>
+        <div className={`pb-[30px] pt-[40px] ${flexCenter}`}>
           <ImageBox
+            clickColor={'none'}
             onClick={() => inputRef.current?.click()}
             imgUrl={profileImage ? profileImage : defaultImage}
             size="big"
@@ -130,7 +132,7 @@ const ProfileModal = () => {
           />
         </div>
         <input type="" />
-        <div className="flex items-center gap-[20px]">
+        <div className="flex items-center gap-[20px] pt-[30px]">
           <label>닉네임</label>
           <div className="flex items-center gap-[10px]">
             <Input
@@ -148,7 +150,7 @@ const ProfileModal = () => {
             <DeleteIcon />
           </AlertDialogPrimitive.Cancel>
         </div>
-        <div className={`pt-[30px] `}>
+        <div className={`pt-[40px]`}>
           <AlertDialogFooter>
             <Button
               bgColor="gray"
