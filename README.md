@@ -2,10 +2,6 @@
 
 ![image](https://github.com/MOBI-BattleTalk/BattleTalk/assets/110034416/e07a6034-8a5f-405d-8285-7016b23d7bbd)
 
-- 배포 URL :
-- Test ID :
-- Test PW :
-
 ### 프로젝트 소개
 
 ---

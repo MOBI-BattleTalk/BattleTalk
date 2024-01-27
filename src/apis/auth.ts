@@ -2,7 +2,7 @@ import { axiosInstance } from '@/apis/core.ts';
 import cookieStorage from '@/utils/cookieStorage.tsx';
 import { AxiosResponse } from 'axios';
 import LocalStorage from '@/utils/localStorage.tsx';
-import { nickNameType, SignInType, SignUpType } from '@/types/userType';
+import { SignInType, SignUpType } from '@/types/userType';
 import { ACCESS_TOKEN, STORAGE_KEYS } from '@/const/Keys.ts';
 import { END_POINTS } from '@/const/EndPoint.ts';
 
@@ -72,10 +72,11 @@ const AuthApi = {
     return res.data;
   },
   //닉네임 변경
-  patchUserNickName: async (data: nickNameType) => {
-    const { nickName } = data;
+  patchUserNickName: async (inputValue: string) => {
     const res = await axiosInstance.patch(END_POINTS.UPDATE_INFO, {
-      nickName,
+      data: {
+        nickName: inputValue,
+      },
     });
     return res.data;
   },
