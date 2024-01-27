@@ -1,10 +1,10 @@
-import {axiosInstance} from '@/apis/core.ts';
+import { axiosInstance } from '@/apis/core.ts';
 import cookieStorage from '@/utils/cookieStorage.tsx';
-import {AxiosResponse} from 'axios';
+import { AxiosResponse } from 'axios';
 import LocalStorage from '@/utils/localStorage.tsx';
-import {nickNameType, SignInType, SignUpType} from '@/types/userType';
-import {ACCESS_TOKEN, STORAGE_KEYS} from '@/const/Keys.ts';
-import {END_POINTS} from '@/const/EndPoint.ts';
+import { nickNameType, SignInType, SignUpType } from '@/types/userType';
+import { ACCESS_TOKEN, STORAGE_KEYS } from '@/const/Keys.ts';
+import { END_POINTS } from '@/const/EndPoint.ts';
 
 //로그인시 받아오는 데이터 타입
 type SignInDataType = {
@@ -68,7 +68,6 @@ const AuthApi = {
   },
   //프로필 사진 변경
   patchUpdateProfile: async (data: FormData) => {
-    console.log('profile', data);
     const res = await axiosInstance.patch(END_POINTS.UPDATE_PROFILE, data);
     return res.data;
   },

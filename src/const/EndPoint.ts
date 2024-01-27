@@ -5,8 +5,8 @@
  * */
 
 export const END_POINTS = {
-  POST: '/data/post',
-  DETAIL_POST: '/data/detail/post',
+  POST: '/data/battle',
+  DETAIL_POST: '/data/detail/battle',
   COMMENT: '/data/comment',
   USER_SIGN_UP: '/user/sign-up',
   USER_SIGN_IN: '/user/sign-in',
