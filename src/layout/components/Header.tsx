@@ -1,14 +1,13 @@
 import ProfileButton from '@/layout/components/ProfileButton.tsx';
 import LoginButton from '@/layout/components/LoginButton.tsx';
 import { useNavigate } from 'react-router-dom';
-import HeaderLogo from '../../../public/HeaderLogo.png';
-import HeaderLogoAction from '../../../public/HeaderLogoAction.png';
 import { useState } from 'react';
-import DefaultProfileImg from '../../../public/defaultProfile.png';
 import { END_POINTS } from '@/const/EndPoint.ts';
-
 import { useRecoilValue } from 'recoil';
 import { userInfoAtom } from '@/atom/user';
+import HeaderLogoAction from '@/assets/image/HeaderLogoAction.png';
+import defaultProfile from '@/assets/image/defaultProfile.png';
+import HeaderLogo from '@/assets/image/HeaderLogo.png';
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
@@ -35,7 +34,7 @@ const Header: React.FC = () => {
       <div className="w-[160px]">
         {userInfo ? (
           <ProfileButton
-            imgUrl={userInfo.profileUrl || DefaultProfileImg}
+            imgUrl={userInfo.profileUrl || defaultProfile}
             nickname={userInfo.nickName}
           />
         ) : (

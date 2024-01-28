@@ -9,6 +9,7 @@ import ProfileModal from '@/components/ProfileModal.tsx';
 import AuthApi from '@/apis/auth.ts';
 import { useNavigate } from 'react-router-dom';
 import { END_POINTS } from '@/const/EndPoint.ts';
+import defaultProfile from '@/assets/image/defaultProfile.png';
 
 type Props = {
   imgUrl: string | null;
@@ -63,7 +64,7 @@ const ProfileButton: React.FC<Props> = ({ imgUrl, nickname }) => {
           ) : (
             <>
               <ImageBox
-                imgUrl={'../../../public/defaultProfile.png'}
+                imgUrl={defaultProfile}
                 size="tiny"
                 imageShape="rounded"
                 clickColor="none"

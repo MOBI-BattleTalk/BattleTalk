@@ -1,5 +1,5 @@
 import ImageBox from '@/components/ImageBox.tsx';
-import DefaultImg from '../../../../public/defaultProfile.png';
+import DefaultImg from '../../../assets/image/defaultProfile.png';
 import { timeHelper } from '@/utils/timeHelper.tsx';
 
 interface Props {
