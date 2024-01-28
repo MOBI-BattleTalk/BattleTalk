@@ -12,14 +12,16 @@ import { useState } from 'react';
 import useInput from '@/hooks/useInput.tsx';
 import BattleApi from '@/apis/post.ts';
 import { STORAGE_KEYS } from '@/const/Keys.ts';
-import { Toaster } from 'react-hot-toast';
 import toastMessage from '@/utils/toastMessage.tsx';
+import { useQueryClient } from '@tanstack/react-query';
+import { BATTLE_QUERY_KEY } from '@/const/queryKey';
 
 interface Props {
   post: GetBattleInfoType;
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const BattleJoinModal: React.FC<Props> = ({ post }) => {
+const BattleJoinModal: React.FC<Props> = ({ post, setIsModalOpen }) => {
   /**
    * @description 어떤  옵션을 선택할 건지
    * index [0] : 파란 옵션, 데이터를 보낼떄는 1로 보냅니다.
@@ -30,6 +32,8 @@ const BattleJoinModal: React.FC<Props> = ({ post }) => {
   const [values, onChange] = useInput({
     content: '',
   });
+
+  const queryClient = useQueryClient();
 
   //옵션을 변경하는 함수
   const onClickOption = (optionIndex: number) => {
@@ -55,11 +59,41 @@ const BattleJoinModal: React.FC<Props> = ({ post }) => {
       content: values.content,
       parentId: post.data.id,
     };
+
+    const voteCountUp = {
+      blueVoteCount: post.data.data.blueVoteCount,
+      redVoteCount: post.data.data.redVoteCount,
+      voteTotalCount: post.data.data.voteTotalCount,
+    };
+
     //댓글 작성 성공 여부에 따라 다른 토스트 메세지를 보여줍니다.
     try {
+      if (selectedOption === 1) {
+        const blueVoteUpResult = Number(voteCountUp.blueVoteCount) + 1;
+        const totalVoteUpResult = Number(voteCountUp.voteTotalCount) + 1;
+        voteCountUp.blueVoteCount = String(blueVoteUpResult);
+        voteCountUp.voteTotalCount = String(totalVoteUpResult);
+      } else if (selectedOption === 2) {
+        const redVoteUpResult = Number(voteCountUp.redVoteCount) + 1;
+        const totalVoteUpResult = Number(voteCountUp.voteTotalCount) + 1;
+        voteCountUp.redVoteCount = String(redVoteUpResult);
+        voteCountUp.voteTotalCount = String(totalVoteUpResult);
+      }
       await BattleApi.postComment(CommentData);
+      await BattleApi.patchBattle(voteCountUp, post.data.id);
       toastMessage.commentSuccessNotify();
-    } catch (err) {
+      queryClient.invalidateQueries({
+        queryKey: [BATTLE_QUERY_KEY.COMMENT_LIST],
+      });
+      queryClient.invalidateQueries({
+        queryKey: [BATTLE_QUERY_KEY.BATTLE_LISt],
+      });
+      queryClient.invalidateQueries({
+        queryKey: [BATTLE_QUERY_KEY.DETAIL_BATTLE_DATA],
+      });
+      setIsModalOpen((prev) => !prev);
+    } catch {
+      setIsModalOpen((prev) => !prev);
       toastMessage.commentFailureNotify();
     }
   };
@@ -121,7 +155,6 @@ const BattleJoinModal: React.FC<Props> = ({ post }) => {
           >
             배틀 참여하기
           </Button>
-          <Toaster />
         </AlertDialogFooter>
       </AlertDialogContent>
     </form>

@@ -9,12 +9,15 @@ import BattleJoinModal from '@/pages/DetailPage/components/BattleJoinModal.tsx';
 import { flexCenter } from '@/styles/common.style.ts';
 import { GetBattleInfoType } from '@/types/postType.ts';
 import { timeHelper } from '@/utils/timeHelper.tsx';
+import { useState } from 'react';
 
 interface Props {
   post: GetBattleInfoType;
 }
 
 const DetailBattleCard: React.FC<Props> = ({ post }) => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
   const {
     nickName,
     profileUrl,
@@ -95,12 +98,14 @@ const DetailBattleCard: React.FC<Props> = ({ post }) => {
           </div>
           <AlertDialogTrigger asChild>
             <div className="text-center pb-[50px] pt-[5px]">
-              <BattleJoinButton />
+              <BattleJoinButton setIsModalOpen={setIsModalOpen} />
             </div>
           </AlertDialogTrigger>
         </div>
       </div>
-      <BattleJoinModal post={post} />
+      {isModalOpen && (
+        <BattleJoinModal post={post} setIsModalOpen={setIsModalOpen} />
+      )}
     </AlertDialog>
   );
 };
