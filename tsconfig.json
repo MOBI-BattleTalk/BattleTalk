@@ -2,11 +2,7 @@
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": [
-      "ES2020",
-      "dom",
-      "dom.Iterable"
-    ],
+    "lib": ["ES2020", "dom", "dom.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
     /* Bundler mode */
@@ -23,19 +19,10 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"],
     },
-    "types": [
-      "vite-plugin-svgr/client"
-    ],
-    "typeRoots": [
-      "./@types",
-      "./node_modules/@types"
-    ],
-    "include": [
-      "svg.d.ts"
-    ]
-  }
+    "types": ["vite-plugin-svgr/client"],
+    "typeRoots": ["./@types", "./node_modules/@types"],
+    "include": ["svg.d.ts"],
+  },
 }

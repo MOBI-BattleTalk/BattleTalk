@@ -53,9 +53,8 @@ const BattleJoinModal: React.FC<Props> = ({ post }) => {
       profileUrl: userInfo.profileUrl,
       option: selectedOption,
       content: values.content,
-      parentId: post.id,
+      parentId: post.data.id,
     };
-
     //댓글 작성 성공 여부에 따라 다른 토스트 메세지를 보여줍니다.
     try {
       await BattleApi.postComment(CommentData);
@@ -82,14 +81,14 @@ const BattleJoinModal: React.FC<Props> = ({ post }) => {
           <div className="flex w-[480px] gap-[60px] align-center justify-center">
             <ImageBox
               clickColor={option[0] ? 'blue' : 'none'}
-              imgUrl={post.dataImage[0].url}
+              imgUrl={post.data.dataImage[0].url}
               size="medium"
               imageShape="square"
               onClick={() => onClickOption(0)}
             />
             <ImageBox
               clickColor={option[1] ? 'red' : 'none'}
-              imgUrl={post.dataImage[1].url}
+              imgUrl={post.data.dataImage[1].url}
               size="medium"
               imageShape="square"
               onClick={() => onClickOption(1)}

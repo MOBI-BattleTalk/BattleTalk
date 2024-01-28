@@ -1,15 +1,16 @@
 import { timeHelper } from '@/utils/timeHelper.tsx';
 import Profile from '../../../../public/defaultProfile.png';
-import { GetCommentType } from '@/types/postType.ts';
+import { CommentListType } from '@/types/postType.ts';
 
 type Props = {
-  comment: GetCommentType;
+  comment: CommentListType;
   colorType: 'red' | 'blue';
 };
 
 const CommentBox: React.FC<Props> = ({ comment, colorType }) => {
-  const { profileUrl, nickName, content, createdAt } = comment;
-  //
+  const { profileUrl, nickName, content } = comment.data;
+  const { createdAt } = comment;
+
   const borderColor =
     colorType === 'blue' ? 'border-lineSkyblue' : 'border-linePink';
 
