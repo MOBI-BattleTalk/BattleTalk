@@ -3,11 +3,9 @@ import {
   AlertDialogFooter,
 } from '@/components/ui/alert-dialog';
 import Button from '@/components/Button.tsx';
-// import ImageBox from './ImageBox';
 import Input from './Input';
 import DeleteIcon from '@/assets/XDeleteIcon.svg?react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
-// import CharaterCounter from '@/components/CharaterCounter.tsx';
 import useInput from '@/hooks/useInput.tsx';
 import { FormEvent, useRef, useState } from 'react';
 import AuthApi from '@/apis/auth';
@@ -21,7 +19,11 @@ import { useSetRecoilState } from 'recoil';
 import { userInfoAtom } from '@/atom/user';
 import toastMessage from '@/utils/toastMessage';
 
-const ProfileModal = () => {
+interface Props {
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const ProfileModal: React.FC<Props> = ({ setIsModalOpen }) => {
   // 기존에 저장되어 있는 프로필 이미지와 닉네임을 불러옵니다.
   const userInfoJSON = localStorage.getItem(STORAGE_KEYS.USER_INFO);
   const userInfo = JSON.parse(userInfoJSON!);
@@ -35,19 +37,14 @@ const ProfileModal = () => {
   const [profileImage, setProfileImage] = useState<string | null>(
     userInfo ? userInfo.profileUrl : null,
   );
-  // inputref를 사용해 input요소에 직접 접근합니다.
+  // inputRef를 사용해 input요소에 직접 접근합니다.
   const inputRef = useRef<HTMLInputElement>(null);
 
   const onFileChanges = () => {
-    // 현재 input에 데이터가 있고, 파일도 있다면
     if (inputRef.current !== null && inputRef.current.files !== null) {
-      // 사용자가 업로드한 파일 중 첫번째 파일 = const file에 저장합니다.
       const file = inputRef.current.files[0];
-      // 파일을 읽을수 있게 해주는 API
       const reader = new FileReader();
-      // 파일을 읽어서 base64로 인코딩합니다.
       reader.readAsDataURL(file);
-      // 파일 읽기 작업이 완료되면 실행될 콜백 함수입니다.
       reader.onloadend = () => {
         setProfileImage(reader.result as string);
       };
@@ -56,7 +53,6 @@ const ProfileModal = () => {
 
   const onChangeUserNickName = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     const { profileUrl, userId } = LocalStorage.getItem(STORAGE_KEYS.USER_INFO);
 
     try {
@@ -74,8 +70,7 @@ const ProfileModal = () => {
         ...prev,
         nickName: newNickName,
       }));
-
-      /**@TODO  */
+      setIsModalOpen((prev) => !prev);
       toastMessage.changeNicknameSuccessNotify();
     } catch {
       toastMessage.changeNicknameFailureNotify();

@@ -17,10 +17,12 @@ type Props = {
 
 const ProfileButton: React.FC<Props> = ({ imgUrl, nickname }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const modalButton = useRef<HTMLButtonElement | null>(null);
   const navigate = useNavigate();
 
   const onClickModalButton = () => {
+    setIsModalOpen((prev) => !prev);
     modalButton.current!.click();
   };
 
@@ -101,7 +103,7 @@ const ProfileButton: React.FC<Props> = ({ imgUrl, nickname }) => {
           )}
         </div>
       </div>
-      <ProfileModal />
+      {isModalOpen && <ProfileModal setIsModalOpen={setIsModalOpen} />}
     </AlertDialog>
   );
 };

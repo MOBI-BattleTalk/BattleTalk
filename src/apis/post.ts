@@ -32,10 +32,12 @@ const BattleApi = {
   // },
 
   // 배틀 정보 수정 (voteCount up 용도)
-  patchBattle: async (data: PatchVoteCountType) => {
-    const res = await axiosInstance.patch(END_POINTS.POST, {
-      data: { data },
-    });
+  patchBattle: async (voteResult: PatchVoteCountType, id: string) => {
+    const { blueVoteCount, redVoteCount, voteTotalCount } = voteResult;
+    const reqData = {
+      data: { blueVoteCount, redVoteCount, voteTotalCount },
+    };
+    const res = await axiosInstance.patch(END_POINTS.POST + `/${id}`, reqData);
     return res;
   },
 

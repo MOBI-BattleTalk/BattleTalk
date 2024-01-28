@@ -3,6 +3,7 @@ import MainBattleCard from '@/pages/MainPage/components/MainBattleCard.tsx';
 import BattleApi from '@/apis/post';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { BATTLE_QUERY_KEY } from '@/const/queryKey';
+import { END_POINTS } from '@/const/EndPoint';
 
 const MainPage = () => {
   const { data: battleData, fetchNextPage } = useInfiniteQuery({
