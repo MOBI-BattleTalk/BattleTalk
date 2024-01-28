@@ -47,6 +47,15 @@ export type PostBattleInfoType = {
   voteTotalCount: string;
 };
 
+// 댓글 수 업데이 patch 타입
+export type PatchVoteCountType = {
+  data: {
+    blueVoteCount: string;
+    redVoteCount: string;
+    voteTotalCount: string;
+  };
+};
+
 export type PostCommentType = {
   nickName: string;
   profileUrl: string;

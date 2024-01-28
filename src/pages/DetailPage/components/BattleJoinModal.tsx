@@ -14,6 +14,8 @@ import BattleApi from '@/apis/post.ts';
 import { STORAGE_KEYS } from '@/const/Keys.ts';
 import { Toaster } from 'react-hot-toast';
 import toastMessage from '@/utils/toastMessage.tsx';
+import { useQueryClient } from '@tanstack/react-query';
+import { BATTLE_QUERY_KEY } from '@/const/queryKey';
 
 interface Props {
   post: GetBattleInfoType;
@@ -30,6 +32,8 @@ const BattleJoinModal: React.FC<Props> = ({ post }) => {
   const [values, onChange] = useInput({
     content: '',
   });
+
+  const queryClient = useQueryClient();
 
   //옵션을 변경하는 함수
   const onClickOption = (optionIndex: number) => {
@@ -55,11 +59,16 @@ const BattleJoinModal: React.FC<Props> = ({ post }) => {
       content: values.content,
       parentId: post.data.id,
     };
+    console.log({ selectedOption });
+
     //댓글 작성 성공 여부에 따라 다른 토스트 메세지를 보여줍니다.
     try {
       await BattleApi.postComment(CommentData);
       toastMessage.commentSuccessNotify();
-    } catch (err) {
+      queryClient.invalidateQueries({
+        queryKey: [BATTLE_QUERY_KEY.COMMENT_LIST],
+      });
+    } catch {
       toastMessage.commentFailureNotify();
     }
   };

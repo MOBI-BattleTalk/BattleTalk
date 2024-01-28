@@ -1,6 +1,7 @@
 import type {
   GetBattleInfoType,
   GetCommentType,
+  PatchVoteCountType,
   PostCommentType,
 } from '@/types/postType';
 import { axiosInstance } from './core';
@@ -29,6 +30,14 @@ const BattleApi = {
   //   );
   //   return res.data;
   // },
+
+  // 배틀 정보 수정 (voteCount up 용도)
+  patchBattle: async (data: PatchVoteCountType) => {
+    const res = await axiosInstance.patch(END_POINTS.POST, {
+      data: { data },
+    });
+    return res;
+  },
 
   // 배틀 상세 정보 요청
   getDetailBattleInfo: async (postId: string): Promise<GetBattleInfoType> => {
