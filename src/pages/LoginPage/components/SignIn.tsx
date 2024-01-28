@@ -6,10 +6,11 @@ import { SignInType } from '@/types/userType';
 import { END_POINTS } from '@/const/EndPoint.ts';
 import { Toaster } from 'react-hot-toast';
 import toastMessage from '@/utils/toastMessage';
-import { useNavigate } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
+import { userInfoAtom } from '@/atom/user';
 
 const SignIn: React.FC = () => {
-  const navigate = useNavigate();
+  const setUserInfo = useSetRecoilState(userInfoAtom);
 
   const {
     register,
@@ -26,11 +27,17 @@ const SignIn: React.FC = () => {
   const onSubmitSignIn = async (data: SignInType) => {
     try {
       const res = await AuthApi.postSignIn(data);
+      setUserInfo({
+        userId: res.data.userId,
+        nickName: res.data.info.nickName,
+        profileUrl: res.data.info.profileUrl,
+      });
       toastMessage.signInSuccessNotify();
       setTimeout(() => {
-        navigate(END_POINTS.HOME);
+        if (res.status === 200) {
+          window.location.href = END_POINTS.HOME;
+        }
       }, 2000);
-      return res;
     } catch {
       toastMessage.signInErrorNotify();
     }
