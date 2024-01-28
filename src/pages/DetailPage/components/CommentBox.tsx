@@ -1,5 +1,5 @@
 import { timeHelper } from '@/utils/timeHelper.tsx';
-import Profile from '../../../../public/defaultProfile.png';
+import Profile from '../../../assets/image/defaultProfile.png';
 import { CommentListType } from '@/types/postType.ts';
 
 type Props = {

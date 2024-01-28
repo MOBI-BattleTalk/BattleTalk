@@ -2,8 +2,8 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import FormChangeBtn from './components/FormChangeBtn';
 import { useState } from 'react';
-import Logo from '../../../public/MainLogo.png';
 import GoBackButton from '@/components/GoBackButton.tsx';
+import MainLogo from '@/assets/image/MainLogo.png';
 
 const LoginPage: React.FC = () => {
   const [isSignFormChange, setIsSignFormChange] = useState<boolean>(true);
@@ -17,7 +17,7 @@ const LoginPage: React.FC = () => {
         <div className="flex justify-center items-center">
           <img
             alt="로고"
-            src={Logo}
+            src={MainLogo}
             className="w-[300px] pt-[30px] lg:w-[700px] lg:ml-[-100px] scale-75"
           />
         </div>

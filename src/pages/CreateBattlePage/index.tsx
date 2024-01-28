@@ -13,7 +13,7 @@ const CreateBattlePage: React.FC = () => {
         <div className={`${flexCenter}`}>
           <img
             alt={'로고'}
-            src="../../../public/MediumLogo.png"
+            src="../../assets/image/MediumLogo.png"
             className="w-[400px] pt-[30px] lg:w-[500px] mb-[40px]"
           />
         </div>
