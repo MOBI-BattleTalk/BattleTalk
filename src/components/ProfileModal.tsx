@@ -17,6 +17,9 @@ import defaultImage from '../../public/defaultProfile.png';
 import ImageBox from './ImageBox';
 import { flexCenter } from '@/styles/common.style';
 import CharacterCounter from './CharaterCounter';
+import { useSetRecoilState } from 'recoil';
+import { userInfoAtom } from '@/atom/user';
+import toastMessage from '@/utils/toastMessage';
 /*
 요구 사항 (유저 닉네임 변경 기능)
 1. 헤더에서 프로필 변경 버튼을 눌렀을 때 프로필 모달 뜸
@@ -39,6 +42,7 @@ const ProfileModal = () => {
   // 기존에 저장되어 있는 프로필 이미지와 닉네임을 불러옵니다.
   const userInfoJSON = localStorage.getItem(STORAGE_KEYS.USER_INFO);
   const userInfo = JSON.parse(userInfoJSON!);
+  const setUserInfo = useSetRecoilState(userInfoAtom);
 
   const [{ newNickName }, onChangeNickname] = useInput({
     newNickName: '',
@@ -67,7 +71,8 @@ const ProfileModal = () => {
     }
   };
 
-  /*
+  /** 
+   * @description
     닉네임 변경 요청이 성공되면 바로 헤더에 있는 유저 정보가 바뀌고 싶다.
     -> 헤더에서 useState로 닉네임을 랜더링 하게 바꾸기
     -> useEffect로 로컬스토리지 값이 바뀌면 useEffect안에서 setState로 닉네임 새로운 로컬스토리지 닉네임으로 바꾸기
@@ -82,7 +87,6 @@ const ProfileModal = () => {
 
     try {
       await AuthApi.patchUserNickName(newNickName);
-      LocalStorage.setItem('nickName', newNickName);
       LocalStorage.setItem(
         STORAGE_KEYS.USER_INFO,
         JSON.stringify({
@@ -91,8 +95,14 @@ const ProfileModal = () => {
           userId,
         }),
       );
-      // 토스트 메세지로 변경 예정입니다.
-      alert('성공');
+
+      setUserInfo((prev) => ({
+        ...prev,
+        nickName: newNickName,
+      }));
+
+      /**@TODO  */
+      toastMessage.changeNicknameSuccessNotify();
     } catch {
       // 토스트 메세지로 변경 예정입니다.
       alert('닉네임 변경 실패');

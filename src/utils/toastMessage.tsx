@@ -15,6 +15,7 @@ const TOAST_MESSAGE = {
   SIGN_UP_ERROR: '회원가입 실패',
   COMMENT_SUCCESS: '배틀 참가 성공!',
   COMMENT_FAILURE: '배틀 참가 실패',
+  CHANGE_NICKNAME_SUCCESS: '닉네임 변경 성공!',
 } as const;
 
 /**
@@ -63,6 +64,9 @@ const toastMessage = {
   },
   commentFailureNotify: () => {
     toast.error(TOAST_MESSAGE.SIGN_UP_ERROR, TOASTER_STYLE);
+  },
+  changeNicknameSuccessNotify: () => {
+    toast.success(TOAST_MESSAGE.CHANGE_NICKNAME_SUCCESS, TOASTER_STYLE);
   },
 };
 
