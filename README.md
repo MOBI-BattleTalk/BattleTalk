@@ -1,3 +1,5 @@
+<div align="center">
+    
 # 🥊 토론하고 싶은 사람들의 싸움터 BATTLETALK
 
 ![image](https://github.com/MOBI-BattleTalk/BattleTalk/assets/110034416/3992b5de-dfd7-4483-9e28-03f04c4a9976)
@@ -200,3 +202,5 @@
 - Daniel
 
 - Jack - 이번 프로젝트는 타입스크립트를 사용해보는 경험과 문서화 그리고 협업을 중점으로 프로젝트를 진행한 결과 어떻게 프로젝트를 구상하고 계획하며 프로젝트를 함께 진행해야하는지 알수있는 좋은 기회였습니다.
+
+</div>
