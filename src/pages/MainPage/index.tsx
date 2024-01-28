@@ -19,6 +19,8 @@ const MainPage = () => {
     },
   });
 
+  battleData && console.log(battleData.pages[0]);
+
   const battleList =
     battleData && Object.values(battleData.pages[0]).slice(0, -1);
 
