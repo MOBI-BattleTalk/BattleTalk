@@ -2,7 +2,7 @@ import { axiosInstance } from '@/apis/core.ts';
 import cookieStorage from '@/utils/cookieStorage.tsx';
 import { AxiosResponse } from 'axios';
 import LocalStorage from '@/utils/localStorage.tsx';
-import { nickNameType, SignInType, SignUpType } from '@/types/userType';
+import { SignInType, SignUpType } from '@/types/userType';
 import { ACCESS_TOKEN, STORAGE_KEYS } from '@/const/Keys.ts';
 import { END_POINTS } from '@/const/EndPoint.ts';
 
@@ -35,9 +35,8 @@ const AuthApi = {
         profileUrl: res.data?.info?.profileUrl,
       }),
     );
-    if (res.status === 200) {
-      window.location.href = END_POINTS.HOME;
-    }
+    return res;
+
     //로그인 실패시 다른 로직 실행
   },
   //회원가입
@@ -72,10 +71,11 @@ const AuthApi = {
     return res.data;
   },
   //닉네임 변경
-  patchUserNickName: async (data: nickNameType) => {
-    const { nickName } = data;
+  patchUserNickName: async (inputValue: string) => {
     const res = await axiosInstance.patch(END_POINTS.UPDATE_INFO, {
-      nickName,
+      data: {
+        nickName: inputValue,
+      },
     });
     return res.data;
   },
