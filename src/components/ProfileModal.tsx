@@ -20,23 +20,6 @@ import CharacterCounter from './CharaterCounter';
 import { useSetRecoilState } from 'recoil';
 import { userInfoAtom } from '@/atom/user';
 import toastMessage from '@/utils/toastMessage';
-/*
-요구 사항 (유저 닉네임 변경 기능)
-1. 헤더에서 프로필 변경 버튼을 눌렀을 때 프로필 모달 뜸
-2. 프로필 모달에서 input안에 유저가 새로운 닉네임을 적고 변경 버튼을 누르면 닉네임이 변경 될 것(백엔드).
-3. 변경된 닉네임이 변경 버튼을 누르는 즉시 적용 될 것.(클라이언트)
-
-- input 값
-- 닉네임 변경 백엔드 요청 함수
-- 현재 화면에서 닉네임을 보여주는 형식이 -> 로그인 할 때 로컬스토리지에 유저 닉네임을 저장하고
- -> 로컬스토리지에서 해당 닉네임을 가져와서 헤더 컴포넌트에서 닉네임 보여줌.
-- 로컬스토리지 저장되어 있는 유저 닉네임을 현재 유저가 입력한 input값(새로운 닉네임)으로 변경 할 것.
-- 로컬스토리지가 변경 되자마자 헤더에 유저 정보 바로 바뀌게 하기
-- 닉네임 변경 성공 여부에 따른 토스트 메세지 보여주기
-
-조건 (예외 처리)
-- 닉네임 변경 백엔드 요청 함수 실패시 로컬스토리지에 유저 닉네임이 input값으로 바뀌면 안됨. -> try,catch문으로 백엔드 요청이 성공 할때만 로컬스토리지 저장 로직이 실행되게 해야겠다
-*/
 
 const ProfileModal = () => {
   // 기존에 저장되어 있는 프로필 이미지와 닉네임을 불러옵니다.
@@ -71,15 +54,6 @@ const ProfileModal = () => {
     }
   };
 
-  /** 
-   * @description
-    닉네임 변경 요청이 성공되면 바로 헤더에 있는 유저 정보가 바뀌고 싶다.
-    -> 헤더에서 useState로 닉네임을 랜더링 하게 바꾸기
-    -> useEffect로 로컬스토리지 값이 바뀌면 useEffect안에서 setState로 닉네임 새로운 로컬스토리지 닉네임으로 바꾸기
-    -> 그럴려면 useState가 전역으로 사용 할 수 있어야 함.
-    -> 전역 상태관리 라이브러리 recoil 사용하기
-  */
-
   const onChangeUserNickName = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -104,8 +78,7 @@ const ProfileModal = () => {
       /**@TODO  */
       toastMessage.changeNicknameSuccessNotify();
     } catch {
-      // 토스트 메세지로 변경 예정입니다.
-      alert('닉네임 변경 실패');
+      toastMessage.changeNicknameFailureNotify();
     }
   };
 
