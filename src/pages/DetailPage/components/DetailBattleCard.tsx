@@ -7,12 +7,12 @@ import {
 } from '@/components/ui/alert-dialog.tsx';
 import BattleJoinModal from '@/pages/DetailPage/components/BattleJoinModal.tsx';
 import { flexCenter } from '@/styles/common.style.ts';
-import { GetBattleInfoType } from '@/types/postType.ts';
+import { GetDetailBattleInfoType } from '@/types/postType.ts';
 import { timeHelper } from '@/utils/timeHelper.tsx';
 import { useState } from 'react';
 
 interface Props {
-  post: GetBattleInfoType;
+  post: GetDetailBattleInfoType;
 }
 
 const DetailBattleCard: React.FC<Props> = ({ post }) => {
