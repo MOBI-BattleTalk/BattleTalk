@@ -11,6 +11,25 @@ export enum Category {
 // 백엔드에서 받는 post 타입
 export type GetBattleInfoType = {
   data: {
+    nickName: string;
+    profileUrl: string;
+    userId: string;
+    title: string;
+    content: string;
+    blueOptionTitle: string;
+    redOptionTitle: string;
+    category: Category;
+    blueVoteCount: string;
+    redVoteCount: string;
+    voteTotalCount: string;
+  };
+  id: string;
+  createdAt: string;
+  dataImage: { url: string }[];
+  dataUser: null;
+};
+export type GetDetailBattleInfoType = {
+  data: {
     data: {
       nickName: string;
       profileUrl: string;

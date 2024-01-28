@@ -7,7 +7,7 @@ import DeleteIcon from '@/assets/XDeleteIcon.svg?react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 import Textarea from '@/components/Textarea.tsx';
 import Button from '@/components/Button.tsx';
-import { GetBattleInfoType, PostCommentType } from '@/types/postType.ts';
+import { GetDetailBattleInfoType, PostCommentType } from '@/types/postType.ts';
 import { useState } from 'react';
 import useInput from '@/hooks/useInput.tsx';
 import BattleApi from '@/apis/post.ts';
@@ -17,7 +17,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { BATTLE_QUERY_KEY } from '@/const/queryKey';
 
 interface Props {
-  post: GetBattleInfoType;
+  post: GetDetailBattleInfoType;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 

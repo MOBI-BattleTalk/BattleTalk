@@ -1,6 +1,7 @@
 import type {
   GetBattleInfoType,
   GetCommentType,
+  GetDetailBattleInfoType,
   PatchVoteCountType,
   PostCommentType,
 } from '@/types/postType';
@@ -42,7 +43,9 @@ const BattleApi = {
   },
 
   // 배틀 상세 정보 요청
-  getDetailBattleInfo: async (postId: string): Promise<GetBattleInfoType> => {
+  getDetailBattleInfo: async (
+    postId: string,
+  ): Promise<GetDetailBattleInfoType> => {
     const res = await axiosInstance.get(END_POINTS.DETAIL_POST, {
       params: {
         dataId: postId,
