@@ -59,10 +59,10 @@ const toastMessage = {
     toast.error(TOAST_MESSAGE.SIGN_UP_ERROR, TOASTER_STYLE);
   },
   commentSuccessNotify: () => {
-    toast.success(TOAST_MESSAGE.SIGN_UP_SUCCESS, TOASTER_STYLE);
+    toast.success(TOAST_MESSAGE.COMMENT_SUCCESS, TOASTER_STYLE);
   },
   commentFailureNotify: () => {
-    toast.error(TOAST_MESSAGE.SIGN_UP_ERROR, TOASTER_STYLE);
+    toast.error(TOAST_MESSAGE.COMMENT_FAILURE, TOASTER_STYLE);
   },
 };
 

@@ -44,7 +44,7 @@ const SignUp: React.FC<SignUpProps> = ({ setIsSignFormChange }) => {
     } else {
       clearErrors('passwordCheck');
     }
-  }, [watch('password'), watch('passwordCheck')]);
+  }, [clearErrors, setError, watch]);
 
   const onSubmitSignUp = async (data: SignUpType) => {
     try {

@@ -1,4 +1,8 @@
-import type { GetBattleInfoType, PostCommentType } from '@/types/postType';
+import type {
+  GetBattleInfoType,
+  GetCommentType,
+  PostCommentType,
+} from '@/types/postType';
 import { axiosInstance } from './core';
 import { END_POINTS } from '@/const/EndPoint'; // BattleApi.ts
 
@@ -36,10 +40,15 @@ const BattleApi = {
     return res.data;
   },
 
-  //배틀 참여하기 api 요청(BattleJoinModal)s
+  // 배틀 참여하기(댓글 작성) api 요청(BattleJoinModal)
   postComment: async (data: PostCommentType) => {
     const res = await axiosInstance.post(END_POINTS.COMMENT, data);
     return res;
+  },
+  // 댓글 불러오기 api 요청
+  getComment: async (): Promise<GetCommentType> => {
+    const res = await axiosInstance.get(END_POINTS.COMMENT);
+    return res.data;
   },
 };
 
