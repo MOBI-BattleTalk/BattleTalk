@@ -13,7 +13,7 @@ import { FormEvent, useRef, useState } from 'react';
 import AuthApi from '@/apis/auth';
 import LocalStorage from '@/utils/localStorage';
 import { STORAGE_KEYS } from '@/const/Keys';
-import defaultImage from '../../public/defaultProfile.png';
+import defaultImage from '../assets/image/defaultProfile.png';
 import ImageBox from './ImageBox';
 import { flexCenter } from '@/styles/common.style';
 import CharacterCounter from './CharaterCounter';
