@@ -13,9 +13,10 @@ import { useState } from 'react';
 
 interface Props {
   post: GetDetailBattleInfoType;
+  hasMyComment: boolean;
 }
 
-const DetailBattleCard: React.FC<Props> = ({ post }) => {
+const DetailBattleCard: React.FC<Props> = ({ post, hasMyComment }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const {
@@ -29,7 +30,7 @@ const DetailBattleCard: React.FC<Props> = ({ post }) => {
     voteTotalCount,
   } = post.data.data;
   const { createdAt } = post.data;
-  const [blueImageUrl, redImageUrl] = post.data.dataImage;
+  const [redImageUrl, blueImageUrl] = post.data.dataImage;
 
   return (
     <AlertDialog>
@@ -98,7 +99,10 @@ const DetailBattleCard: React.FC<Props> = ({ post }) => {
           </div>
           <AlertDialogTrigger asChild>
             <div className="text-center pb-[50px] pt-[5px]">
-              <BattleJoinButton setIsModalOpen={setIsModalOpen} />
+              <BattleJoinButton
+                setIsModalOpen={setIsModalOpen}
+                hasMyComment={hasMyComment}
+              />
             </div>
           </AlertDialogTrigger>
         </div>

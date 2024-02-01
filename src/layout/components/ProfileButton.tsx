@@ -7,9 +7,10 @@ import { AlertDialog } from '@radix-ui/react-alert-dialog';
 import { AlertDialogTrigger } from '@/components/ui/alert-dialog.tsx';
 import ProfileModal from '@/components/ProfileModal.tsx';
 import AuthApi from '@/apis/auth.ts';
-import { useNavigate } from 'react-router-dom';
-import { END_POINTS } from '@/const/EndPoint.ts';
 import defaultProfile from '@/assets/image/defaultProfile.png';
+import { useSetRecoilState } from 'recoil';
+import { userInfoAtom } from '@/atom/user.ts';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {
   imgUrl: string | null;
@@ -20,10 +21,10 @@ const ProfileButton: React.FC<Props> = ({ imgUrl, nickname }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const modalButton = useRef<HTMLButtonElement | null>(null);
+  const setUserAtom = useSetRecoilState(userInfoAtom);
   const navigate = useNavigate();
-
   const onClickModalButton = () => {
-    setIsModalOpen((prev) => !prev);
+    setIsModalOpen(true);
     modalButton.current!.click();
   };
 
@@ -37,11 +38,9 @@ const ProfileButton: React.FC<Props> = ({ imgUrl, nickname }) => {
 
   //로그아웃 로직
   const onClickLogout = async () => {
-    const res = await AuthApi.postSignOut();
-    //로그아웃 성공시에 새로고침
-    if (res.message === 'success') {
-      navigate(END_POINTS.LOGIN);
-    }
+    await AuthApi.postSignOut();
+    setUserAtom(null);
+    navigate('/login');
   };
 
   return (

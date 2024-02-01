@@ -2,9 +2,6 @@ import MainBattleCard from '@/pages/MainPage/components/MainBattleCard.tsx';
 import BattleApi from '@/apis/post';
 import { useQuery } from '@tanstack/react-query';
 import { BATTLE_QUERY_KEY } from '@/const/queryKey';
-import { useRecoilValue } from 'recoil';
-import { userInfoAtom } from '@/atom/user.ts';
-import { STORAGE_KEYS } from '@/const/Keys.ts';
 
 const MainPage = () => {
   const { data: battleData } = useQuery({
@@ -12,11 +9,6 @@ const MainPage = () => {
     queryFn: () => BattleApi.getBattleInfo(),
   });
 
-  const userInfo = useRecoilValue(userInfoAtom);
-
-  console.log('aaaa', userInfo);
-  const userInfoLocal = localStorage.getItem(STORAGE_KEYS.USER_INFO);
-  console.log('bbb', userInfoLocal);
   const battleList = battleData && Object.values(battleData).slice(0, -1);
 
   return (
@@ -35,8 +27,8 @@ const MainPage = () => {
             redVoteCount,
             voteTotalCount,
           } = post.data;
-          const blueOptionImg = post.dataImage[0].url;
-          const redOptionImg = post.dataImage[1].url;
+          const blueOptionImg = post.dataImage[1].url;
+          const redOptionImg = post.dataImage[0].url;
           const postId = post.id;
           return (
             <MainBattleCard

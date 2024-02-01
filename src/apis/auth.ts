@@ -5,7 +5,7 @@ import LocalStorage from '@/utils/localStorage.tsx';
 import {SignInType, SignUpType} from '@/types/userType';
 import {ACCESS_TOKEN, STORAGE_KEYS} from '@/const/Keys.ts';
 import {END_POINTS} from '@/const/EndPoint.ts';
-import toastMessage from '@/utils/toastMessage.tsx';
+import toastMessage, {TOAST_MESSAGE} from '@/utils/toastMessage.tsx';
 
 //로그인시 받아오는 데이터 타입
 type SignInDataType = {
@@ -58,10 +58,10 @@ const AuthApi = {
       cookieStorage.deleteCookie(ACCESS_TOKEN);
       //저장된 유저 정보 삭제
       LocalStorage.removeItem('userInfo');
-      toastMessage.logoutSuccessNotify();
+      toastMessage(true, TOAST_MESSAGE.LOGOUT_SUCCESS);
       return res.data;
     } catch (err) {
-      toastMessage.logoutFailureNotify();
+      toastMessage(false, TOAST_MESSAGE.LOGOUT_FAILURE);
     }
   },
   //리프레시 토큰 발급
