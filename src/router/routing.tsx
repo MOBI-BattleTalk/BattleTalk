@@ -1,11 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
-import MainPage from '@/pages/MainPage';
-import ModalPage from '@/pages/ModalPage';
-import HeaderLayout from '@/layout/HeaderLayout.tsx';
-import DetailPage from '@/pages/DetailPage';
 import LoginPage from '@/pages/LoginPage';
+import MainPage from '@/pages/MainPage';
 import CreateBattlePage from '@/pages/CreateBattlePage';
 import { END_POINTS } from '@/const/EndPoint.ts';
+import DetailPage from '@/pages/DetailPage';
+import HeaderLayout from '@/layout/HeaderLayout.tsx';
 
 const router = createBrowserRouter([
   {
@@ -28,11 +27,6 @@ const router = createBrowserRouter([
   {
     path: END_POINTS.CREATE_BATTLE,
     element: <CreateBattlePage />,
-  },
-  /*나중에 삭제*/
-  {
-    path: '/modal',
-    element: <ModalPage />,
   },
 ]);
 
