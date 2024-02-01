@@ -5,7 +5,7 @@ import Button from '@/components/Button';
 import AuthApi from '@/apis/auth.ts';
 import { useEffect } from 'react';
 import { SignUpType } from '@/types/userType';
-import toastMessage from '@/utils/toastMessage';
+import toastMessage, { TOAST_MESSAGE } from '@/utils/toastMessage';
 import { Toaster } from 'react-hot-toast';
 
 interface SignUpProps {
@@ -49,12 +49,12 @@ const SignUp: React.FC<SignUpProps> = ({ setIsSignFormChange }) => {
   const onSubmitSignUp = async (data: SignUpType) => {
     try {
       await AuthApi.postSignUp(data);
-      toastMessage.signUpSuccessNotify();
+      toastMessage(true, TOAST_MESSAGE.SIGN_UP_SUCCESS);
       setTimeout(() => {
         setIsSignFormChange((prev) => !prev);
       }, 2000);
     } catch {
-      toastMessage.signUpErrorNotify();
+      toastMessage(false, TOAST_MESSAGE.SIGN_UP_ERROR);
     }
   };
 

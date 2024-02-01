@@ -14,6 +14,7 @@
 
 ## 팀원 구성
 
+
 ---
 
 <div>
@@ -26,8 +27,8 @@
           </a>  
         </td>
         <td>
-          <a href="https://github.com/kiminn">
-            <img src="https://github.com/Manners-Maketh-Market/MMM/assets/134191817/b04543f3-6de1-42c1-bd01-92cfd68dcb3f" width="120px" height="120px"/>
+          <a href="https://github.com/ooherin">
+            <img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/125418818/fcd48afa-a91e-42f2-a284-8be793053ecf" width="120px" height="120px"/>
           </a>  
         </td>
         <td>

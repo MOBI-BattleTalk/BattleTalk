@@ -12,7 +12,7 @@ import { useState } from 'react';
 import useInput from '@/hooks/useInput.tsx';
 import BattleApi from '@/apis/post.ts';
 import { STORAGE_KEYS } from '@/const/Keys.ts';
-import toastMessage from '@/utils/toastMessage.tsx';
+import toastMessage, { TOAST_MESSAGE } from '@/utils/toastMessage.tsx';
 import { useQueryClient } from '@tanstack/react-query';
 import { BATTLE_QUERY_KEY } from '@/const/queryKey';
 
@@ -81,7 +81,7 @@ const BattleJoinModal: React.FC<Props> = ({ post, setIsModalOpen }) => {
       }
       await BattleApi.postComment(CommentData);
       await BattleApi.patchBattle(voteCountUp, post.data.id);
-      toastMessage.commentSuccessNotify();
+      toastMessage(true, TOAST_MESSAGE.COMMENT_SUCCESS);
       queryClient.invalidateQueries({
         queryKey: [BATTLE_QUERY_KEY.COMMENT_LIST],
       });
@@ -94,7 +94,7 @@ const BattleJoinModal: React.FC<Props> = ({ post, setIsModalOpen }) => {
       setIsModalOpen((prev) => !prev);
     } catch {
       setIsModalOpen((prev) => !prev);
-      toastMessage.commentFailureNotify();
+      toastMessage(false, TOAST_MESSAGE.COMMENT_ERROR);
     }
   };
 

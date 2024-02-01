@@ -5,7 +5,7 @@ import AuthApi from '@/apis/auth.ts';
 import { SignInType } from '@/types/userType';
 import { END_POINTS } from '@/const/EndPoint.ts';
 import { Toaster } from 'react-hot-toast';
-import toastMessage from '@/utils/toastMessage';
+import toastMessage, { TOAST_MESSAGE } from '@/utils/toastMessage';
 import { useSetRecoilState } from 'recoil';
 import { userInfoAtom } from '@/atom/user';
 
@@ -32,14 +32,14 @@ const SignIn: React.FC = () => {
         nickName: res.data.info.nickName,
         profileUrl: res.data.info.profileUrl,
       });
-      toastMessage.signInSuccessNotify();
+      toastMessage(true, TOAST_MESSAGE.SIGN_IN_SUCCESS);
       setTimeout(() => {
         if (res.status === 200) {
           window.location.href = END_POINTS.HOME;
         }
       }, 2000);
     } catch {
-      toastMessage.signInErrorNotify();
+      toastMessage(false, TOAST_MESSAGE.SIGN_IN_ERROR);
     }
   };
 

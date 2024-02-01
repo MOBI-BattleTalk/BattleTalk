@@ -17,7 +17,7 @@ import { flexCenter } from '@/styles/common.style';
 import CharacterCounter from './CharaterCounter';
 import { useSetRecoilState } from 'recoil';
 import { userInfoAtom } from '@/atom/user';
-import toastMessage from '@/utils/toastMessage';
+import toastMessage, { TOAST_MESSAGE } from '@/utils/toastMessage';
 
 interface Props {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -71,9 +71,9 @@ const ProfileModal: React.FC<Props> = ({ setIsModalOpen }) => {
         nickName: newNickName,
       }));
       setIsModalOpen((prev) => !prev);
-      toastMessage.changeNicknameSuccessNotify();
+      toastMessage(true, TOAST_MESSAGE.CHANGE_NICKNAME_SUCCESS);
     } catch {
-      toastMessage.changeNicknameFailureNotify();
+      toastMessage(true, TOAST_MESSAGE.CHANGE_NICKNAME_ERROR);
     }
   };
 
