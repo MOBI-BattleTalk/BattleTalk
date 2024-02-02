@@ -16,7 +16,7 @@ const Input: React.FC<InputProps> = ({
   const sizeStyles = {
     small: 'w-[108px] h-[57px] ',
     smallMedi: 'w-[250px] h-[57px]  ',
-    medium: 'w-[500px] h-[50px]',
+    medium: 'md:w-[500px] md:h-[50px] w-[320px]',
     large: 'w-[640px] h-[57px] ',
     box: 'w-[400px] h-[150px] ',
     option: 'w-[140px] h-[57px]',

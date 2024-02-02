@@ -41,7 +41,7 @@ const MainBattleCard: React.FC<Props> = ({
   return (
     <div
       onClick={onMovePostId}
-      className="md:w-[700px] w-[500px] min-h-[230px] bg-backgroundGrey rounded-[20px] flex
+      className="md:w-[700px] w-[400px] min-h-[230px] bg-backgroundGrey rounded-[20px] flex
              flex-col hover: cursor-pointer"
     >
       <BattleHeader
@@ -52,7 +52,7 @@ const MainBattleCard: React.FC<Props> = ({
       />
       <div className="text-center text-lg mt-[10px]">
         {title} <br />
-        <div className="flex gap-[10px] justify-center text-[18px]">
+        <div className="text-sm flex gap-[10px] justify-center text-[18px] md:text-base">
           <span className="text-blue">{blueOptionTitle}</span>
           <span className="">vs</span>
           <span className="text-red"> {redOptionTitle}</span>

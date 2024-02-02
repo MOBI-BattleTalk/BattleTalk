@@ -1,7 +1,7 @@
 import CharacterCounter from '@/components/CharaterCounter';
 import Input from '@/components/Input';
 import Textarea from '@/components/Textarea';
-import { ChangeEvent } from 'react';
+import {ChangeEvent} from 'react';
 
 // CreateForm.tsx에서 useInput으로 정의한 title, content 값과 onChange 이벤트 함수에 전달 할 함수를 받아옵니다.
 interface BattleTopicProps {
@@ -29,20 +29,20 @@ const BattleTopic: React.FC<BattleTopicProps> = ({
           value={title}
           onChange={onCreateBattleFormValueChange}
         />
-        <div className="absolute ml-[520px] mt-[16px]">
+        <div className="absolute right-[10px] bottom-[15px]">
           <CharacterCounter currentNum={title.length} maxNum={20} />
         </div>
       </div>
       <div className="flex gap-[50px] relative">
         <label className="text-xl font-extrabold pt-[16px]">내용</label>
         <Textarea
-          size="large"
+          size="medium"
           maxLength={499}
           name="content"
           value={content}
           onChange={onCreateBattleFormValueChange}
         />
-        <div className="absolute ml-[520px] mt-[368px]">
+        <div className="absolute bottom-[15px] right-[10px]">
           <CharacterCounter currentNum={content.length} maxNum={500} />
         </div>
       </div>

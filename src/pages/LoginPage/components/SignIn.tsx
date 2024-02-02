@@ -49,7 +49,7 @@ const SignIn: React.FC = () => {
       <FormCard label="로그인" size="small">
         <form
           onSubmit={handleSubmit(onSubmitSignIn)}
-          className={`flex items-center flex-col pt-[100px] gap-[40px] w-[600px] h-[460px]`}
+          className={`md:w-[600px] flex items-center flex-col pt-[100px] gap-[40px] h-[460px]`}
         >
           <div
             className={`bg-backgroundGrey w-[400px] h-[44px] border-b-[2px] border-commonGrey flex flex-col`}
@@ -59,7 +59,7 @@ const SignIn: React.FC = () => {
                 아이디
               </label>
               <input
-                className={`bg-backgroundGrey w-[280px] h-[42px] font-extrabold text-lg outline-none justify-end`}
+                className={`bg-backgroundGrey md:w-[280px] h-[42px] font-extrabold text-lg outline-none justify-end`}
                 {...register('userId', {
                   required: true,
                 })}

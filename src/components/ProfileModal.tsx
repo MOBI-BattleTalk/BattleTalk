@@ -130,7 +130,7 @@ const ProfileModal: React.FC<Props> = ({ setIsModalOpen }) => {
             <DeleteIcon />
           </AlertDialogPrimitive.Cancel>
         </div>
-        <div className={`pt-[40px]`}>
+        <div className={`pt-[40px] ${flexCenter}`}>
           <AlertDialogFooter>
             <Button
               bgColor="gray"

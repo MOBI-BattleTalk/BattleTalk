@@ -31,7 +31,7 @@ const BattleCategory: React.FC<CategoryProps> = ({
   }));
 
   return (
-    <div className="flex w-[620px] z-20 m-[20px]">
+    <div className="flex md:w-[620px] z-20 m-[20px] w-[420px]">
       <label className="text-xl font-extrabold pt-[16px] w-[100px]">
         카테고리
       </label>
