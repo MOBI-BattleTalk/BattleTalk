@@ -31,8 +31,11 @@ const CreateForm: React.FC = () => {
   });
 
   // 유저가 올린 옵션1사진, 옵션2사진
-  const [{ blueOptionImg, redOptionImg }, onOptionImgChange] = useGetInputFile({
+  const [{ blueOptionImg }, onBlueImgChange] = useGetInputFile({
     blueOptionImg: undefined,
+  });
+
+  const [{ redOptionImg }, onRedImgChange] = useGetInputFile({
     redOptionImg: undefined,
   });
 
@@ -86,7 +89,8 @@ const CreateForm: React.FC = () => {
         blueOptionImg={blueOptionImg}
         redOptionImg={redOptionImg}
         onCreateBattleFormValueChange={onCreateBattleFormValueChange}
-        onOptionImgChange={onOptionImgChange}
+        onBlueImgChange={onBlueImgChange}
+        onRedImgChange={onRedImgChange}
       />
       <div className="mt-[50px]">
         <BasicModal

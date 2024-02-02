@@ -95,7 +95,9 @@ const DetailBattleCard: React.FC<Props> = ({ post, hasMyComment }) => {
             <ResultBar redCount={13} blueCount={26} type="medium" />
           </div>
           <div className="text-center text-textGrey pt-[20px]">
-            {voteTotalCount}명이 배틀 참여중!
+            {voteTotalCount === '0'
+              ? '첫번째 배틀 참여자가 되어주세요!'
+              : `${voteTotalCount}명이 배틀 참여중!`}
           </div>
           <AlertDialogTrigger asChild>
             <div className="text-center pb-[50px] pt-[5px]">
