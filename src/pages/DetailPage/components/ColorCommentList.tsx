@@ -12,10 +12,23 @@ const ColorCommentList: React.FC<Props> = ({ colorType, commentList }) => {
 
   return (
     <div className="flex gap-[20px] flex-col">
-      <div className={`${textColor}`}>댓글 {commentLength}개</div>
-      {commentList.map((comment, idx) => {
-        return <CommentBox key={idx} comment={comment} colorType={colorType} />;
-      })}
+      {commentLength ? (
+        <div>
+          <div className={`${textColor}`}>댓글 {commentLength}개</div>
+          {commentList.map((comment, idx) => {
+            return (
+              <CommentBox key={idx} comment={comment} colorType={colorType} />
+            );
+          })}
+        </div>
+      ) : (
+        <div>
+          <div className={`${textColor}`}>댓글 {commentLength}개</div>
+          <div className={'w-[460px] h-[100px] pt-[20px]'}>
+            이 선택지에 아직 댓글이 없습니다.
+          </div>
+        </div>
+      )}
     </div>
   );
 };
