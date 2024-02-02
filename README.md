@@ -185,12 +185,17 @@
 <br/><br/>
 
 ## 기획과정
-### 디자인 통일 - Figma
+
+### 디자인 - Figma
 
 - 원만한 디자인 개발과 공유를 위해 Figma에서 디자인과 기획 작업을 진행하였습니다.
 - <a href="https://www.figma.com/file/PVshVh0YCiJQflgeEhQYfP/BattleTalk?type=design&node-id=0-1&mode=design&t=ft7NYid10lnXTmWD-0">피그마 링크</a>
 
 <img width="400px" alt="스크린샷 2024-02-02 오후 6 42 09" src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/125418818/4f472221-489d-4238-9c19-9bcec2b1e967">
+
+### 협업 메인 툴 - Notion
+
+<a href="https://www.notion.so/Battle-Talk-d052fbd36bb74b3ab679e63ea0514b94">피그마 링크</a>
 
 ### 프로젝트 조직도 - draw.io
 
