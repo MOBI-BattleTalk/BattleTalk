@@ -3,7 +3,7 @@ import {
   AlertDialogFooter,
 } from '@/components/ui/alert-dialog.tsx';
 import ImageBox from '@/components/ImageBox.tsx';
-import DeleteIcon from '@/assets/XDeleteIcon.svg?react';
+import XDeleteIcon from '@/assets/XDeleteIcon.svg?react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 import Textarea from '@/components/Textarea.tsx';
 import Button from '@/components/Button.tsx';
@@ -155,7 +155,7 @@ const BattleJoinModal: React.FC<Props> = ({ post, setIsModalOpen }) => {
         </div>
         <div className="absolute top-[20px] right-[20px]">
           <AlertDialogPrimitive.Cancel>
-            <DeleteIcon />
+            <XDeleteIcon />
           </AlertDialogPrimitive.Cancel>
         </div>
         <AlertDialogFooter>

@@ -1,12 +1,12 @@
-import type {
-  GetBattleInfoType,
-  GetCommentType,
-  GetDetailBattleInfoType,
-  PatchVoteCountType,
-  PostCommentType,
+import {
+  type GetBattleInfoType,
+  type GetCommentType,
+  type GetDetailBattleInfoType,
+  type PatchVoteCountType,
+  type PostCommentType,
 } from '@/types/postType';
-import {axiosInstance} from './core';
-import {END_POINTS} from '@/const/EndPoint'; // BattleApi.ts
+import { axiosInstance } from './core';
+import { END_POINTS } from '@/const/EndPoint'; // BattleApi.ts
 
 // BattleApi.ts
 const BattleApi = {
@@ -63,6 +63,18 @@ const BattleApi = {
   // 댓글 불러오기 api 요청
   getComment: async () => {
     const res = await axiosInstance.get<GetCommentType>(END_POINTS.COMMENT);
+    return res.data;
+  },
+  deleteComment: async () => {
+    const res = await axiosInstance.delete<GetCommentType>(
+      END_POINTS.DELETE_COMMENT,
+    );
+    return res.data;
+  },
+  deleteDetailBattleInfo: async () => {
+    const res = await axiosInstance.delete<GetDetailBattleInfoType>(
+      END_POINTS.DELETE_BATTLE_CARD,
+    );
     return res.data;
   },
 };

@@ -4,7 +4,7 @@ import {
 } from '@/components/ui/alert-dialog';
 import Button from '@/components/Button.tsx';
 import Input from './Input';
-import DeleteIcon from '@/assets/XDeleteIcon.svg?react';
+import XDeleteIcon from '@/assets/XDeleteIcon.svg?react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 import useInput from '@/hooks/useInput.tsx';
 import { FormEvent, useRef, useState } from 'react';
@@ -127,7 +127,7 @@ const ProfileModal: React.FC<Props> = ({ setIsModalOpen }) => {
         </div>
         <div className="absolute top-[20px] right-[20px]">
           <AlertDialogPrimitive.Cancel>
-            <DeleteIcon />
+            <XDeleteIcon />
           </AlertDialogPrimitive.Cancel>
         </div>
         <div className={`pt-[40px] ${flexCenter}`}>

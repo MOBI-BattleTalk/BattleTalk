@@ -10,6 +10,7 @@ import { flexCenter } from '@/styles/common.style.ts';
 import { GetDetailBattleInfoType } from '@/types/postType.ts';
 import { timeHelper } from '@/utils/timeHelper.tsx';
 import { useState } from 'react';
+import DeleteIcon from '@/assets/DeleteIcon.svg?react';
 
 interface Props {
   post: GetDetailBattleInfoType;
@@ -35,7 +36,10 @@ const DetailBattleCard: React.FC<Props> = ({ post, hasMyComment }) => {
   return (
     <AlertDialog>
       <div className="flex justify-center">
-        <div className="w-[450px] min-h-[400px] rounded-[20px] bg-backgroundGrey pt-[20px] md:w-[800px] lg:w-[1000px]">
+        <div className=" relative w-[450px] min-h-[400px] rounded-[20px] bg-backgroundGrey pt-[20px] md:w-[800px] lg:w-[1000px]">
+          <div className="absolute top-5 right-10 p-[10px]">
+            <DeleteIcon />
+          </div>
           <div className="flex items-center justify-start gap-[10px] pl-[20px]">
             {/*유저 프로필 이미지*/}
             <ImageBox

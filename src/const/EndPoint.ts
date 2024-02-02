@@ -19,4 +19,6 @@ export const END_POINTS = {
   HOME: '/',
   DETAIL: '/detail/:id',
   LOGIN: '/login',
+  DELETE_BATTLE_CARD: '/data/detail/:id',
+  DELETE_COMMENT: '/data/comment/:id',
 } as const;

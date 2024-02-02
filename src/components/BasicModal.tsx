@@ -8,7 +8,7 @@ import {
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
-import DeleteIcon from '@/assets/XDeleteIcon.svg?react'; /*
+import XDeleteIcon from '@/assets/XDeleteIcon.svg?react'; /*
 /*
  * 사용방법
  * 1. 모달 상수에서 원하는 메세지를 꺼낸다.
@@ -41,7 +41,7 @@ const BasicModal: React.FC<ModalProps> = ({
     <AlertDialogContent size="small">
       <div className="position absolute top-[20px] right-[20px]">
         <AlertDialogPrimitive.Cancel>
-          <DeleteIcon />
+          <XDeleteIcon />
         </AlertDialogPrimitive.Cancel>
       </div>
       <AlertDialogHeader>
