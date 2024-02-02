@@ -58,9 +58,10 @@ const CreateForm: React.FC = () => {
     formData.append('content', content);
     formData.append('blueOptionTitle', blueOptionTitle);
     formData.append('redOptionTitle', redOptionTitle);
+
     for (const file of fileArr) {
       if (!file) return;
-      formData.append('images', file);
+      formData.append('file', file);
     }
     formData.append('category', categoryValue);
     formData.append('blueVoteCount', '0');
