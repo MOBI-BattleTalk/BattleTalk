@@ -4,7 +4,6 @@ import { Category } from '@/types/postType';
 import Button from '@/components/Button';
 import BattleTopic from './BattleTopic';
 import BattleOption from './BattleOption';
-import BattleCategory from './Category';
 import useInput from '@/hooks/useInput';
 import useGetInputFile from '@/hooks/useGetInputFile';
 import LocalStorage from '@/utils/localStorage';
@@ -14,6 +13,7 @@ import { MODAL } from '@/const/ModalMessage';
 import BasicModal from '@/components/BasicModal';
 import { useNavigate } from 'react-router-dom';
 import { END_POINTS } from '@/const/EndPoint';
+import BattleCategory from '@/pages/CreateBattlePage/components/Category.tsx';
 
 const CreateForm: React.FC = () => {
   const navigate = useNavigate();

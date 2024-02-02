@@ -27,8 +27,8 @@ const MainPage = () => {
             redVoteCount,
             voteTotalCount,
           } = post.data;
-          const blueOptionImg = post.dataImage[0].url;
-          const redOptionImg = post.dataImage[1].url;
+          const blueOptionImg = post.dataImage[1].url;
+          const redOptionImg = post.dataImage[0].url;
           const postId = post.id;
           return (
             <MainBattleCard
