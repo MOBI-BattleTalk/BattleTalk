@@ -1,3 +1,4 @@
+
 <div align="center">
 
 ## 토론하고 싶은 사람들의 배틀 그라운드 <br/>  BATTLETALK 🥊
@@ -7,6 +8,8 @@
 </div>
 
 ### 프로젝트 소개
+
+---
 
 - BattleTalk은 흔히 '밸런스 게임', '찬반 투표' 를 위한 프로젝트로,
   어떠한 주제에 대해 2개의 입장을 나누어 배틀을 올리고, 사람들이
@@ -18,11 +21,9 @@
 
 ### 프로젝트 기한
 
-2024.1.20 ~ 2024.1.28 (+리팩토링 7일)
+2024.1.20 ~ 2024.1.28 (+이후 리팩토링 진행)
 
 ### 팀원 구성
-
----
 
 <div align="center">
     <h3 style="text-align: center;">Pair 1</h3>
@@ -110,8 +111,44 @@
 <br/>
 
 
-<br />
+## 🎥 주요 기능
+
+
+<table style="text-align: center">
+  <tr>
+    <td>
+      <img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/125418818/08b6d4e1-6bba-4c35-840f-02fe7f7d3a24" alt="회원가입/로그인" />
+    </td>
+    <td>
+      <img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/125418818/c0f982b7-218e-4e8b-8103-17f545a3efe2" alt="닉네임 변경" />
+    </td>
+  </tr>
+   <tr>
+    <th>
+      회원가입/로그인
+    </th>
+    <th>
+      닉네임 변경
+    </th>
+  </tr>
+ <tr>
+    <td>
+      <img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/125418818/3a1c281d-acf5-445e-9fa7-e3e97400fdfa" alt="배틀 업로드" />
+    </td>
+    <td>
+      <img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/125418818/7e6fd565-bd1f-4768-97ee-45b84908d991" alt="배틀 참가" />
+    </td>
+  </tr>
+</table>
+
 <h1>📊 Stacks</h1>
+
+
+
+
+
+
+
 
 | Environment                                                                                                       | 사용                        |
 |-------------------------------------------------------------------------------------------------------------------|---------------------------|
@@ -148,19 +185,18 @@
 <br/><br/>
 
 ## 기획과정
-
 ### 디자인 통일 - Figma
 
 - 원만한 디자인 개발과 공유를 위해 Figma에서 디자인과 기획 작업을 진행하였습니다.
+- <a href="https://www.figma.com/file/PVshVh0YCiJQflgeEhQYfP/BattleTalk?type=design&node-id=0-1&mode=design&t=ft7NYid10lnXTmWD-0">피그마 링크</a>
 
-![image](https://github.com/MOBI-BattleTalk/BattleTalk/assets/110034416/d7e882be-3543-42d1-bf14-a9b7fd7a4d8a)
-<img width="400px" src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/110034416/b1e59a34-df4f-4f8b-b510-9cc40c1420df"/>
+<img width="400px" alt="스크린샷 2024-02-02 오후 6 42 09" src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/125418818/4f472221-489d-4238-9c19-9bcec2b1e967">
 
 ### 프로젝트 조직도 - draw.io
 
 - 프로젝트 웹페이지의 전반적인 과정을 한 눈에 보기 위한 조직도를 구현했습니다.
 
-![조직도 (2)](https://github.com/MOBI-BattleTalk/BattleTalk/assets/110034416/d505a7f6-af0e-4458-bd55-b7e606bea2ee)
+<img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/110034416/d505a7f6-af0e-4458-bd55-b7e606bea2ee" width="400px"/>
 
 ### 플래닝 포커
 
@@ -281,74 +317,7 @@
 ┃ ┣ 📜timeHelper.tsx <br/>
 ┃ ┗ 📜toastMessage.tsx <br/>
 
-## 페이지별 기능
-
-<table style="text-align: center">
-  <tr>
-    <td>
-      <img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/110034416/f7661bdc-bd72-4359-9156-7fb23cba9d2c" alt="메인 페이지" />
-    </td>
-    <td>
-      <img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/110034416/7046a3af-d343-43e8-a0d3-68821170f17a" alt="소셜 로그인 (네이버, 카카오)" />
-    </td>
-  </tr>
-   <tr>
-    <th>
-      회원가입
-    </th>
-    <th>
-      로그인
-    </th>
-  </tr>
- <tr>
-    <td>
-      <img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/110034416/f7661bdc-bd72-4359-9156-7fb23cba9d2c" alt="메인 페이지" />
-    </td>
-    <td>
-      <img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/110034416/7046a3af-d343-43e8-a0d3-68821170f17a" alt="소셜 로그인 (네이버, 카카오)" />
-    </td>
-  </tr>
-   <tr>
-    <th>
-      배틀 생성
-    </th>
-    <th>
-      배틀 보기
-    </th>
-  </tr>
- <tr>
-    <td>
-      <img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/110034416/f7661bdc-bd72-4359-9156-7fb23cba9d2c" alt="메인 페이지" />
-    </td>
-    <td>
-      <img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/110034416/7046a3af-d343-43e8-a0d3-68821170f17a" alt="소셜 로그인 (네이버, 카카오)" />
-    </td>
-  </tr>
-   <tr>
-    <th>
-      배틀 참여하기
-    </th>
-    <th>
-      댓글 보기
-    </th>
-  </tr>
- <tr>
-    <td>
-      <img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/110034416/f7661bdc-bd72-4359-9156-7fb23cba9d2c" alt="메인 페이지" />
-    </td>
-    <td>
-      <img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/110034416/7046a3af-d343-43e8-a0d3-68821170f17a" alt="소셜 로그인 (네이버, 카카오)" />
-    </td>
-  </tr>
-   <tr>
-    <th>
-          배틀 삭제하기
-    </th>
-    <th>
-      닉네임 변경
-    </th>
-  </tr>
-</table>
+</div>
 
 ## 프로젝트 후기
 
@@ -371,3 +340,4 @@
 이번 프로젝트는 타입스크립트를 사용해보는 경험과 문서화 그리고 협업을 중점으로 프로젝트를 진행한 결과 어떻게 프로젝트를 구상하고 계획하며 프로젝트를 함께 진행해야하는지 알수있는 좋은 기회였습니다.
 
 </div>
+
