@@ -1,12 +1,11 @@
 import MainBattleCard from '@/pages/MainPage/components/MainBattleCard.tsx';
-// import { BattleMockList } from '@/mock/postMock.ts';
 import BattleApi from '@/apis/post';
 import { useQuery } from '@tanstack/react-query';
 import { BATTLE_QUERY_KEY } from '@/const/queryKey';
 
 const MainPage = () => {
   const { data: battleData } = useQuery({
-    queryKey: [BATTLE_QUERY_KEY.BATTLE_LISt],
+    queryKey: [BATTLE_QUERY_KEY.BATTLE_LIST],
     queryFn: () => BattleApi.getBattleInfo(),
   });
 

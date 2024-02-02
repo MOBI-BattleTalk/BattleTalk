@@ -14,9 +14,9 @@ interface FormCardProps extends PropsWithChildren {
  */
 const FormCard: React.FC<FormCardProps> = ({ children, label, size }) => {
   const sizeCSS = {
-    small: 'w-[600px] h-[400px]',
-    medium: 'w-[600px] h-[480px]',
-    large: 'w-[732px] h-[1280px]',
+    small: 'md:w-[600px] h-[400px]  w-[450px]',
+    medium: 'md:w-[600px] md:h-[480px]  w-[450px] ',
+    large: 'md:w-[732px] md:h-[1200px] w-[450px] h-[1280px]',
   };
 
   return (

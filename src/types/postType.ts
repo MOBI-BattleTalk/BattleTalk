@@ -101,6 +101,23 @@ export type GetCommentType = {
   };
 };
 
+export type GetCommentArrType = {
+  data: {
+    nickName: string;
+    profileUrl: string;
+    userId: string;
+    content: string;
+    parentId: string;
+    createdAt: Date;
+    option: 1 | 2; //어떤 옵션을 선택했는지
+  };
+  id: string;
+  createdAt: string;
+  userId: null;
+  dataImage: null;
+  dataUser: null;
+};
+
 export type CommentListType = {
   createdAt: string;
   data: {

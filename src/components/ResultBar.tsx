@@ -24,7 +24,7 @@ const ResultBar: React.FC<Props> = ({ type, redCount, blueCount }) => {
 
   //100%중 파란 옵션의 선택 비율
   let blueRatio;
-  if (redCount === 0) {
+  if (blueCount === 0) {
     blueRatio = 0;
   } else {
     blueRatio = 100 - redRatio;

@@ -60,7 +60,7 @@ const BattleOption: React.FC<BattleOptionProps> = ({
 
   return (
     <>
-      <div className="flex w-[820px] ml-[240px]">
+      <div className="flex md:w-[620px] z-20 m-[20px] w-[420px] pl-[20px]">
         <label className="w-[80px] text-xl font-extrabold pt-[16px] text-blue">
           사진
         </label>
@@ -92,7 +92,7 @@ const BattleOption: React.FC<BattleOptionProps> = ({
           />
         </div>
       </div>
-      <div className="flex relative mt-[20px]">
+      <div className="flex md:w-[620px] z-20 m-[20px] w-[420px] pl-[20px]">
         <label className="w-[80px] text-xl font-extrabold pt-[16px] text-blue">
           제목
         </label>
@@ -109,7 +109,7 @@ const BattleOption: React.FC<BattleOptionProps> = ({
           <CharacterCounter currentNum={blueOptionTitle.length} maxNum={20} />
         </div>
       </div>
-      <div className="flex w-[820px] ml-[240px] mt-[20px]">
+      <div className="flex md:w-[620px] z-20 m-[20px] w-[420px] pl-[20px]">
         <label className="w-[80px] text-xl font-extrabold pt-[16px] text-red">
           사진
         </label>
@@ -141,7 +141,7 @@ const BattleOption: React.FC<BattleOptionProps> = ({
           />
         </div>
       </div>
-      <div className="flex relative mt-[20px]">
+      <div className="flex md:w-[620px] z-20 m-[20px] w-[420px] pl-[20px]">
         <label className="w-[80px] text-xl font-extrabold pt-[16px] text-red">
           제목
         </label>

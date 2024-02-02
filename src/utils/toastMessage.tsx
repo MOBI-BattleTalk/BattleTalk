@@ -12,6 +12,7 @@ import toast from 'react-hot-toast';
  * @property {string} CHANGE_NICKNAME_SUCCESS - 닉네임 변경 성공 메세지 입니다.
  * @property {string} CHANGE_NICKNAME_ERROR - 닉네임 변경 실패 메세지 입니다.
  */
+
 export enum TOAST_MESSAGE {
   SIGN_IN_SUCCESS = '로그인 성공!',
   SIGN_IN_ERROR = '로그인 실패',
@@ -21,6 +22,9 @@ export enum TOAST_MESSAGE {
   COMMENT_ERROR = '배틀 참가 실패',
   CHANGE_NICKNAME_SUCCESS = '닉네임 변경 성공!',
   CHANGE_NICKNAME_ERROR = '닉네임 변경 실패!',
+  LOGOUT_SUCCESS = '로그아웃 성공',
+  LOGOUT_FAILURE = '로그아웃 실패',
+  ALREADY_JOIN_BATTLE = '이미 참가한 배틀입니다.',
 }
 
 /**

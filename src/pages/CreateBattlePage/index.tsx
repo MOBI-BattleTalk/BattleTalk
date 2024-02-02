@@ -4,6 +4,7 @@ import CreateForm from './components/CreateForm';
 import TopButton from '@/components/TopButton';
 import GoBackButton from '@/components/GoBackButton.tsx';
 import { AlertDialog } from '@radix-ui/react-alert-dialog';
+import MediumLogo from '@/assets/image/MediumLogo.png';
 
 const CreateBattlePage: React.FC = () => {
   return (
@@ -13,8 +14,8 @@ const CreateBattlePage: React.FC = () => {
         <div className={`${flexCenter}`}>
           <img
             alt={'로고'}
-            src="../../assets/image/MediumLogo.png"
-            className="w-[400px] pt-[30px] lg:w-[500px] mb-[40px]"
+            src={MediumLogo}
+            className="w-[350px] pt-[30px] lg:w-[350px] mb-[40px]"
           />
         </div>
         <FormCard size="large" label="배틀 생성">

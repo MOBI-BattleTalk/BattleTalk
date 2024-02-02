@@ -18,6 +18,7 @@ import CharacterCounter from './CharaterCounter';
 import { useSetRecoilState } from 'recoil';
 import { userInfoAtom } from '@/atom/user';
 import toastMessage, { TOAST_MESSAGE } from '@/utils/toastMessage';
+import { StorageUserType } from '@/types/userType.ts';
 
 interface Props {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -30,7 +31,7 @@ const ProfileModal: React.FC<Props> = ({ setIsModalOpen }) => {
   const setUserInfo = useSetRecoilState(userInfoAtom);
 
   const [{ newNickName }, onChangeNickname] = useInput({
-    newNickName: '',
+    newNickName: userInfo.nickName,
   });
 
   // 프로필 이미지를 업로드 하기 위한 state입니다. 기존의 값이 있으면 oldProfileImg=string을, 없으면 ""=null을 반환합니다.
@@ -66,10 +67,13 @@ const ProfileModal: React.FC<Props> = ({ setIsModalOpen }) => {
         }),
       );
 
-      setUserInfo((prev) => ({
-        ...prev,
-        nickName: newNickName,
-      }));
+      setUserInfo(
+        (prev) =>
+          ({
+            ...prev,
+            nickName: newNickName,
+          }) as StorageUserType,
+      );
       setIsModalOpen((prev) => !prev);
       toastMessage(true, TOAST_MESSAGE.CHANGE_NICKNAME_SUCCESS);
     } catch {
@@ -126,7 +130,7 @@ const ProfileModal: React.FC<Props> = ({ setIsModalOpen }) => {
             <DeleteIcon />
           </AlertDialogPrimitive.Cancel>
         </div>
-        <div className={`pt-[40px]`}>
+        <div className={`pt-[40px] ${flexCenter}`}>
           <AlertDialogFooter>
             <Button
               bgColor="gray"

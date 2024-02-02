@@ -5,7 +5,7 @@ import { atom } from 'recoil';
 
 const userInfo = LocalStorage.getItem(STORAGE_KEYS.USER_INFO);
 
-export const userInfoAtom = atom<StorageUserType>({
+export const userInfoAtom = atom<StorageUserType | null>({
   key: 'userInfo',
   default: userInfo,
 });

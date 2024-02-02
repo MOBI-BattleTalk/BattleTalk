@@ -15,6 +15,7 @@ import { STORAGE_KEYS } from '@/const/Keys.ts';
 import toastMessage, { TOAST_MESSAGE } from '@/utils/toastMessage.tsx';
 import { useQueryClient } from '@tanstack/react-query';
 import { BATTLE_QUERY_KEY } from '@/const/queryKey';
+import { flexCenter } from '@/styles/common.style.ts';
 
 interface Props {
   post: GetDetailBattleInfoType;
@@ -82,13 +83,13 @@ const BattleJoinModal: React.FC<Props> = ({ post, setIsModalOpen }) => {
       await BattleApi.postComment(CommentData);
       await BattleApi.patchBattle(voteCountUp, post.data.id);
       toastMessage(true, TOAST_MESSAGE.COMMENT_SUCCESS);
-      queryClient.invalidateQueries({
+      await queryClient.invalidateQueries({
         queryKey: [BATTLE_QUERY_KEY.COMMENT_LIST],
       });
-      queryClient.invalidateQueries({
-        queryKey: [BATTLE_QUERY_KEY.BATTLE_LISt],
+      await queryClient.invalidateQueries({
+        queryKey: [BATTLE_QUERY_KEY.BATTLE_LIST],
       });
-      queryClient.invalidateQueries({
+      await queryClient.invalidateQueries({
         queryKey: [BATTLE_QUERY_KEY.DETAIL_BATTLE_DATA],
       });
       setIsModalOpen((prev) => !prev);
@@ -113,20 +114,32 @@ const BattleJoinModal: React.FC<Props> = ({ post, setIsModalOpen }) => {
             선택
           </span>
           <div className="flex w-[480px] gap-[60px] align-center justify-center">
-            <ImageBox
-              clickColor={option[0] ? 'blue' : 'none'}
-              imgUrl={post.data.dataImage[0].url}
-              size="medium"
-              imageShape="square"
-              onClick={() => onClickOption(0)}
-            />
-            <ImageBox
-              clickColor={option[1] ? 'red' : 'none'}
-              imgUrl={post.data.dataImage[1].url}
-              size="medium"
-              imageShape="square"
-              onClick={() => onClickOption(1)}
-            />
+            {/*파란 옵션*/}
+            <div className={`${flexCenter} flex-col gap-[10px]`}>
+              <ImageBox
+                clickColor={option[0] ? 'blue' : 'none'}
+                imgUrl={post.data.dataImage[0].url}
+                size="medium"
+                imageShape="square"
+                onClick={() => onClickOption(0)}
+              />
+              <span className={`text-blue`}>
+                {post.data.data.blueOptionTitle}
+              </span>
+            </div>
+            {/*빨간 옵션*/}
+            <div className={`${flexCenter} flex-col gap-[10px]`}>
+              <ImageBox
+                clickColor={option[1] ? 'red' : 'none'}
+                imgUrl={post.data.dataImage[1].url}
+                size="medium"
+                imageShape="square"
+                onClick={() => onClickOption(1)}
+              />
+              <span className={`text-red`}>
+                {post.data.data.redOptionTitle}
+              </span>
+            </div>
           </div>
         </div>
         <div className="flex mt-[30px] ">
