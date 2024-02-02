@@ -9,7 +9,8 @@ interface BattleOptionProps {
   blueOptionImg: File | undefined;
   redOptionImg: File | undefined;
   onCreateBattleFormValueChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  onOptionImgChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onBlueImgChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onRedImgChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const BattleOption: React.FC<BattleOptionProps> = ({
@@ -18,7 +19,8 @@ const BattleOption: React.FC<BattleOptionProps> = ({
   blueOptionImg, // 옵션1 사진
   redOptionImg, // 옵션2 사진
   onCreateBattleFormValueChange, // 제목 작성란 input의 onChange 함수
-  onOptionImgChange, // 이미지 선택한 input의 onChange 함수
+  onBlueImgChange, // 이미지 선택한 input의 onChange 함수
+  onRedImgChange,
 }) => {
   const [selectedImage, setSelectedImage] = useState({
     blueOptionImgSrc: '',
@@ -88,7 +90,7 @@ const BattleOption: React.FC<BattleOptionProps> = ({
             type="file"
             name="blueOptionImg"
             accept="image/*"
-            onChange={onOptionImgChange}
+            onChange={onBlueImgChange}
           />
         </div>
       </div>
@@ -137,7 +139,7 @@ const BattleOption: React.FC<BattleOptionProps> = ({
             type="file"
             name="redOptionImg"
             accept="image/*"
-            onChange={onOptionImgChange}
+            onChange={onRedImgChange}
           />
         </div>
       </div>
