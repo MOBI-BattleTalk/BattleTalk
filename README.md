@@ -7,7 +7,7 @@
 
 </div>
 
-### 프로젝트 소개
+### 💫 프로젝트 소개
 
 ---
 
@@ -19,11 +19,47 @@
 - 옵션은 실시간 resultBar에 반영되어 현재 배틀 현황을 파악할 수 있고,
   올린 댓글은 해당 옵션 파트에 실시간으로 업로드 됩니다.
 
-### 프로젝트 기한
+### 📅프로젝트 기한 및 내용
 
 2024.1.20 ~ 2024.1.28 (+이후 리팩토링 진행)
 
-### 팀원 구성
+<table>
+<tr>
+<th>날짜</th>
+<th>내용</th>
+</tr>
+<tr>
+<th>21(월)</th>
+<th>프로젝트 기획 및 디자인, 세팅, 컨벤션 </th>
+</tr>
+<tr>
+<th>22(화)</th>
+<th>공용 컴포넌트 제작</th>
+</tr>
+<tr>
+<th>23(수)</th>
+<th> 페이지 제작, api 분석</th>
+</tr>
+<tr>
+<th>24(목)</th>
+<th> 퍼블리싱 완료, axios 및 query 작업</th>
+</tr>
+<tr>
+<th>25(금)</th>
+<th>api 연결</th>
+</tr>
+<tr>
+<th>26(토)</th>
+<th>api 연결</th>
+</tr>
+<tr>
+<th>27(일)</th>
+<th>완성 및 배포</th>
+</tr>
+</table>
+<br/>
+
+### 😄 팀원 구성
 
 <div align="center">
     <h3 style="text-align: center;">Pair 1</h3>
@@ -71,47 +107,7 @@
 </div>
 
 <br/>
-
-### 🗓️ 프로젝트 일정
-
-<table>
-<tr>
-<th>날짜</th>
-<th>내용</th>
-</tr>
-<tr>
-<th>21(월)</th>
-<th>프로젝트 기획 및 디자인, 세팅, 컨벤션 </th>
-</tr>
-<tr>
-<th>22(화)</th>
-<th>공용 컴포넌트 제작</th>
-</tr>
-<tr>
-<th>23(수)</th>
-<th> 페이지 제작, api 분석</th>
-</tr>
-<tr>
-<th>24(목)</th>
-<th> 퍼블리싱 완료, axios 및 query 작업</th>
-</tr>
-<tr>
-<th>25(금)</th>
-<th>api 연결</th>
-</tr>
-<tr>
-<th>26(토)</th>
-<th>api 연결</th>
-</tr>
-<tr>
-<th>27(일)</th>
-<th>완성 및 배포</th>
-</tr>
-</table>
-<br/>
-
-
-## 🎥 주요 기능
+### 🎥 주요 기능 영상
 
 
 <table style="text-align: center">
@@ -141,15 +137,7 @@
   </tr>
 </table>
 
-<h1>📊 Stacks</h1>
-
-
-
-
-
-
-
-
+### 📊 Stacks
 | Environment                                                                                                       | 사용                        |
 |-------------------------------------------------------------------------------------------------------------------|---------------------------|
 | Communication                                                                                                     |                           |
@@ -168,8 +156,7 @@
 | <img src="https://img.shields.io/badge/React%20Router-CA4245?style=flat-square&logo=reactrouter&logoColor=white"> | 라우팅 연결                    |
 | <img src="https://img.shields.io/badge/Recoil-blue">                                                              | 전역 상태 관리                  |
 
-<br />
-<h1>📝 Convention</h1>
+### 📝 Convention
 
 | 표기       | 표기 사용 상황                                     |
 |----------|----------------------------------------------|
@@ -184,32 +171,32 @@
 
 <br/><br/>
 
-## 기획과정
+### 기획과정
 
-### 디자인 - Figma
+#### 디자인 - Figma
 
 - 원만한 디자인 개발과 공유를 위해 Figma에서 디자인과 기획 작업을 진행하였습니다.
 - <a href="https://www.figma.com/file/PVshVh0YCiJQflgeEhQYfP/BattleTalk?type=design&node-id=0-1&mode=design&t=ft7NYid10lnXTmWD-0">피그마 링크</a>
 
 <img width="400px" alt="스크린샷 2024-02-02 오후 6 42 09" src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/125418818/4f472221-489d-4238-9c19-9bcec2b1e967">
 
-### 협업 메인 툴 - Notion
+#### 협업 메인 툴 - Notion
 
-<a href="https://www.notion.so/Battle-Talk-d052fbd36bb74b3ab679e63ea0514b94">피그마 링크</a>
+<a href="https://www.notion.so/Battle-Talk-d052fbd36bb74b3ab679e63ea0514b94">노션 링크</a>
 
-### 프로젝트 조직도 - draw.io
+#### 프로젝트 조직도 - draw.io
 
 - 프로젝트 웹페이지의 전반적인 과정을 한 눈에 보기 위한 조직도를 구현했습니다.
 
 <img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/110034416/d505a7f6-af0e-4458-bd55-b7e606bea2ee" width="400px"/>
 
-### 플래닝 포커
+#### 플래닝 포커
 
 플래닝 포커를 사용해서 체감 난이도에 따라 역할을 효율적으로 분담했습니다.
 
 ![image](https://github.com/MOBI-BattleTalk/BattleTalk/assets/110034416/11a365ca-b9e8-4d18-982b-95a336bc2eab)
 
-### Linear
+#### Linear
 
 프로젝트 관리 툴인 리니어를 사용해서 프로젝트 진행 과정을 단위 별로 효과적으로 관리하였습니다.
 리니어(Linear) :  23년 9월 미국에서 대규모 투자유치를 받으며 최근에 인기가 급부상한 협업을 위한 프로젝트 관리 툴입니다.
@@ -225,7 +212,7 @@
 저희는 리니어를 사용하기 위해 브랜치 이름을 `BT-리니어 넘버-작업 이름` 으로 통일하여
 진행하였습니다.
 
-## Github 협업
+#### Github 협업
 
 - 깃허브를 이용하면 깃허브에서 제공하는 다양한 협업 방식을 사용할 수 있습니다.
 - Pull request시 사용할 수 있는 라벨 - 현재의 요청이 어떤 상태인지 표시할 수 있습니다.
@@ -233,7 +220,7 @@
 
   <br />
 
-## 폴더 구조
+### 📂 폴더 구조
 
 📦src <br/>
 ┣ 📂apis <br/>
@@ -324,7 +311,7 @@
 
 </div>
 
-## 프로젝트 후기
+### 프로젝트 후기
 
 - Rin
 
