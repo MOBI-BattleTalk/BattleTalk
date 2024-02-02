@@ -29,7 +29,6 @@ const DetailPage = () => {
     commentListArr &&
     commentListArr.filter((comment) => comment.data.parentId === battlePostId);
 
-  console.log('postCommentListArr', postCommentListArr);
   //내 댓글이 이미 존재하는지 여부
   const hasMyComment = postCommentListArr?.some(
     (comment) => comment.data.userId === userInfo?.userId,

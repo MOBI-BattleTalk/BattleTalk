@@ -118,7 +118,7 @@ const BattleJoinModal: React.FC<Props> = ({ post, setIsModalOpen }) => {
             <div className={`${flexCenter} flex-col gap-[10px]`}>
               <ImageBox
                 clickColor={option[0] ? 'blue' : 'none'}
-                imgUrl={post.data.dataImage[1].url}
+                imgUrl={post.data.dataImage[0].url}
                 size="medium"
                 imageShape="square"
                 onClick={() => onClickOption(0)}
@@ -131,7 +131,7 @@ const BattleJoinModal: React.FC<Props> = ({ post, setIsModalOpen }) => {
             <div className={`${flexCenter} flex-col gap-[10px]`}>
               <ImageBox
                 clickColor={option[1] ? 'red' : 'none'}
-                imgUrl={post.data.dataImage[0].url}
+                imgUrl={post.data.dataImage[1].url}
                 size="medium"
                 imageShape="square"
                 onClick={() => onClickOption(1)}

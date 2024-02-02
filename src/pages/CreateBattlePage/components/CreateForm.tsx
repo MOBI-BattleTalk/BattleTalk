@@ -32,7 +32,7 @@ const CreateForm: React.FC = () => {
 
   // 유저가 올린 옵션1사진, 옵션2사진
   const [{ blueOptionImg, redOptionImg }, onOptionImgChange] = useGetInputFile({
-    blueOptionEmg: undefined,
+    blueOptionImg: undefined,
     redOptionImg: undefined,
   });
 
