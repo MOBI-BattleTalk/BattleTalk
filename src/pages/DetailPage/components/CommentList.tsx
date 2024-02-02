@@ -9,10 +9,10 @@ type CommentListProps = {
 const CommentList: React.FC<CommentListProps> = ({ postCommentListArr }) => {
   // 어떤 옵션을 선택했는지 각각 나눕니다.
   const blueData = postCommentListArr.filter(
-    (comment) => comment.data.option === 2,
+    (comment) => comment.data.option === 1,
   );
   const redData = postCommentListArr.filter(
-    (comment) => comment.data.option === 1,
+    (comment) => comment.data.option === 2,
   );
 
   return (

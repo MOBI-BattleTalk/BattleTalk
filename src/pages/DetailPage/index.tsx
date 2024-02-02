@@ -12,8 +12,6 @@ const DetailPage = () => {
   const { id: battlePostId } = useParams();
   const userInfo = useRecoilValue(userInfoAtom);
 
-  console.log('유저아ㅣ디', userInfo?.userId);
-
   // 배틀 상세 정보
   const { data: detailBattleData } = useQuery({
     queryKey: [BATTLE_QUERY_KEY.DETAIL_BATTLE_DATA, battlePostId],
