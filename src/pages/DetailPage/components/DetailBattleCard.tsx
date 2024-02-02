@@ -30,7 +30,7 @@ const DetailBattleCard: React.FC<Props> = ({ post, hasMyComment }) => {
     voteTotalCount,
   } = post.data.data;
   const { createdAt } = post.data;
-  const [blueImageUrl, redImageUrl] = post.data.dataImage;
+  const [redImageUrl, blueImageUrl] = post.data.dataImage;
 
   return (
     <AlertDialog>
