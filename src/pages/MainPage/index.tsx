@@ -15,7 +15,6 @@ const MainPage = () => {
     battleList && (
       <div className={'flex gap-[30px] flex-col pb-[100px]'}>
         {battleList.map((post, index) => {
-          console.log({ post });
           const createAt = post.createdAt;
           const {
             nickName,
