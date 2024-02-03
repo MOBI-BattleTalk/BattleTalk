@@ -28,6 +28,20 @@ export type GetBattleInfoType = {
   dataImage: { url: string }[];
   dataUser: null;
 };
+
+export type TPageNation = {
+  current: number;
+  end: number;
+  set: number;
+  start: number;
+  total: number;
+};
+
+export type GetBattleListWithPagination = {
+  [key: number]: GetBattleInfoType;
+  pageNation: TPageNation;
+};
+
 export type GetDetailBattleInfoType = {
   data: {
     data: {
