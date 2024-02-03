@@ -24,6 +24,7 @@ const BattleApi = {
     const res = await axiosInstance.get(END_POINTS.POST);
     return res.data;
   },
+
   // 무한 스크롤 구현을 위해 주석 처리 해놓았습니다.
   // getBattleInfo: async (pageParam: unknown) => {
   //   const res = await axiosInstance.get<GetBattleInfoType>(
@@ -41,7 +42,11 @@ const BattleApi = {
     const res = await axiosInstance.patch(END_POINTS.POST + `/${id}`, reqData);
     return res;
   },
-
+  //배틀  삭제하기 요청
+  deleteBattle: async (id: string) => {
+    const res = await axiosInstance.delete(END_POINTS.POST + `/${id}`);
+    return res;
+  },
   // 배틀 상세 정보 요청
   getDetailBattleInfo: async (postId: string) => {
     const res = await axiosInstance.get<GetDetailBattleInfoType>(
