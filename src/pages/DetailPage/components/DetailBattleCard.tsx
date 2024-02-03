@@ -33,6 +33,10 @@ const DetailBattleCard: React.FC<Props> = ({ post, hasMyComment }) => {
   const { createdAt } = post.data;
   const [blueImageUrl, redImageUrl] = post.data.dataImage;
 
+  // const DeleteIcon = () => {
+
+  // }
+
   return (
     <AlertDialog>
       <div className="flex justify-center">

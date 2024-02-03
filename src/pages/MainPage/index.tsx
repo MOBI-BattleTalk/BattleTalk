@@ -11,6 +11,8 @@ const MainPage = () => {
 
   const battleList = battleData && Object.values(battleData).slice(0, -1);
 
+  console.log(battleList);
+
   return (
     battleList && (
       <div className={'flex gap-[30px] flex-col pb-[50px]'}>

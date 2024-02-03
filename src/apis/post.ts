@@ -65,17 +65,15 @@ const BattleApi = {
     const res = await axiosInstance.get<GetCommentType>(END_POINTS.COMMENT);
     return res.data;
   },
-  deleteComment: async () => {
-    const res = await axiosInstance.delete<GetCommentType>(
-      END_POINTS.DELETE_COMMENT,
-    );
-    return res.data;
+  //작성글 삭제
+  deleteBattleInfo: async (id: string) => {
+    const res = await axiosInstance.delete(END_POINTS.POST + `${id}`);
+    return res;
   },
-  deleteDetailBattleInfo: async () => {
-    const res = await axiosInstance.delete<GetDetailBattleInfoType>(
-      END_POINTS.DELETE_BATTLE_CARD,
-    );
-    return res.data;
+  // 댓글 삭제
+  deleteComment: async (id: string) => {
+    const res = await axiosInstance.delete(END_POINTS.COMMENT + `${id}`);
+    return res;
   },
 };
 
