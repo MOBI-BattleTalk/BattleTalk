@@ -107,14 +107,14 @@ const CreateForm: React.FC = () => {
             fontSize="large"
             radius="round"
             type="submit"
-            disabled={
-              !title ||
-              !content ||
-              !blueOptionTitle ||
-              !redOptionTitle ||
-              !blueOptionImg ||
-              !redOptionImg
-            }
+            // disabled={
+            //   !title ||
+            //   !content ||
+            //   !blueOptionTitle ||
+            //   !redOptionTitle ||
+            //   !blueOptionImg ||
+            //   !redOptionImg
+            // }
           >
             배틀 업로드
           </Button>

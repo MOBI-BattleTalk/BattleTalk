@@ -1,12 +1,7 @@
-import type {
-  GetBattleInfoType,
-  GetCommentType,
-  GetDetailBattleInfoType,
-  PatchVoteCountType,
-  PostCommentType,
-} from '@/types/postType';
+import type {GetCommentType, GetDetailBattleInfoType, PatchVoteCountType, PostCommentType,} from '@/types/postType';
+import {GetBattleListWithPagination} from '@/types/postType'; // BattleApi.ts
 import {axiosInstance} from './core';
-import {END_POINTS} from '@/const/EndPoint'; // BattleApi.ts
+import {END_POINTS} from '@/const/EndPoint';
 
 // BattleApi.ts
 const BattleApi = {
@@ -19,18 +14,12 @@ const BattleApi = {
     });
     return res;
   },
-  // postData get api 요청
-  getBattleInfo: async (): Promise<GetBattleInfoType[]> => {
-    const res = await axiosInstance.get(END_POINTS.POST);
+  getBattleInfo: async (pageParam: number) => {
+    const res = await axiosInstance.get<GetBattleListWithPagination>(
+      END_POINTS.POST + `?page=${pageParam}`,
+    );
     return res.data;
   },
-  // 무한 스크롤 구현을 위해 주석 처리 해놓았습니다.
-  // getBattleInfo: async (pageParam: unknown) => {
-  //   const res = await axiosInstance.get<GetBattleInfoType>(
-  //     END_POINTS.POST + `&page=${pageParam}`,
-  //   );
-  //   return res.data;
-  // },
 
   // 배틀 정보 수정 (voteCount up 용도)
   patchBattle: async (voteResult: PatchVoteCountType, id: string) => {
