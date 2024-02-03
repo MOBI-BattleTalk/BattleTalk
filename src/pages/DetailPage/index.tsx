@@ -17,7 +17,6 @@ const DetailPage = () => {
     queryFn: () => BattleApi.getDetailBattleInfo(battlePostId!),
   });
 
-  console.log('detailBattleData', detailBattleData);
   // 댓글 정보
   const { data: commentList } = useQuery({
     queryKey: [BATTLE_QUERY_KEY.COMMENT_LIST, battlePostId],
