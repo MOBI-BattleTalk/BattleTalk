@@ -38,7 +38,7 @@ const CreateForm: React.FC = () => {
   const [{ redOptionImg }, onRedImgChange] = useGetInputFile({
     redOptionImg: undefined,
   });
-
+  const fileArr = [blueOptionImg, redOptionImg];
   // 배틀 생성 api 요청 함수
   const onCreateBattle = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -58,14 +58,14 @@ const CreateForm: React.FC = () => {
     formData.append('content', content);
     formData.append('blueOptionTitle', blueOptionTitle);
     formData.append('redOptionTitle', redOptionTitle);
-    const imageArr = [blueOptionImg, redOptionImg];
     formData.append('category', categoryValue);
     formData.append('blueVoteCount', '0');
     formData.append('redVoteCount', '0');
     formData.append('voteTotalCount', '0');
-    imageArr.forEach((image) => {
-      formData.append(`image`, image!);
-    });
+    for (const file of fileArr) {
+      if (!file) return;
+      formData.append('file', file);
+    }
     await BattleApi.postCreateBattle(formData);
   };
   // 모달 유형 입니다.
