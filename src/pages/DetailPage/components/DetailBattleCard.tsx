@@ -17,6 +17,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from '@/components/Button.tsx';
 import BasicModal from '@/components/BasicModal.tsx';
 import { MODAL } from '@/const/ModalMessage.ts';
+import DefaultImg from '@/assets/image/defaultProfile.png';
 
 interface Props {
   post: GetDetailBattleInfoType;
@@ -32,6 +33,7 @@ const DetailBattleCard: React.FC<Props> = ({
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const deleteModalProps = MODAL.DELETE_BATTLE;
   const {
+    title,
     nickName,
     profileUrl,
     content,
@@ -63,7 +65,7 @@ const DetailBattleCard: React.FC<Props> = ({
           {/*유저 프로필 이미지*/}
           <ImageBox
             clickColor={'none'}
-            imgUrl={profileUrl}
+            imgUrl={profileUrl || DefaultImg}
             size={'tiny'}
             imageShape={'rounded'}
           />
@@ -75,9 +77,9 @@ const DetailBattleCard: React.FC<Props> = ({
             <AlertDialog>
               <AlertDialogTrigger asChild>
                 <Button
-                  bgColor="darkGray"
+                  bgColor="lightGray"
                   size="xSmall"
-                  radius="basic"
+                  radius="semiRound"
                   fontSize="small"
                 >
                   삭제
@@ -89,12 +91,8 @@ const DetailBattleCard: React.FC<Props> = ({
         </div>
         {/*배틀 타이틀*/}
         <div className="flex flex-col">
-          <div className="flex gap-[10px] justify-center text-[20px] font-bold">
-            {/*배틀 첫번째 파란 옵션*/}
-            <span className="text-blue">{blueOptionTitle}</span>
-            <span className="">vs</span>
-            {/*배틀 두번째 레드 옵션*/}
-            <span className="text-red">{redOptionTitle}</span>
+          <div className="text-center text-[20px] pt-[20px] font-bold">
+            {title}
           </div>
           <div className="text-center text-[20px] pt-[20px]">{content}</div>
         </div>
@@ -103,7 +101,7 @@ const DetailBattleCard: React.FC<Props> = ({
           <div className="flex flex-col text-center text-red">
             <ImageBox
               clickColor={'none'}
-              imgUrl={blueImageUrl.url || ''}
+              imgUrl={blueImageUrl?.url || ''}
               size={'large'}
               imageShape={'square'}
             />
@@ -113,7 +111,7 @@ const DetailBattleCard: React.FC<Props> = ({
           <div className="flex flex-col text-center text-blue">
             <ImageBox
               clickColor={'none'}
-              imgUrl={redImageUrl.url || ''}
+              imgUrl={redImageUrl?.url || ''}
               size={'large'}
               imageShape={'square'}
             />

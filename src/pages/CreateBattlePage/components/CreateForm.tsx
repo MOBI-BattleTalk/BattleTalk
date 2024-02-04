@@ -44,7 +44,7 @@ const CreateForm: React.FC = () => {
     e.preventDefault();
 
     const { nickName, userId, profileUrl } = LocalStorage.getItem('userInfo');
-    const fileArr = [blueOptionImg, redOptionImg];
+    // const fileArr = [blueOptionImg, redOptionImg];
     const formData = new FormData();
 
     formData.append('nickName', nickName);
@@ -58,18 +58,16 @@ const CreateForm: React.FC = () => {
     formData.append('content', content);
     formData.append('blueOptionTitle', blueOptionTitle);
     formData.append('redOptionTitle', redOptionTitle);
-
-    for (const file of fileArr) {
-      if (!file) return;
-      formData.append('file', file);
-    }
+    const imageArr = [blueOptionImg, redOptionImg];
     formData.append('category', categoryValue);
     formData.append('blueVoteCount', '0');
     formData.append('redVoteCount', '0');
     formData.append('voteTotalCount', '0');
+    imageArr.forEach((image) => {
+      formData.append(`image`, image!);
+    });
     await BattleApi.postCreateBattle(formData);
   };
-
   // 모달 유형 입니다.
   const successModalProp = MODAL.ALERT_SUCCESS_BATTLE_UPLOAD;
 

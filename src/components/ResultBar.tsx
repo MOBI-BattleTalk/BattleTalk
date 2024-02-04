@@ -52,7 +52,7 @@ const ResultBar: React.FC<Props> = ({ type, redCount, blueCount }) => {
     <div className={`grid grid-cols-5 ${totalWidth}`}>
       {/*파란옵션의 투표 비율입니다*/}
       <span
-        className={`text-3xl ${blueTextColor} font-bold col-span-1  flex items-center justify-center`}
+        className={`text-2xl md:text-3xl ${blueTextColor} font-bold col-span-1  flex items-center justify-center`}
       >
         {blueRatio}%
       </span>
@@ -63,7 +63,7 @@ const ResultBar: React.FC<Props> = ({ type, redCount, blueCount }) => {
       </div>
       {/*빨간옵션의 투표 비율입니다*/}
       <span
-        className={`text-3xl ${redTextColor} font-bold col-span-1 flex items-center justify-center`}
+        className={`text-2xl md:text-3xl ${redTextColor} font-bold col-span-1 flex items-center justify-center`}
       >
         {redRatio}%
       </span>

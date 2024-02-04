@@ -71,7 +71,7 @@ const AuthApi = {
   },
   //프로필 사진 변경
   patchUpdateProfile: async (data: FormData) => {
-    const res = await axiosInstance.patch(END_POINTS.UPDATE_PROFILE, data);
+    const res = await axiosInstance.post(END_POINTS.UPDATE_PROFILE, data);
     return res.data;
   },
   //닉네임 변경

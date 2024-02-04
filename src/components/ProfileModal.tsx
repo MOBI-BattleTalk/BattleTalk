@@ -58,6 +58,13 @@ const ProfileModal: React.FC<Props> = ({ setIsModalOpen }) => {
 
     try {
       await AuthApi.patchUserNickName(newNickName);
+
+      // const formData = new FormData();
+      // if (profileImage) {
+      //   formData.append('image', profileImage);
+      //   const res = await AuthApi.patchUpdateProfile(formData);
+      //   console.log('프로필 변경', res);
+      // }
       LocalStorage.setItem(
         STORAGE_KEYS.USER_INFO,
         JSON.stringify({

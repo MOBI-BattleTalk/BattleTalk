@@ -24,13 +24,13 @@ const BattleTopic: React.FC<BattleTopicProps> = ({
         <Input
           size="medium"
           isValueLengthCounter={true}
-          maxLength={19}
+          maxLength={25}
           name="title"
           value={title}
           onChange={onCreateBattleFormValueChange}
         />
         <div className="absolute right-[10px] bottom-[15px]">
-          <CharacterCounter currentNum={title.length} maxNum={20} />
+          <CharacterCounter currentNum={title.length} maxNum={25} />
         </div>
       </div>
       <div className="flex gap-[50px] relative">
