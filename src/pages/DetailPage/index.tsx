@@ -11,7 +11,6 @@ const DetailPage = () => {
   // 현재 상세페이지에  id
   const { id: battlePostId } = useParams();
   const userInfo = useRecoilValue(userInfoAtom);
-
   // 배틀 상세 정보
   const { data: detailBattleData } = useQuery({
     queryKey: [BATTLE_QUERY_KEY.DETAIL_BATTLE_DATA, battlePostId],
@@ -34,12 +33,16 @@ const DetailPage = () => {
     (comment) => comment.data.userId === userInfo?.userId,
   );
 
+  //내 포스트 인지 여부
+  const isMyPost = detailBattleData?.data.data.userId === userInfo?.userId;
+
   return (
     <div>
       {detailBattleData && (
         <DetailBattleCard
           post={detailBattleData}
           hasMyComment={hasMyComment!}
+          isMyPost={isMyPost}
         />
       )}
       <div className="mb-[60px]">

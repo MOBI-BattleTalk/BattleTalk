@@ -27,7 +27,6 @@ const MainPage = () => {
       return page + 1;
     },
   });
-
   //useObserver로 넘겨줄 콜백, entry로 넘어오는 것이 isIntersecting이면 fetchNextPage가 실행
   const onIntersect = ([entry]: IntersectionObserverEntry[]) =>
     entry.isIntersecting && fetchNextPage();
@@ -63,8 +62,8 @@ const MainPage = () => {
             redVoteCount,
             voteTotalCount,
           } = post.data;
-          const blueOptionImg = post.dataImage[0].url;
-          const redOptionImg = post.dataImage[1].url;
+          const blueOptionImg = post.dataImage[0]?.url || '';
+          const redOptionImg = post.dataImage[1]?.url || '';
           const postId = post.id;
           return (
             <MainBattleCard

@@ -37,7 +37,7 @@ const SignIn: React.FC = () => {
         if (res.status === 200) {
           window.location.href = END_POINTS.HOME;
         }
-      }, 2000);
+      }, 1000);
     } catch {
       toastMessage(false, TOAST_MESSAGE.SIGN_IN_ERROR);
     }

@@ -41,8 +41,8 @@ const MainBattleCard: React.FC<Props> = ({
   return (
     <div
       onClick={onMovePostId}
-      className="md:w-[700px] w-[400px] min-h-[230px] bg-backgroundGrey rounded-[20px] flex
-             flex-col hover: cursor-pointer"
+      className="md:w-[600px] w-[400px] min-h-[230px] bg-backgroundGrey rounded-[20px] flex
+             flex-col hover: cursor-pointer lg:w-[700px]"
     >
       <BattleHeader
         nickName={nickName}
@@ -86,7 +86,7 @@ const MainBattleCard: React.FC<Props> = ({
           />
         </div>
         {/*사이즈에 따라 Result 바가 다릅니다.*/}
-        <div className="hidden md:block lg:block xl:hidden mt-[40px]">
+        <div className="hidden md:block lg:block xl:hidden mt-[40px] m-[10px]">
           <ResultBar
             redCount={Number(redVoteCount)}
             blueCount={Number(blueVoteCount)}

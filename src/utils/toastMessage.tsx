@@ -25,6 +25,8 @@ export enum TOAST_MESSAGE {
   LOGOUT_SUCCESS = '로그아웃 성공',
   LOGOUT_FAILURE = '로그아웃 실패',
   ALREADY_JOIN_BATTLE = '이미 참가한 배틀입니다.',
+  DELETE_BATTLE_SUCCESS = '배틀 삭제 성공!',
+  DELETE_BATTLE_FAILURE = '배틀 삭제 실패',
 }
 
 /**

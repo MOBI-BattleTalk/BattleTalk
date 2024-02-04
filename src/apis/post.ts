@@ -20,7 +20,6 @@ const BattleApi = {
     );
     return res.data;
   },
-
   // 배틀 정보 수정 (voteCount up 용도)
   patchBattle: async (voteResult: PatchVoteCountType, id: string) => {
     const { blueVoteCount, redVoteCount, voteTotalCount } = voteResult;
@@ -30,7 +29,11 @@ const BattleApi = {
     const res = await axiosInstance.patch(END_POINTS.POST + `/${id}`, reqData);
     return res;
   },
-
+  //배틀  삭제하기 요청
+  deleteBattle: async (id: string) => {
+    const res = await axiosInstance.delete(END_POINTS.POST + `/${id}`);
+    return res;
+  },
   // 배틀 상세 정보 요청
   getDetailBattleInfo: async (postId: string) => {
     const res = await axiosInstance.get<GetDetailBattleInfoType>(
@@ -52,7 +55,13 @@ const BattleApi = {
   // 댓글 불러오기 api 요청
   getComment: async () => {
     const res = await axiosInstance.get<GetCommentType>(END_POINTS.COMMENT);
+    console.log('aaaaaa', res);
     return res.data;
+  },
+  // 댓글 불러오기 api 요청
+  deleteComment: async (id: string) => {
+    const res = await axiosInstance.delete(END_POINTS.COMMENT + `/${id}`);
+    return res;
   },
 };
 
