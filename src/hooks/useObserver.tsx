@@ -1,4 +1,4 @@
-import {RefObject, useEffect} from 'react';
+import { RefObject, useEffect } from 'react';
 
 /**
  * @description IntersectionObserver를 활용하여 인피니티 스크롤을 구현하는 훅 함수입니다.
