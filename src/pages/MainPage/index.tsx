@@ -5,6 +5,7 @@ import { useRef } from 'react';
 import { useObserver } from '@/hooks/useObserver.tsx';
 import MainBattleCard from '@/pages/MainPage/components/MainBattleCard.tsx';
 import { GetBattleInfoType } from '@/types/postType.ts';
+import SkeletonUI from './components/skeletonUi';
 
 const MainPage = () => {
   const bottom = useRef(null);
@@ -13,7 +14,7 @@ const MainPage = () => {
   const {
     data: battleData,
     fetchNextPage, //다음 페이지를 불러오는 함수
-    status,
+    isSuccess,
   } = useInfiniteQuery({
     queryKey: [BATTLE_QUERY_KEY.BATTLE_LIST],
     queryFn: async ({ pageParam }) => {
@@ -46,47 +47,46 @@ const MainPage = () => {
     battleList.push(...pageResult);
   });
 
-  return (
-    status === 'success' &&
-    battleList && (
-      <div className={'flex gap-[30px] flex-col pb-[100px]'}>
-        {battleList.map((post: GetBattleInfoType, index) => {
-          const createAt = post.createdAt;
-          const {
-            nickName,
-            profileUrl,
-            title,
-            blueOptionTitle,
-            redOptionTitle,
-            blueVoteCount,
-            redVoteCount,
-            voteTotalCount,
-          } = post.data;
-          const blueOptionImg = post.dataImage[0]?.url || '';
-          const redOptionImg = post.dataImage[1]?.url || '';
-          const postId = post.id;
-          return (
-            <MainBattleCard
-              key={index}
-              createAt={createAt}
-              nickName={nickName}
-              profileUrl={profileUrl}
-              title={title}
-              blueOptionTitle={blueOptionTitle}
-              redOptionTitle={redOptionTitle}
-              blueVoteCount={blueVoteCount}
-              redVoteCount={redVoteCount}
-              voteTotalCount={voteTotalCount}
-              blueOptionImg={blueOptionImg}
-              redOptionImg={redOptionImg}
-              postId={postId}
-            />
-          );
-        })}
-        {/*인피니티 스크롤을 위한 옵저버*/}
-        <div ref={bottom}></div>
-      </div>
-    )
+  return isSuccess && battleList ? (
+    <div className={'flex gap-[30px] flex-col pb-[100px]'}>
+      {battleList.map((post: GetBattleInfoType, index) => {
+        const createAt = post.createdAt;
+        const {
+          nickName,
+          profileUrl,
+          title,
+          blueOptionTitle,
+          redOptionTitle,
+          blueVoteCount,
+          redVoteCount,
+          voteTotalCount,
+        } = post.data;
+        const blueOptionImg = post.dataImage[0]?.url || '';
+        const redOptionImg = post.dataImage[1]?.url || '';
+        const postId = post.id;
+        return (
+          <MainBattleCard
+            key={index}
+            createAt={createAt}
+            nickName={nickName}
+            profileUrl={profileUrl}
+            title={title}
+            blueOptionTitle={blueOptionTitle}
+            redOptionTitle={redOptionTitle}
+            blueVoteCount={blueVoteCount}
+            redVoteCount={redVoteCount}
+            voteTotalCount={voteTotalCount}
+            blueOptionImg={blueOptionImg}
+            redOptionImg={redOptionImg}
+            postId={postId}
+          />
+        );
+      })}
+      {/*인피니티 스크롤을 위한 옵저버*/}
+      <div ref={bottom}></div>
+    </div>
+  ) : (
+    <SkeletonUI />
   );
 };
 
