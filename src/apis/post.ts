@@ -1,5 +1,5 @@
-import type {GetCommentType, GetDetailBattleInfoType, PatchVoteCountType, PostCommentType,} from '@/types/postType';
-import {GetBattleListWithPagination} from '@/types/postType'; // BattleApi.ts
+import type {GetDetailBattleInfoType, PatchVoteCountType, PostCommentType,} from '@/types/postType';
+import {GetBattleListWithPagination, GetCommentListWithPagination,} from '@/types/postType'; // BattleApi.ts
 import {axiosInstance} from './core';
 import {END_POINTS} from '@/const/EndPoint';
 
@@ -14,6 +14,7 @@ const BattleApi = {
     });
     return res;
   },
+  //배틀 리스트 가져오기
   getBattleInfo: async (pageParam: number) => {
     const res = await axiosInstance.get<GetBattleListWithPagination>(
       END_POINTS.POST + `?page=${pageParam}`,
@@ -52,10 +53,18 @@ const BattleApi = {
     const res = await axiosInstance.post(END_POINTS.COMMENT, data);
     return res;
   },
-  // 댓글 불러오기 api 요청
-  getComment: async () => {
-    const res = await axiosInstance.get<GetCommentType>(END_POINTS.COMMENT);
-    console.log('aaaaaa', res);
+  // 댓글 불러오기 요청
+  getComment: async ({
+    pageParam,
+    parentId,
+  }: {
+    pageParam: number;
+    parentId: string;
+  }) => {
+    const res = await axiosInstance.get<GetCommentListWithPagination>(
+      END_POINTS.COMMENT + `?page=${pageParam}&parentId=${parentId}`,
+    );
+    console.log('댓글 불러오기', res);
     return res.data;
   },
   // 댓글 불러오기 api 요청

@@ -42,6 +42,11 @@ export type GetBattleListWithPagination = {
   pageNation: TPageNation;
 };
 
+export type GetCommentListWithPagination = {
+  [key: number]: CommentListType;
+  pageNation: TPageNation;
+};
+
 export type GetDetailBattleInfoType = {
   data: {
     data: {

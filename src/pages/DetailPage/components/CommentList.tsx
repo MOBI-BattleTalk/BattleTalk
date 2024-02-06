@@ -1,8 +1,8 @@
 import ColorCommentList from '@/pages/DetailPage/components/ColorCommentList.tsx';
-import { GetCommentArrType } from '@/types/postType';
+import { CommentListType } from '@/types/postType';
 
 type CommentListProps = {
-  postCommentListArr: GetCommentArrType[];
+  postCommentListArr: CommentListType[];
   battlePostId: string | undefined;
 };
 
@@ -16,7 +16,7 @@ const CommentList: React.FC<CommentListProps> = ({ postCommentListArr }) => {
   );
 
   return (
-    <div className="flex-col items-center md:flex-row flex w-[600px] gap-[20px] flex-wrap md:justify-between mt-[20px] pb-[30px] md:w-[800px] lg:w-[1000px] justify-center">
+    <div className="flex-col items-center md:flex-row flex w-[600px] gap-[20px] flex-wrap md:justify-between mt-[20px] pb-[30px] md:w-[800px] lg:w-[1000px] justify-center md:items-start">
       <ColorCommentList commentList={blueData} colorType="blue" />
       <ColorCommentList commentList={redData} colorType="red" />
     </div>
