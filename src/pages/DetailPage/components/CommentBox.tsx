@@ -14,6 +14,8 @@ const CommentBox: React.FC<Props> = ({ comment, colorType }) => {
   //const userInfo = useRecoilValue(userInfoAtom);
   const borderColor =
     colorType === 'blue' ? 'border-lineSkyblue' : 'border-linePink';
+
+  //내 댓글 삭제가 되는 기능 주석 처리하였습니다.
   // const deleteModalProps = MODAL.DELETE_COMMENT;
 
   // const onClickComment = async () => {
@@ -27,11 +29,10 @@ const CommentBox: React.FC<Props> = ({ comment, colorType }) => {
   //   }
   // };
 
-  //내 댓글 삭제가 되는 기능 주석 처리하였습니다.
   //const isMyComment = comment.data.userId === userInfo?.userId;
   return (
     <div
-      className={`border-[3px] p-[10px] ${borderColor} rounded-[10px] w-[450px] md:w-[380px] lg:w-[460px] relative`}
+      className={`border-[3px] p-[10px] ${borderColor} rounded-[10px] w-[450px] md:w-[380px] lg:w-[460px] relative mt-[10px]`}
     >
       <div className="flex w-[40px] items-center justify-between">
         <div className="flex items-center">
