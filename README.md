@@ -142,6 +142,32 @@
       <img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/125418818/7e6fd565-bd1f-4768-97ee-45b84908d991" alt="배틀 참가" />
     </td>
   </tr>
+   </tr>
+   <tr>
+    <th>
+      배틀 생성
+    </th>
+    <th>
+      배틀 참여
+    </th>
+  </tr>
+   <tr>
+    <td>
+      <img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/125418818/3a1c281d-acf5-445e-9fa7-e3e97400fdfa" alt="배틀 업로드" />
+    </td>
+    <td>
+      <img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/125418818/7e6fd565-bd1f-4768-97ee-45b84908d991" alt="배틀 참가" />
+    </td>
+  </tr>
+   </tr>
+   <tr>
+    <th>
+      배틀 생성
+    </th>
+    <th>
+      배틀 참여
+    </th>
+  </tr>
 </table>
 
 ### 📊 Stacks
