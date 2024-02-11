@@ -153,19 +153,19 @@
   </tr>
    <tr>
     <td>
-      <img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/125418818/3a1c281d-acf5-445e-9fa7-e3e97400fdfa" alt="배틀 업로드" />
+      <img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/125418818/2c141929-b1db-4b93-a334-4a39bf92d7e9" alt="배틀 업로드" />
     </td>
     <td>
-      <img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/125418818/7e6fd565-bd1f-4768-97ee-45b84908d991" alt="배틀 참가" />
+      <img src="https://github.com/MOBI-BattleTalk/BattleTalk/assets/125418818/55d6cf0a-2354-4094-8a61-edaee295530c" alt="배틀 참가" />
     </td>
   </tr>
    </tr>
    <tr>
     <th>
-      배틀 생성
+   배틀 리스트 보기(인피니티 스크롤)
     </th>
     <th>
-      배틀 참여
+      배틀 삭제
     </th>
   </tr>
 </table>
